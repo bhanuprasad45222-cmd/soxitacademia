@@ -1,0 +1,1889 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LLM & Generative AI Developer Course & Career Roadmap</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            /* Primary Palette */
+            --bg-main: #F8FAFC;
+            --bg-card: #FFFFFF;
+            --text-primary: #0F172A;
+            --text-secondary: #475569;
+            --text-muted: #64748B;
+            --border-color: #E2E8F0;
+            --border-hover: #CBD5E1;
+
+            /* LLM & GenAI Brand Colors */
+            --navy-deep: #0F172A;
+            --genai-purple: #9333EA;
+            --genai-purple-light: #FAF5FF;
+            --genai-cyan: #06B6D4;
+            --genai-cyan-light: #ECFEFF;
+            --genai-pink: #EC4899;
+            --genai-pink-light: #FDF2F8;
+            --genai-amber: #F59E0B;
+            --genai-amber-light: #FFFBEB;
+            --genai-emerald: #10B981;
+            --genai-emerald-light: #ECFDF5;
+
+            /* Shadows */
+            --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(15, 23, 42, 0.08), 0 2px 4px -2px rgba(15, 23, 42, 0.05);
+            --shadow-lg: 0 10px 15px -3px rgba(15, 23, 42, 0.08), 0 4px 6px -4px rgba(15, 23, 42, 0.04);
+            --shadow-hover: 0 20px 25px -5px rgba(15, 23, 42, 0.1), 0 8px 10px -6px rgba(15, 23, 42, 0.04);
+
+            /* Typography */
+            --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+
+            /* Transitions */
+            --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-primary);
+            font-family: var(--font-sans);
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+            padding: 30px 20px;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
+
+        /* Generic Card Styling */
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+
+        .card:hover {
+            border-color: var(--border-hover);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* Typography Helpers */
+        .section-header {
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
+        .section-title {
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: var(--navy-deep);
+            letter-spacing: -0.02em;
+            text-transform: uppercase;
+        }
+
+        .section-subtitle {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-top: 4px;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 4px 12px;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        /* 1. HERO SECTION */
+        .hero-card {
+            display: grid;
+            grid-template-columns: 1fr 380px;
+            gap: 32px;
+            align-items: center;
+            background: linear-gradient(135deg, #FFFFFF 0%, #F8FAFC 100%);
+            border: 1px solid var(--border-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-left {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .hero-badge {
+            background: var(--genai-purple-light);
+            color: var(--genai-purple);
+            border: 1px solid rgba(147, 51, 234, 0.2);
+            width: fit-content;
+        }
+
+        .hero-title {
+            font-size: 2.75rem;
+            font-weight: 800;
+            line-height: 1.15;
+            color: var(--navy-deep);
+            letter-spacing: -0.03em;
+        }
+
+        .hero-subtitle {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            max-width: 680px;
+            line-height: 1.6;
+        }
+
+        .hero-illustration {
+            width: 100%;
+            height: auto;
+            max-height: 280px;
+        }
+
+        /* 2. FOCUS BARS */
+        .focus-container {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .focus-bar {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 14px 20px;
+            border-radius: 12px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            border-left: 5px solid;
+            box-shadow: var(--shadow-sm);
+            background: var(--bg-card);
+        }
+
+        .focus-present {
+            border-left-color: var(--genai-cyan);
+            color: var(--navy-deep);
+        }
+
+        .focus-future {
+            border-left-color: var(--genai-purple);
+            color: var(--navy-deep);
+        }
+
+        .focus-label {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            padding: 2px 8px;
+            border-radius: 4px;
+            white-space: nowrap;
+        }
+
+        .focus-present .focus-label { background: var(--genai-cyan-light); color: var(--genai-cyan); }
+        .focus-future .focus-label { background: var(--genai-purple-light); color: var(--genai-purple); }
+
+        /* GRAPH STYLES */
+        .graph-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 32px 24px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .chart-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-top: 32px;
+        }
+
+        .chart-row {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .chart-label {
+            width: 250px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--navy-deep);
+            text-align: right;
+            line-height: 1.2;
+            flex-shrink: 0;
+        }
+
+        .chart-bar-area {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            border-left: 2px solid var(--border-color);
+            padding-left: 24px;
+            position: relative;
+        }
+
+        .bar-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            width: 100%;
+        }
+
+        .bar {
+            height: 14px;
+            border-radius: 6px;
+            transition: var(--transition);
+            position: relative;
+            transform-style: preserve-3d;
+            box-shadow: inset 0 2px 3px rgba(255, 255, 255, 0.28), inset 0 -3px 4px rgba(0, 0, 0, 0.18), 0 4px 6px rgba(15, 23, 42, 0.16);
+        }
+
+        .bar::before,
+        .bar::after {
+            content: "";
+            position: absolute;
+            background: inherit;
+            pointer-events: none;
+        }
+
+        .bar::before {
+            top: -5px;
+            left: 4px;
+            right: -4px;
+            height: 5px;
+            border-radius: 4px 4px 0 0;
+            filter: brightness(1.3);
+            transform: skewX(-45deg);
+            transform-origin: bottom;
+        }
+
+        .bar::after {
+            top: 2px;
+            right: -5px;
+            width: 5px;
+            height: 100%;
+            border-radius: 0 3px 3px 0;
+            filter: brightness(0.68);
+            transform: skewY(-45deg);
+            transform-origin: left;
+        }
+
+        .bar-present { background: var(--genai-cyan); }
+        .bar-future { background: var(--genai-purple); }
+
+        .bar-text {
+            font-size: 0.75rem;
+            font-family: var(--font-mono);
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        .chart-legend {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            margin-top: 32px;
+            padding-top: 24px;
+            border-top: 1px dashed var(--border-color);
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .legend-color {
+            width: 16px;
+            height: 16px;
+            border-radius: 4px;
+        }
+
+        /* COURSE DURATION GRID */
+        .duration-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 16px;
+        }
+
+        .duration-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 20px 16px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: var(--transition);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .duration-card:hover {
+            transform: translateY(-3px);
+            border-color: var(--genai-purple);
+            box-shadow: var(--shadow-md);
+        }
+
+        .duration-icon {
+            font-size: 2rem;
+            margin-bottom: 12px;
+        }
+
+        .duration-title {
+            font-size: 1rem;
+            font-weight: 800;
+            color: var(--navy-deep);
+            margin-bottom: 8px;
+        }
+
+        .duration-desc {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            line-height: 1.4;
+            margin-top: 8px;
+        }
+
+        /* 3. WHAT DOES AN LLM DEVELOPER DO */
+        .actions-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 16px;
+            margin-top: 16px;
+        }
+
+        .action-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 16px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .action-icon {
+            width: 42px;
+            height: 42px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .action-title {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--navy-deep);
+            letter-spacing: 0.05em;
+        }
+
+        .action-desc {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            line-height: 1.35;
+        }
+
+        /* 4. CAREER LEVELS (INTERACTIVE) */
+        .levels-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .level-card {
+            background: var(--bg-card);
+            border: 2px solid var(--border-color);
+            border-radius: 16px;
+            padding: 24px;
+            cursor: pointer;
+            transition: var(--transition);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .level-card.active, .level-card:hover {
+            border-color: var(--genai-purple);
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-2px);
+        }
+
+        .level-card.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 20%;
+            right: 20%;
+            height: 4px;
+            background: var(--genai-purple);
+            border-radius: 4px 4px 0 0;
+        }
+
+        .level-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 12px;
+        }
+
+        .level-num {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--genai-purple);
+        }
+
+        .level-exp {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            background: var(--bg-main);
+            padding: 2px 8px;
+            border-radius: 6px;
+        }
+
+        .level-title {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--navy-deep);
+        }
+
+        .level-focus {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--genai-purple);
+        }
+
+        .level-skills-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .tag {
+            font-size: 0.7rem;
+            font-weight: 600;
+            background: var(--bg-main);
+            color: var(--text-secondary);
+            padding: 3px 8px;
+            border-radius: 4px;
+            border: 1px solid var(--border-color);
+        }
+
+        .level-outcome {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            background: var(--genai-purple-light);
+            padding: 10px;
+            border-radius: 8px;
+            border-left: 3px solid var(--genai-purple);
+            margin-top: auto;
+        }
+
+        /* 5. INTERACTIVE LEARNING ROADMAP TAB SECTION */
+        .roadmap-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .tab-btn {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 12px 24px;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .tab-btn:hover {
+            border-color: var(--genai-purple);
+            color: var(--genai-purple);
+        }
+
+        .tab-btn.active {
+            background: var(--genai-purple);
+            color: white;
+            border-color: var(--genai-purple);
+            box-shadow: var(--shadow-md);
+        }
+
+        .roadmap-content {
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .roadmap-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(6px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .roadmap-main-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 28px;
+        }
+
+        .roadmap-header-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .topics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .topic-item {
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 14px;
+            background: var(--bg-main);
+            transition: var(--transition);
+        }
+
+        .topic-item:hover {
+            background: var(--bg-card);
+            border-color: var(--genai-purple);
+        }
+
+        .topic-title {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--navy-deep);
+            margin-bottom: 4px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .topic-desc {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        .components-bar {
+            background: var(--navy-deep);
+            color: white;
+            padding: 14px 20px;
+            border-radius: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+
+        .components-title {
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            color: var(--genai-cyan);
+            text-transform: uppercase;
+        }
+
+        .comp-pill {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 3px 10px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-family: var(--font-mono);
+        }
+
+        /* 6. ROLE WORKFLOW */
+        .workflow-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 12px;
+            position: relative;
+        }
+
+        .wf-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 16px 12px;
+            text-align: center;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .wf-step {
+            position: absolute;
+            top: -10px;
+            background: var(--genai-purple);
+            color: white;
+            font-family: var(--font-mono);
+            font-size: 0.65rem;
+            font-weight: 700;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .wf-title {
+            font-size: 0.85rem;
+            font-weight: 800;
+            color: var(--navy-deep);
+            margin-top: 4px;
+        }
+
+        .wf-desc {
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            line-height: 1.3;
+        }
+
+        /* 7. FOCUS DOMAINS */
+        .domains-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+
+        .domain-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 20px;
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+        }
+
+        .domain-icon {
+            background: var(--genai-purple-light);
+            color: var(--genai-purple);
+            padding: 10px;
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .domain-info h4 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--navy-deep);
+            margin-bottom: 4px;
+        }
+
+        .domain-info p {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        /* 8. TOOLS GRID */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(10, 1fr);
+            gap: 12px;
+        }
+
+        .tool-chip {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 12px 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .tool-chip:hover {
+            border-color: var(--genai-purple);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .tool-name {
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: var(--navy-deep);
+        }
+
+        /* 9, 10, 11 SPLIT 3 GRID */
+        .split-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .checklist-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        .check-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+
+        .check-icon {
+            color: var(--genai-emerald);
+            font-weight: 800;
+        }
+
+        .career-path-flow {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .path-step {
+            background: var(--bg-main);
+            border: 1px solid var(--border-color);
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--navy-deep);
+            text-align: center;
+        }
+
+        .path-arrow {
+            text-align: center;
+            color: var(--genai-purple);
+            font-size: 0.75rem;
+            margin: -4px 0;
+        }
+
+        /* 12. PROJECTS GRID */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+
+        .project-card {
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 12px;
+            background: var(--bg-main);
+        }
+
+        .project-card h5 {
+            font-size: 0.85rem;
+            color: var(--navy-deep);
+            font-weight: 700;
+            margin-bottom: 2px;
+        }
+
+        .project-card p {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        /* 14. OUTCOME BANNER */
+        .outcome-banner {
+            background: linear-gradient(135deg, var(--navy-deep) 0%, #1E293B 100%);
+            color: white;
+            border-radius: 16px;
+            padding: 28px;
+            text-align: center;
+        }
+
+        .progression-chain {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            margin: 20px 0;
+        }
+
+        .chain-node {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--genai-cyan);
+            font-weight: 600;
+        }
+
+        .chain-arrow {
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 0.8rem;
+        }
+
+        /* 15. BOTTOM CTA */
+        .cta-banner {
+            background: linear-gradient(135deg, var(--genai-purple) 0%, var(--genai-cyan) 100%);
+            color: white;
+            border-radius: 16px;
+            padding: 36px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .cta-content {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .cta-icon-bg {
+            width: 56px;
+            height: 56px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .cta-text h3 {
+            font-size: 1.35rem;
+            font-weight: 800;
+            line-height: 1.2;
+        }
+
+        .cta-btn {
+            background: white;
+            color: var(--genai-purple);
+            padding: 12px 24px;
+            border-radius: 10px;
+            font-weight: 800;
+            font-size: 0.9rem;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            white-space: nowrap;
+            text-decoration: none;
+        }
+
+        .cta-btn:hover {
+            background: var(--genai-purple-light);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* RESPONSIVE LAYOUT */
+        @media (max-width: 1024px) {
+            .hero-card { grid-template-columns: 1fr; }
+            .hero-illustration { display: none; }
+            .duration-grid { grid-template-columns: repeat(3, 1fr); }
+            .actions-grid { grid-template-columns: repeat(3, 1fr); }
+            .levels-grid { grid-template-columns: 1fr; }
+            .workflow-grid { grid-template-columns: repeat(3, 1fr); gap: 16px; }
+            .tools-grid { grid-template-columns: repeat(5, 1fr); }
+            .split-3 { grid-template-columns: 1fr; }
+            .domains-grid { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 640px) {
+            body { padding: 12px; }
+            .hero-title { font-size: 2rem; }
+            .duration-grid { grid-template-columns: 1fr; }
+            .actions-grid { grid-template-columns: repeat(2, 1fr); }
+            .workflow-grid { grid-template-columns: repeat(2, 1fr); }
+            .tools-grid { grid-template-columns: repeat(3, 1fr); }
+            .cta-banner { flex-direction: column; text-align: center; gap: 20px; }
+            .cta-content { flex-direction: column; }
+            .projects-grid { grid-template-columns: 1fr; }
+            .checklist-grid { grid-template-columns: 1fr; }
+            .chart-row { flex-direction: column; align-items: flex-start; gap: 12px; }
+            .chart-label { width: 100%; text-align: left; }
+            .chart-bar-area { width: 100%; border-left: none; padding-left: 0; }
+        }
+    
+        .graph-card {
+            background: transparent;
+            border: 0;
+            border-radius: 0;
+            padding: 0;
+            box-shadow: none;
+        }
+
+        .chart-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+            gap: 16px;
+            margin-top: 24px;
+        }
+
+        .chart-row {
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            gap: 16px;
+            min-width: 0;
+            padding: 18px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+
+        .chart-row:hover {
+            border-color: var(--border-hover);
+            box-shadow: var(--shadow-md);
+        }
+
+        .chart-label {
+            width: auto;
+            text-align: left;
+        }
+
+        .chart-bar-area {
+            width: 100%;
+            border-left: 0;
+            padding-left: 0;
+        }
+
+        .chart-legend {
+            margin-top: 24px;
+        }
+
+        @media (max-width: 640px) {
+            .chart-container {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+
+            .chart-row {
+                padding: 16px;
+            }
+        }</style>
+</head>
+<body>
+  <a href="index.html" style="display:inline-flex;align-items:center;gap:8px;margin:18px 0 0 18px;background:#fff;color:#0f172a;padding:10px 16px;border-radius:999px;border:1px solid #e2e8f0;box-shadow:0 10px 20px rgba(15,23,42,0.08);font-weight:700;text-decoration:none;">← Back to roadmaps</a>
+
+<div class="container">
+
+    <!-- 1. HERO SECTION -->
+    <section class="card hero-card">
+        <div class="hero-left">
+            <span class="badge hero-badge">COURSE 20</span>
+            <h1 class="hero-title">LLM & Generative AI Developer</h1>
+            <p class="hero-subtitle">Architect, build, and deploy production-grade Generative AI applications. Master Prompt Engineering, Advanced RAG, Autonomous Multi-Agent Workflows, LoRA Fine-Tuning, and Model Context Protocol (MCP) integrations.</p>
+        </div>
+        <div class="hero-right">
+            <!-- LLM & Generative AI Vector Illustration -->
+            <svg class="hero-illustration" viewBox="0 0 400 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="400" height="280" rx="12" fill="#F8FAFC"/>
+                
+                <!-- Central LLM Core -->
+                <rect x="150" y="80" width="100" height="90" rx="16" fill="white" stroke="#9333EA" stroke-width="2.5"/>
+                <circle cx="200" cy="120" r="22" fill="#FAF5FF" stroke="#9333EA" stroke-width="2"/>
+                <path d="M190 120 L210 120 M200 110 L200 130" stroke="#9333EA" stroke-width="2.5" stroke-linecap="round"/>
+                <text x="200" y="155" fill="#9333EA" font-family="monospace" font-size="10" font-weight="800" text-anchor="middle">LLM CORE</text>
+
+                <!-- Prompt / User Input Node -->
+                <rect x="40" y="55" width="75" height="42" rx="8" fill="#ECFEFF" stroke="#06B6D4" stroke-width="2"/>
+                <text x="77" y="76" fill="#06B6D4" font-family="monospace" font-size="9" font-weight="700" text-anchor="middle">PROMPT</text>
+                <text x="77" y="88" fill="#0F172A" font-family="sans-serif" font-size="8" text-anchor="middle">Tokens / Context</text>
+                <path d="M115 76 L150 95" stroke="#06B6D4" stroke-width="2" stroke-dasharray="3 3"/>
+
+                <!-- Vector Database (RAG) Node -->
+                <rect x="40" y="150" width="75" height="42" rx="8" fill="#FDF2F8" stroke="#EC4899" stroke-width="2"/>
+                <text x="77" y="171" fill="#EC4899" font-family="monospace" font-size="9" font-weight="700" text-anchor="middle">VECTOR DB</text>
+                <text x="77" y="183" fill="#0F172A" font-family="sans-serif" font-size="8" text-anchor="middle">Embeddings</text>
+                <path d="M115 171 L150 150" stroke="#EC4899" stroke-width="2" stroke-dasharray="3 3"/>
+
+                <!-- Tool Use / Agent Calling Node -->
+                <rect x="285" y="55" width="75" height="42" rx="8" fill="#FFFBEB" stroke="#F59E0B" stroke-width="2"/>
+                <text x="322" y="76" fill="#F59E0B" font-family="monospace" font-size="9" font-weight="700" text-anchor="middle">TOOLS / MCP</text>
+                <text x="322" y="88" fill="#0F172A" font-family="sans-serif" font-size="8" text-anchor="middle">Function Call</text>
+                <path d="M250 95 L285 76" stroke="#F59E0B" stroke-width="2" stroke-dasharray="3 3"/>
+
+                <!-- Guardrails / Output Node -->
+                <rect x="285" y="150" width="75" height="42" rx="8" fill="#ECFDF5" stroke="#10B981" stroke-width="2"/>
+                <text x="322" y="171" fill="#10B981" font-family="monospace" font-size="9" font-weight="700" text-anchor="middle">OUTPUT</text>
+                <text x="322" y="183" fill="#0F172A" font-family="sans-serif" font-size="8" text-anchor="middle">Verified Gen</text>
+                <path d="M250 150 L285 171" stroke="#10B981" stroke-width="2" stroke-dasharray="3 3"/>
+
+                <!-- Flow Loop Dots -->
+                <circle cx="132" cy="85" r="3" fill="#06B6D4"/>
+                <circle cx="132" cy="160" r="3" fill="#EC4899"/>
+                <circle cx="268" cy="85" r="3" fill="#F59E0B"/>
+                <circle cx="268" cy="160" r="3" fill="#10B981"/>
+            </svg>
+        </div>
+    </section>
+
+    <!-- 2. PRESENT FOCUS / FUTURE FOCUS -->
+    <section class="focus-container">
+        <div class="focus-bar focus-present">
+            <span class="focus-label">Present Focus</span>
+            <span>Prompt Engineering, RAG Pipelines, Vector DBs, LangChain/LlamaIndex, OpenAI/Anthropic APIs, Streamlit/FastAPI</span>
+        </div>
+        <div class="focus-bar focus-future">
+            <span class="focus-label">Future Focus</span>
+            <span>Autonomous Multi-Agent Networks, Model Context Protocol (MCP), Local SLM Quantization (Ollama/vLLM), Self-Correcting Workflows</span>
+        </div>
+    </section>
+
+    <!-- LLM & GENAI TREND GRAPH -->
+    <section class="graph-card" style="margin-bottom: 32px;">
+        <div class="section-header">
+            <h2 class="section-title">Generative AI Engineering Evolution</h2>
+            <p class="section-subtitle">Visualizing the shift from basic prompt wrappers to autonomous agent architectures and production-grade RAG.</p>
+        </div>
+
+        <div class="chart-container">
+            <!-- Row 1 -->
+            <div class="chart-row">
+                <div class="chart-label">Basic Prompt Wrappers</div>
+                <div class="chart-bar-area">
+                    <div class="bar-wrapper">
+                        <div class="bar bar-present" style="width: 80%;"></div>
+                        <span class="bar-text">80%</span>
+                    </div>
+                    <div class="bar-wrapper">
+                        <div class="bar bar-future" style="width: 15%;"></div>
+                        <span class="bar-text">15%</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Row 2 -->
+            <div class="chart-row">
+                <div class="chart-label">Advanced Multi-Stage RAG</div>
+                <div class="chart-bar-area">
+                    <div class="bar-wrapper">
+                        <div class="bar bar-present" style="width: 65%;"></div>
+                        <span class="bar-text">65%</span>
+                    </div>
+                    <div class="bar-wrapper">
+                        <div class="bar bar-future" style="width: 95%;"></div>
+                        <span class="bar-text">95%</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Row 3 -->
+            <div class="chart-row">
+                <div class="chart-label">Static Chatbots (Single Turn)</div>
+                <div class="chart-bar-area">
+                    <div class="bar-wrapper">
+                        <div class="bar bar-present" style="width: 75%;"></div>
+                        <span class="bar-text">75%</span>
+                    </div>
+                    <div class="bar-wrapper">
+                        <div class="bar bar-future" style="width: 25%;"></div>
+                        <span class="bar-text">25%</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Row 4 -->
+            <div class="chart-row">
+                <div class="chart-label">Autonomous Multi-Agent Systems</div>
+                <div class="chart-bar-area">
+                    <div class="bar-wrapper">
+                        <div class="bar bar-present" style="width: 30%;"></div>
+                        <span class="bar-text">30%</span>
+                    </div>
+                    <div class="bar-wrapper">
+                        <div class="bar bar-future" style="width: 90%;"></div>
+                        <span class="bar-text">90%</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Row 5 -->
+            <div class="chart-row">
+                <div class="chart-label">Cloud-Only Proprietary APIs</div>
+                <div class="chart-bar-area">
+                    <div class="bar-wrapper">
+                        <div class="bar bar-present" style="width: 70%;"></div>
+                        <span class="bar-text">70%</span>
+                    </div>
+                    <div class="bar-wrapper">
+                        <div class="bar bar-future" style="width: 40%;"></div>
+                        <span class="bar-text">40%</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Row 6 -->
+            <div class="chart-row">
+                <div class="chart-label">Local Small Models & Fine-Tuning</div>
+                <div class="chart-bar-area">
+                    <div class="bar-wrapper">
+                        <div class="bar bar-present" style="width: 25%;"></div>
+                        <span class="bar-text">25%</span>
+                    </div>
+                    <div class="bar-wrapper">
+                        <div class="bar bar-future" style="width: 85%;"></div>
+                        <span class="bar-text">85%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chart Legend -->
+        <div class="chart-legend">
+            <div class="legend-item">
+                <div class="legend-color" style="background: var(--genai-cyan);"></div>
+                Present Focus
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: var(--genai-purple);"></div>
+                Future Focus
+            </div>
+        </div>
+    </section>
+
+    <!-- COURSE DURATION & DELIVERY MODELS -->
+    <section class="card" style="margin-bottom: 32px;">
+        <div class="section-header">
+            <h2 class="section-title">Course Duration & Delivery Models</h2>
+            <p class="section-subtitle">Choose the learning format and pace that matches your schedule and engineering goals.</p>
+        </div>
+        
+        <div class="duration-grid">
+            <div class="duration-card">
+                <div class="duration-icon">🚀</div>
+                <h3 class="duration-title">Bootcamp</h3>
+                <p class="duration-desc">Immersive, hands-on full-time training building production RAG apps, agents, and fine-tuned models.</p>
+            </div>
+            <div class="duration-card">
+                <div class="duration-icon">🛠️</div>
+                <h3 class="duration-title">Workshops</h3>
+                <p class="duration-desc">Targeted sprint sessions focusing on LangGraph orchestration, LoRA fine-tuning, or vector search.</p>
+            </div>
+            <div class="duration-card">
+                <div class="duration-icon">⚡</div>
+                <h3 class="duration-title">Accelerated</h3>
+                <span class="badge" style="background: var(--genai-cyan-light); color: var(--genai-cyan); margin-bottom: 12px;">45 Days</span>
+                <p class="duration-desc">Fast-track track for experienced Python or full-stack developers transitioning directly into GenAI engineering.</p>
+            </div>
+            <div class="duration-card">
+                <div class="duration-icon">🏃</div>
+                <h3 class="duration-title">Medium</h3>
+                <span class="badge" style="background: var(--genai-purple-light); color: var(--genai-purple); margin-bottom: 12px;">90 Days</span>
+                <p class="duration-desc">Balanced part-time pace with weekly architecture reviews, RAG evaluations, and project deliverables.</p>
+            </div>
+            <div class="duration-card">
+                <div class="duration-icon">🧠</div>
+                <h3 class="duration-title">Slow & Deeper</h3>
+                <span class="badge" style="background: var(--genai-amber-light); color: var(--genai-amber); margin-bottom: 12px;">180 Days</span>
+                <p class="duration-desc">Comprehensive deep-dive covering foundational transformer theory, open-weights adaptation, and agent design.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. WHAT DOES AN LLM DEVELOPER DO? -->
+    <section>
+        <div class="section-header">
+            <h2 class="section-title">What Does an LLM & Generative AI Developer Do?</h2>
+            <p class="section-subtitle">They bridge foundation models with enterprise software—building reliable pipelines, grounding outputs, and automating multi-step reasoning.</p>
+        </div>
+        <div class="actions-grid">
+            <div class="action-card">
+                <div class="action-icon" style="background: var(--genai-cyan-light); color: var(--genai-cyan);">
+                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                </div>
+                <div class="action-title">PROMPT ENG</div>
+                <div class="action-desc">Design structured prompts, Few-Shot examples, Chain-of-Thought reasoning, and schema outputs.</div>
+            </div>
+            <div class="action-card">
+                <div class="action-icon" style="background: var(--genai-pink-light); color: var(--genai-pink);">
+                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"></path></svg>
+                </div>
+                <div class="action-title">BUILD RAG</div>
+                <div class="action-desc">Index enterprise documents into vector databases with chunking, hybrid search, and re-ranking.</div>
+            </div>
+            <div class="action-card">
+                <div class="action-icon" style="background: var(--genai-purple-light); color: var(--genai-purple);">
+                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                </div>
+                <div class="action-title">AGENT LOOPS</div>
+                <div class="action-desc">Create autonomous agent networks using LangGraph/CrewAI with function calling and tool use.</div>
+            </div>
+            <div class="action-card">
+                <div class="action-icon" style="background: var(--genai-amber-light); color: var(--genai-amber);">
+                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                </div>
+                <div class="action-title">FINE-TUNE</div>
+                <div class="action-desc">Adapt open-weights models (Llama, Mistral) on custom datasets using LoRA and QLoRA.</div>
+            </div>
+            <div class="action-card">
+                <div class="action-icon" style="background: var(--genai-emerald-light); color: var(--genai-emerald);">
+                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                </div>
+                <div class="action-title">GUARDRAILS</div>
+                <div class="action-desc">Mitigate hallucinations, enforce PII redaction, and run automated benchmarking with Ragas.</div>
+            </div>
+            <div class="action-card">
+                <div class="action-icon" style="background: #F1F5F9; color: var(--navy-deep);">
+                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+                </div>
+                <div class="action-title">SERVE & HOST</div>
+                <div class="action-desc">Deploy high-concurrency model endpoints using vLLM, Ollama, and streaming FastAPI routes.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. CAREER LEVELS (INTERACTIVE) -->
+    <section>
+        <div class="section-header">
+            <h2 class="section-title">Generative AI Career Levels</h2>
+            <p class="section-subtitle">Click a level to view operational scope, expectations, and focus areas.</p>
+        </div>
+        <div class="levels-grid">
+            <!-- LEVEL 1 CARD -->
+            <div class="level-card active" onclick="selectLevelCard(1)" id="level-card-1">
+                <div class="level-header">
+                    <span class="level-num">LEVEL 01</span>
+                    <span class="level-exp">0 – 2 Years</span>
+                </div>
+                <h3 class="level-title">Junior GenAI Developer</h3>
+                <div class="level-focus">Focus: Prompting & Basic RAG</div>
+                <div class="level-skills-tags">
+                    <span class="tag">Prompt Eng</span><span class="tag">OpenAI API</span><span class="tag">LangChain</span><span class="tag">ChromaDB</span><span class="tag">FastAPI</span>
+                </div>
+                <div class="level-outcome">
+                    <strong>Outcome:</strong> Builds functional chatbots, connects foundational APIs, indexes documents into vector stores, and implements basic UI demos.
+                </div>
+            </div>
+
+            <!-- LEVEL 2 CARD -->
+            <div class="level-card" onclick="selectLevelCard(2)" id="level-card-2">
+                <div class="level-header">
+                    <span class="level-num">LEVEL 02</span>
+                    <span class="level-exp">2 – 5 Years</span>
+                </div>
+                <h3 class="level-title">LLM Application Engineer</h3>
+                <div class="level-focus">Focus: Production RAG & Agents</div>
+                <div class="level-skills-tags">
+                    <span class="tag">Advanced RAG</span><span class="tag">LangGraph</span><span class="tag">pgvector</span><span class="tag">Ragas Evals</span><span class="tag">vLLM</span><span class="tag">LoRA</span>
+                </div>
+                <div class="level-outcome">
+                    <strong>Outcome:</strong> Deploys robust enterprise RAG systems with rerankers, designs agent tool-use workflows, runs fine-tuning pipelines, and minimizes hallucinations.
+                </div>
+            </div>
+
+            <!-- LEVEL 3 CARD -->
+            <div class="level-card" onclick="selectLevelCard(3)" id="level-card-3">
+                <div class="level-header">
+                    <span class="level-num">LEVEL 03</span>
+                    <span class="level-exp">5+ Years</span>
+                </div>
+                <h3 class="level-title">Staff AI Engineer / Architect</h3>
+                <div class="level-focus">Focus: Autonomous Systems & Serving</div>
+                <div class="level-skills-tags">
+                    <span class="tag">Multi-Agent Arch</span><span class="tag">MCP Protocols</span><span class="tag">GPU Cluster Serving</span><span class="tag">RLHF/DPO</span><span class="tag">Governance</span>
+                </div>
+                <div class="level-outcome">
+                    <strong>Outcome:</strong> Architects resilient multi-agent platforms, directs model selection and quantization strategies, ensures enterprise compliance, and scales inference infrastructure.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. INTERACTIVE LEARNING ROADMAP TABS -->
+    <section>
+        <div class="section-header">
+            <h2 class="section-title">Interactive Learning Roadmap</h2>
+            <p class="section-subtitle">Select a phase to explore the progressive LLM & Generative AI curriculum.</p>
+        </div>
+
+        <div class="roadmap-tabs">
+            <button class="tab-btn active" id="tab-btn-1" onclick="switchRoadmapTab(1)">LEVEL 1 – APIS & PROMPT ARCHITECTURE</button>
+            <button class="tab-btn" id="tab-btn-2" onclick="switchRoadmapTab(2)">LEVEL 2 – PRODUCTION RAG & TOOL CALLING</button>
+            <button class="tab-btn" id="tab-btn-3" onclick="switchRoadmapTab(3)">LEVEL 3 – MULTI-AGENT & OPTIMIZATION</button>
+        </div>
+
+        <!-- TAB 1 CONTENT -->
+        <div class="roadmap-content active" id="roadmap-tab-1">
+            <div class="roadmap-main-card">
+                <div class="roadmap-header-info">
+                    <div>
+                        <h3 style="font-size: 1.25rem; font-weight: 800; color: var(--navy-deep);">Level 1: Foundation Models, Prompting & Basic RAG</h3>
+                        <p style="font-size: 0.85rem; color: var(--text-secondary);">Mastering token dynamics, structured prompting, and core framework primitives</p>
+                    </div>
+                    <span class="badge" style="background: var(--genai-cyan-light); color: var(--genai-cyan);">Duration: 1 – 2 Months</span>
+                </div>
+
+                <div class="topics-grid">
+                    <div class="topic-item">
+                        <div class="topic-title">1. LLM Mechanics & Tokens</div>
+                        <div class="topic-desc">Context windows, tokenizers (BPE), temperature, top-p, frequency penalties, and understanding next-token prediction.</div>
+                    </div>
+                    <div class="topic-item">
+                        <div class="topic-title">2. Advanced Prompt Engineering</div>
+                        <div class="topic-desc">Zero-Shot, Few-Shot, Chain-of-Thought (CoT), ReAct prompting, system prompt design, and output format schemas (JSON mode).</div>
+                    </div>
+                    <div class="topic-item">
+                        <div class="topic-title">3. Foundation Model APIs</div>
+                        <div class="topic-desc">Integrating OpenAI, Anthropic, Gemini, and open-source models using unified Python SDKs and streaming completions.</div>
+                    </div>
+                    <div class="topic-item">
+                        <div class="topic-title">4. Orchestration Frameworks</div>
+                        <div class="topic-desc">Prompt templates, chains, output parsers, and memory components using LangChain and LlamaIndex fundamentals.</div>
+                    </div>
+                    <div class="topic-item">
+                        <div class="topic-title">5. Vector Search Fundamentals</div>
+                        <div class="topic-desc">Text embeddings, cosine similarity, distance metrics, and storing dense vectors in ChromaDB or FAISS.</div>
+                    </div>
+                    <div class="topic-item">
+                        <div class="topic-title">6. Full-Stack Demos</div>
+                        <div class="topic-desc">Connecting LLM backend endpoints in FastAPI to interactive frontends built with Streamlit or Next.js.</div>
+                    </div>
+                </div>
+
+                <div class="components-bar">
+                    <span class="components-title">Key Components:</span>
+                    <span class="comp-pill">Prompt Engineering</span>
+                    <span class="comp-pill">OpenAI / Claude APIs</span>
+                    <span class="comp-pill">LangChain / LlamaIndex</span>
+                    <span class="comp-pill">Embeddings</span>
+                    <span class="comp-pill">ChromaDB / FAISS</span>
+                    <span class="comp-pill">FastAPI</span>
+                </div>
+
+                <div style="font-size: 0.85rem; color: var(--text-secondary); background: var(--bg-main); padding: 12px; border-radius: 8px;">
+                    <strong>Outcome:</strong> Write deterministic prompts, integrate multi-provider LLM APIs, and build functional prototype applications grounded in external data.
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 2 CONTENT -->
+        <div class="roadmap-content" id="roadmap-tab-2">
+            <div class="roadmap-main-card">
+                <div class="roadmap-header-info">
+                    <div>
+                        <h3 style="font-size: 1.25rem; font-weight: 800; color: var(--navy-deep);">Level 2: Enterprise RAG, Evaluations & Tool Use</h3>
+                        <p style="font-size: 0.85rem; color: var(--text-secondary);">Building accurate, verifiable retrieval architectures and integrating external functions</p>
+                    </div>
+                    <span class="badge" style="background: var(--genai-purple-light); color: var(--genai-purple);">Duration: 3 – 5 Months</span>
+                </div>
+
+                <div class="topics-grid">
+                    <div class="topic-item">
+                        <div class="topic-title">1. Advanced Document Chunking</div>
+                        <div class="topic-desc">Semantic chunking, recursive character splitting, parent-child indexing, and parsing PDFs, tables, and codebases.</div>
+                    </div>
+                    <div class="topic-item">
+                        <div class="topic-title">2. Hybrid Search & Re-Ranking</div>
+                        <div class="topic-desc">Combining BM25 keyword matching with dense vector search, reciprocal rank fusion (RRF), and cross-encoder re-rankers (Cohere).</div>
+                    </div>
+                    <div class="topic-item">
+                        <div class="topic-title">3. Production Vector Stores</div>
+                        <div class="topic-desc">Deploying and scaling production vector systems using PostgreSQL (pgvector), Pinecone, Qdrant, or Weaviate.</div>
+                    </div>
+                    <div class="topic-item">
+                        <div class="topic-title">4. Function Calling & Tools</div>
+                        <div class="topic-desc">Enabling models to execute external APIs, SQL queries, web searches, and custom Python functions deterministically.</div>
+                    </div>
+                    <div class="topic-item">
+                        <div class="topic-title">5. Automated RAG Evaluation</div>
+                        <div class="topic-desc">Measuring retrieval and generation quality using metrics: faithfulness, answer relevancy, and context recall via Ragas/TruLens.</div>
+                    </div>
+                    <div class="topic-item">
+                        <div class="topic-title">6. Safety Guardrails & Monitoring</div>
+                        <div class="topic-desc">Implementing NeMo Guardrails, Llama Guard, prompt injection defense, and tracing requests with Langfuse or Arize Phoenix.</div>
+                    </div>
+                </div>
+
+                <div class="components-bar">
+                    <span class="components-title">Key Components:</span>
+                    <span class="comp-pill">Hybrid Search</span>
+                    <span class="comp-pill">Cohere Rerank</span>
+                    <span class="comp-pill">pgvector / Pinecone</span>
+                    <span class="comp-pill">Tool Calling</span>
+                    <span class="comp-pill">Ragas Evals</span>
+                    <span class="comp-pill">Langfuse</span>
+                </div>
+
+                <div style="font-size: 0.85rem; color: var(--text-secondary); background: var(--bg-main); padding: 12px; border-radius: 8px;">
+                    <strong>Outcome:</strong> Deliver accurate, evaluated enterprise search systems that ground LLM responses with source citations and zero hallucination drift.
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 3 CONTENT -->
+        <div class="roadmap-content" id="roadmap-tab-3">
+            <div class="roadmap-main-card">
+                <div class="roadmap-header-info">
+                    <div>
+                        <h3 style="font-size: 1.25rem; font-weight: 800; color: var(--navy-deep);">Level 3: Multi-Agent Systems, Fine-Tuning & Local Serving</h3>
+                        <p style="font-size: 0.85rem; color: var(--text-secondary);">Autonomous loops, model weight adaptation, low-latency inference, and MCP architectures</p>
+                    </div>
+                    <span class="badge" style="background: var(--genai-emerald-light); color: var(--genai-emerald);">Duration: 6 – 8+ Months</span>
+                </div>
+
+                <div class="topics-grid">
+                    <div class="topic-item">
+                        <div class="topic-title">1. Multi-Agent Orchestration</div>
+                        <div class="topic-desc">Cyclic graphs, state machines, supervisor-worker patterns, and human-in-the-loop validation using LangGraph and CrewAI.</div>
+                    </div>
+                    <div class="topic-item">
+                        <div class="topic-title">2. Model Context Protocol (MCP)</div>
+                        <div class="topic-desc">Building and deploying MCP servers to standardize context, files, and database access across foundation models.</div>
+                    </div>
+                    <div class="topic-item">
+                        <div class="topic-title">3. LoRA & QLoRA Fine-Tuning</div>
+                        <div class="topic-desc">Curating instruction datasets, adapting open-weights models (Llama 3, Mistral) with PEFT/Unsloth, and tracking with W&B.</div>
+                    </div>
+                    <div class="topic-item">
+                        <div class="topic-title">4. Local Serving & Quantization</div>
+                        <div class="topic-desc">Deploying on-premise and local inference using vLLM, Ollama, TensorRT-LLM, and quantization formats (GGUF, AWQ).</div>
+                    </div>
+                    <div class="topic-item">
+                        <div class="topic-title">5. Multimodal Generation</div>
+                        <div class="topic-desc">Processing mixed image, document, and audio contexts with vision-language models (VLMs) and Whisper transcription.</div>
+                    </div>
+                    <div class="topic-item">
+                        <div class="topic-title">6. Production GenAIOps</div>
+                        <div class="topic-desc">Cost optimization, token caching (Prompt Caching), fallback routing between large and small models, and latency SLAs.</div>
+                    </div>
+                </div>
+
+                <div class="components-bar">
+                    <span class="components-title">Key Components:</span>
+                    <span class="comp-pill">LangGraph</span>
+                    <span class="comp-pill">MCP Servers</span>
+                    <span class="comp-pill">QLoRA / Unsloth</span>
+                    <span class="comp-pill">vLLM / Ollama</span>
+                    <span class="comp-pill">Prompt Caching</span>
+                    <span class="comp-pill">Multimodal</span>
+                </div>
+
+                <div style="font-size: 0.85rem; color: var(--text-secondary); background: var(--bg-main); padding: 12px; border-radius: 8px;">
+                    <strong>Outcome:</strong> Architect resilient, cost-efficient generative systems capable of autonomous execution, local serving, and domain adaptation.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. ROLE WORKFLOW -->
+    <section>
+        <div class="section-header">
+            <h2 class="section-title">The Generative AI Application Lifecycle</h2>
+            <p class="section-subtitle">How modern engineers design, ground, evaluate, and scale LLM features in production.</p>
+        </div>
+        <div class="workflow-grid">
+            <div class="wf-card">
+                <span class="wf-step">1</span>
+                <div class="wf-title">TASK DEFINITION</div>
+                <div class="wf-desc">Determine whether the problem needs prompt tuning, RAG, tool calling, or fine-tuning.</div>
+            </div>
+            <div class="wf-card">
+                <span class="wf-step">2</span>
+                <div class="wf-title">GROUND DATA</div>
+                <div class="wf-desc">Extract, parse, chunk, and embed domain knowledge into specialized vector indices.</div>
+            </div>
+            <div class="wf-card">
+                <span class="wf-step">3</span>
+                <div class="wf-title">BUILD CHAINS</div>
+                <div class="wf-desc">Write structured prompts, connect external tools, and define multi-step reasoning steps.</div>
+            </div>
+            <div class="wf-card">
+                <span class="wf-step">4</span>
+                <div class="wf-title">BENCHMARK</div>
+                <div class="wf-desc">Run synthetic test suites against ground-truth benchmarks to detect hallucination rates.</div>
+            </div>
+            <div class="wf-card">
+                <span class="wf-step">5</span>
+                <div class="wf-title">DEPLOY & SERVE</div>
+                <div class="wf-desc">Deploy streaming APIs with prompt caching, model routing, and token throttling controls.</div>
+            </div>
+            <div class="wf-card">
+                <span class="wf-step">6</span>
+                <div class="wf-title">TRACE & REFINE</div>
+                <div class="wf-desc">Log production conversations, collect user feedback, and continuously update prompts and indices.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. FOCUS DOMAINS -->
+    <section>
+        <div class="section-header">
+            <h2 class="section-title">Generative AI Specializations</h2>
+        </div>
+        <div class="domains-grid">
+            <div class="domain-card">
+                <div class="domain-icon">
+                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"></path></svg>
+                </div>
+                <div class="domain-info">
+                    <h4>Enterprise RAG Systems</h4>
+                    <p>Grounding foundation models on massive private databases, PDF libraries, and company wikis.</p>
+                </div>
+            </div>
+            <div class="domain-card">
+                <div class="domain-icon">
+                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                </div>
+                <div class="domain-info">
+                    <h4>Autonomous Agent Networks</h4>
+                    <p>Designing goal-driven agents that plan, write code, execute tools, and verify outputs independently.</p>
+                </div>
+            </div>
+            <div class="domain-card">
+                <div class="domain-icon">
+                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                </div>
+                <div class="domain-info">
+                    <h4>Domain Model Fine-Tuning</h4>
+                    <p>Specializing open-weights models for custom terminology, proprietary code syntax, and classification.</p>
+                </div>
+            </div>
+            <div class="domain-card">
+                <div class="domain-icon">
+                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                </div>
+                <div class="domain-info">
+                    <h4>AI Evaluation & Safety</h4>
+                    <p>Continuous evaluation, red-teaming against jailbreaks, prompt injection defense, and guardrails.</p>
+                </div>
+            </div>
+            <div class="domain-card">
+                <div class="domain-icon">
+                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+                </div>
+                <div class="domain-info">
+                    <h4>GenAIOps & Cost Optimization</h4>
+                    <p>Inference serving with vLLM, semantic caching with Redis, prompt compression, and token budgeting.</p>
+                </div>
+            </div>
+            <div class="domain-card">
+                <div class="domain-icon">
+                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                </div>
+                <div class="domain-info">
+                    <h4>Multimodal Applications</h4>
+                    <p>Integrating vision, speech-to-text, document diagrams, and structured data into composite pipelines.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. TOOLS GRID -->
+    <section>
+        <div class="section-header">
+            <h2 class="section-title">Generative AI Ecosystem Tools</h2>
+            <p class="section-subtitle">Industry-standard libraries, vector stores, and orchestration platforms.</p>
+        </div>
+        <div class="tools-grid">
+            <div class="tool-chip"><div class="tool-name">LangChain</div></div>
+            <div class="tool-chip"><div class="tool-name">LlamaIndex</div></div>
+            <div class="tool-chip"><div class="tool-name">LangGraph</div></div>
+            <div class="tool-chip"><div class="tool-name">OpenAI API</div></div>
+            <div class="tool-chip"><div class="tool-name">Anthropic API</div></div>
+            <div class="tool-chip"><div class="tool-name">Ollama</div></div>
+            <div class="tool-chip"><div class="tool-name">vLLM</div></div>
+            <div class="tool-chip"><div class="tool-name">pgvector</div></div>
+            <div class="tool-chip"><div class="tool-name">Pinecone</div></div>
+            <div class="tool-chip"><div class="tool-name">Qdrant</div></div>
+            <div class="tool-chip"><div class="tool-name">ChromaDB</div></div>
+            <div class="tool-chip"><div class="tool-name">Hugging Face</div></div>
+            <div class="tool-chip"><div class="tool-name">Unsloth</div></div>
+            <div class="tool-chip"><div class="tool-name">FastAPI</div></div>
+            <div class="tool-chip"><div class="tool-name">Streamlit</div></div>
+            <div class="tool-chip"><div class="tool-name">Ragas</div></div>
+            <div class="tool-chip"><div class="tool-name">Langfuse</div></div>
+            <div class="tool-chip"><div class="tool-name">CrewAI</div></div>
+            <div class="tool-chip"><div class="tool-name">Redis (Cache)</div></div>
+            <div class="tool-chip"><div class="tool-name">Docker</div></div>
+        </div>
+    </section>
+
+    <!-- 9, 10, 11 SPLIT 3 GRID -->
+    <section class="split-3">
+        <!-- KEY SKILLS -->
+        <div class="card">
+            <h3 style="font-size: 1.1rem; font-weight: 800; color: var(--navy-deep); margin-bottom: 16px;">Key Skills You’ll Build</h3>
+            <div class="checklist-grid">
+                <div class="check-item"><span class="check-icon">✓</span> Structured Prompt Engineering</div>
+                <div class="check-item"><span class="check-icon">✓</span> Advanced RAG Pipelines</div>
+                <div class="check-item"><span class="check-icon">✓</span> Vector DB Query Optimization</div>
+                <div class="check-item"><span class="check-icon">✓</span> Function & Tool Calling</div>
+                <div class="check-item"><span class="check-icon">✓</span> LangGraph Agent Workflows</div>
+                <div class="check-item"><span class="check-icon">✓</span> Model Context Protocol (MCP)</div>
+                <div class="check-item"><span class="check-icon">✓</span> Open LLM Fine-Tuning (LoRA)</div>
+                <div class="check-item"><span class="check-icon">✓</span> Ragas Quality Benchmarking</div>
+                <div class="check-item"><span class="check-icon">✓</span> Guardrails & Security Filters</div>
+                <div class="check-item"><span class="check-icon">✓</span> Local Serving (Ollama/vLLM)</div>
+                <div class="check-item"><span class="check-icon">✓</span> Streaming API Implementation</div>
+                <div class="check-item"><span class="check-icon">✓</span> Prompt Caching & Token FinOps</div>
+            </div>
+        </div>
+
+        <!-- CAREER PATHS -->
+        <div class="card">
+            <h3 style="font-size: 1.1rem; font-weight: 800; color: var(--navy-deep); margin-bottom: 16px;">Career Path Progression</h3>
+            <div class="career-path-flow">
+                <div class="path-step">Software Developer / AI Intern</div>
+                <div class="path-arrow">↓</div>
+                <div class="path-step">Junior GenAI Developer</div>
+                <div class="path-arrow">↓</div>
+                <div class="path-step" style="background: var(--genai-purple-light); border-color: var(--genai-purple);">LLM Application Engineer</div>
+                <div class="path-arrow">↓</div>
+                <div class="path-step">Senior AI Engineer / Agent Lead</div>
+                <div class="path-arrow">↓</div>
+                <div class="path-step">Staff AI Architect / Head of GenAI</div>
+            </div>
+        </div>
+
+        <!-- DYNAMIC RESPONSIBILITIES CARD -->
+        <div class="card" id="dynamic-resp-card">
+            <h3 style="font-size: 1.1rem; font-weight: 800; color: var(--navy-deep); margin-bottom: 12px;" id="resp-title">Level 1 Responsibilities</h3>
+            <ul style="font-size: 0.8rem; color: var(--text-secondary); padding-left: 16px; display: flex; flex-direction: column; gap: 6px;" id="resp-list">
+                <li>Design structured prompts with Few-Shot examples and JSON validation</li>
+                <li>Connect foundation model APIs (OpenAI, Claude, Gemini) into backend services</li>
+                <li>Build simple document ingestion pipelines and store embeddings in vector databases</li>
+                <li>Develop full-stack demo interfaces using FastAPI and Streamlit</li>
+                <li>Identify edge cases in generated outputs and tune prompt instructions</li>
+                <li>Monitor API token consumption, usage limits, and request latency</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- 12. PRACTICAL PROJECTS -->
+    <section>
+        <div class="section-header">
+            <h2 class="section-title">Projects You’ll Build</h2>
+            <p class="section-subtitle">Real-world production applications designed to showcase your Generative AI development capabilities.</p>
+        </div>
+        <div class="projects-grid">
+            <div class="project-card">
+                <h5>1. Enterprise Multimodal Document RAG</h5>
+                <p>Construct a hybrid semantic-keyword retrieval engine indexing technical PDFs, tables, and architecture diagrams with Cohere re-ranking.</p>
+            </div>
+            <div class="project-card">
+                <h5>2. Autonomous Customer Support Agent</h5>
+                <p>Build a LangGraph workflow that reads customer tickets, searches internal knowledge, executes order lookups via APIs, and drafts replies.</p>
+            </div>
+            <div class="project-card">
+                <h5>3. Model Context Protocol (MCP) Server</h5>
+                <p>Develop an open MCP server that exposes enterprise SQL databases and documentation directly to LLM agents securely.</p>
+            </div>
+            <div class="project-card">
+                <h5>4. Fine-Tuned Domain Specialist (LoRA)</h5>
+                <p>Curate a domain-specific dataset, fine-tune Llama 3 using Unsloth and QLoRA, and benchmark domain accuracy against base models.</p>
+            </div>
+            <div class="project-card">
+                <h5>5. High-Throughput Local Inference Hub</h5>
+                <p>Deploy a containerized vLLM server on cloud GPUs with prompt caching, continuous batching, and a FastAPI proxy layer.</p>
+            </div>
+            <div class="project-card">
+                <h5>6. Automated AI Evaluation & Guardrails Suite</h5>
+                <p>Implement NeMo Guardrails to block prompt injection attacks and use Ragas to compute continuous faithfulness scores.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 13. WHY THIS ROLE MATTERS -->
+    <section class="card" style="background: linear-gradient(135deg, #FFFFFF 0%, #F1F5F9 100%);">
+        <div class="section-header">
+            <h2 class="section-title">Why LLM & Generative AI Developers Matter</h2>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-bottom: 20px;">
+            <div style="background: white; padding: 16px; border-radius: 10px; border: 1px solid var(--border-color); font-size: 0.85rem; color: var(--text-secondary);">
+                ⚡ <strong>The Bridge from Model to Product:</strong> Raw foundation models are unpredictable; developers provide the retrieval, schemas, and guardrails that make them enterprise-safe.
+            </div>
+            <div style="background: white; padding: 16px; border-radius: 10px; border: 1px solid var(--border-color); font-size: 0.85rem; color: var(--text-secondary);">
+                🤖 <strong>Beyond Simple Chatbots:</strong> Modern developers build autonomous agents that can plan, execute tools, read databases, and complete end-to-end work.
+            </div>
+            <div style="background: white; padding: 16px; border-radius: 10px; border: 1px solid var(--border-color); font-size: 0.85rem; color: var(--text-secondary);">
+                💰 <strong>Tremendous Efficiency & ROI:</strong> Grounded Generative AI automates complex document workflows, research synthesis, and customer operations at machine speed.
+            </div>
+            <div style="background: white; padding: 16px; border-radius: 10px; border: 1px solid var(--border-color); font-size: 0.85rem; color: var(--text-secondary);">
+                📈 <strong>Massive Global Demand:</strong> Organizations across finance, healthcare, and software are aggressively hiring engineers who know how to build production AI systems.
+            </div>
+        </div>
+        <div style="text-align: center; font-style: italic; font-weight: 600; color: var(--genai-purple); font-size: 0.95rem;">
+            “The competitive advantage is not possessing the foundation model—it is the engineering architecture built around it.”
+        </div>
+    </section>
+
+    <!-- 14. CAREER OUTCOME PROGRESSION -->
+    <section class="outcome-banner">
+        <h2 style="font-size: 1.5rem; font-weight: 800; margin-bottom: 8px;">Your Generative AI Engineering Outcome</h2>
+        <p style="font-size: 0.9rem; color: #94A3B8; max-width: 700px; margin: 0 auto;">Master the full journey from prompting foundation models to shipping resilient multi-agent systems and fine-tuned architectures.</p>
+        
+        <div class="progression-chain">
+            <span class="chain-node">Prompt Engineering</span>
+            <span class="chain-arrow">→</span>
+            <span class="chain-node">APIs & SDKs</span>
+            <span class="chain-arrow">→</span>
+            <span class="chain-node">Vector DBs</span>
+            <span class="chain-arrow">→</span>
+            <span class="chain-node">Advanced RAG</span>
+            <span class="chain-arrow">→</span>
+            <span class="chain-node">Ragas Evals</span>
+            <span class="chain-arrow">→</span>
+            <span class="chain-node">LangGraph Agents</span>
+            <span class="chain-arrow">→</span>
+            <span class="chain-node">MCP Servers</span>
+            <span class="chain-arrow">→</span>
+            <span class="chain-node">LoRA Fine-Tuning</span>
+            <span class="chain-arrow">→</span>
+            <span class="chain-node">vLLM Serving</span>
+        </div>
+
+        <p style="font-size: 0.85rem; color: #CBD5E1; max-width: 800px; margin: 0 auto; line-height: 1.5;">
+            By completing this roadmap, you will have the capabilities to ground foundation models in proprietary data, build self-correcting agent workflows, and deploy enterprise-grade AI software that scales reliably.
+        </p>
+    </section>
+
+    <!-- 15. BOTTOM CTA BANNER -->
+    <section class="cta-banner">
+        <div class="cta-content">
+            <div class="cta-icon-bg">
+                <svg width="28" height="28" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+            </div>
+            <div class="cta-text">
+                <h3>Build the next generation of intelligent software.<br>Start your LLM & Generative AI journey today.</h3>
+            </div>
+        </div>
+        <a href="#tab-btn-1" onclick="switchRoadmapTab(1)" class="cta-btn">Explore GenAI Roadmap →</a>
+    </section>
+
+</div>
+
+<!-- INTERACTIVE JAVASCRIPT IMPLEMENTATION -->
+<script>
+    // Responsibilities data for Level Cards interaction
+    const levelResponsibilities = {
+        1: {
+            title: "Level 1 Responsibilities",
+            items: [
+                "Design structured prompts with Few-Shot examples and JSON validation",
+                "Connect foundation model APIs (OpenAI, Claude, Gemini) into backend services",
+                "Build simple document ingestion pipelines and store embeddings in vector databases",
+                "Develop full-stack demo interfaces using FastAPI and Streamlit",
+                "Identify edge cases in generated outputs and tune prompt instructions",
+                "Monitor API token consumption, usage limits, and request latency"
+            ]
+        },
+        2: {
+            title: "Level 2 Responsibilities",
+            items: [
+                "Architect and deploy production-grade RAG pipelines with hybrid search and re-ranking",
+                "Design and maintain automated agentic workflows using LangGraph and function calling",
+                "Implement quantitative benchmark suites using Ragas and TruLens to detect hallucinations",
+                "Enforce security guardrails, prompt injection defenses, and PII masking",
+                "Curate high-quality instruction datasets and perform LoRA/QLoRA fine-tuning",
+                "Optimize vector database queries and implement semantic caching layers using Redis"
+            ]
+        },
+        3: {
+            title: "Level 3 Responsibilities",
+            items: [
+                "Architect enterprise-wide multi-agent systems with shared state and fallback loops",
+                "Design and deploy Model Context Protocol (MCP) servers across organizational tools",
+                "Lead model serving deployments on GPU clusters using vLLM, TensorRT-LLM, and Triton",
+                "Direct alignment strategies using Direct Preference Optimization (DPO) and synthetic data",
+                "Establish governance standards, evaluation rubrics, and latency/cost FinOps policies",
+                "Mentor engineering teams and translate product requirements into GenAI technical specifications"
+            ]
+        }
+    };
+
+    // Function to switch Level Cards and update Responsibilities section
+    function selectLevelCard(levelNum) {
+        for (let i = 1; i <= 3; i++) {
+            document.getElementById(`level-card-${i}`).classList.remove('active');
+        }
+        document.getElementById(`level-card-${levelNum}`).classList.add('active');
+
+        const respData = levelResponsibilities[levelNum];
+        document.getElementById('resp-title').innerText = respData.title;
+        
+        const listContainer = document.getElementById('resp-list');
+        listContainer.innerHTML = '';
+        respData.items.forEach(itemText => {
+            const li = document.createElement('li');
+            li.innerText = itemText;
+            listContainer.appendChild(li);
+        });
+
+        switchRoadmapTab(levelNum);
+    }
+
+    // Function to switch Interactive Roadmap Tabs
+    function switchRoadmapTab(tabNum) {
+        for (let i = 1; i <= 3; i++) {
+            const btn = document.getElementById(`tab-btn-${i}`);
+            const content = document.getElementById(`roadmap-tab-${i}`);
+            
+            if (i === tabNum) {
+                btn.classList.add('active');
+                content.classList.add('active');
+            } else {
+                btn.classList.remove('active');
+                content.classList.remove('active');
+            }
+        }
+    }
+</script>
+
+</body>
+</html>

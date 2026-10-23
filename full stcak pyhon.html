@@ -1,0 +1,1494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full Stack Python Developer — Market, Skill Evidence & A-to-Z Roadmap</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-main: #f4f7fb;
+            --bg-card: #FFFFFF;
+            --text-primary: #172033;
+            --text-secondary: #475569;
+            --text-muted: #64748B;
+            --border-color: #e5eaf2;
+            --border-hover: #cbd8f2;
+
+            /* Python Identity Palette (Classic Steel Blue / Python Gold / Deep Emerald) */
+            --navy-deep: #0f172a;
+            --py-blue: #306998;
+            --py-blue-light: #eff6ff;
+            --py-gold: #eab308;
+            --py-gold-light: #fefce8;
+            --py-emerald: #059669;
+            --py-emerald-light: #ecfdf5;
+
+            --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(15, 23, 42, 0.08), 0 2px 4px -2px rgba(15, 23, 42, 0.05);
+            --shadow-lg: 0 20px 60px rgba(27,42,74,.09);
+            --shadow-hover: 0 12px 35px rgba(30,50,90,.08);
+
+            --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+
+            --transition: all 0.25s ease;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-primary);
+            font-family: var(--font-sans);
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+            padding: 30px;
+        }
+
+        /* ================================
+           MAIN CONTAINER / DASHBOARD WRAPPER
+        ================================ */
+        .dashboard {
+            width: min(1150px, 100%);
+            margin: auto;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 26px;
+            box-shadow: var(--shadow-lg);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .dashboard-content-wrapper {
+            padding: 35px 40px 45px;
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
+
+        /* ================================
+           HEADER
+        ================================ */
+        .header {
+            padding: 35px 40px;
+            background: linear-gradient(135deg, #0f2744, #1e3a5f);
+            color: white;
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .badge {
+            display: inline-flex;
+            padding: 7px 12px;
+            border-radius: 30px;
+            background: rgba(255,255,255,.12);
+            color: #fde047;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .header h1 {
+            margin: 15px 0 8px;
+            font-size: clamp(28px, 4vw, 46px);
+            letter-spacing: -1.5px;
+        }
+
+        .header p {
+            margin: 0;
+            max-width: 700px;
+            color: #cbd5e1;
+            line-height: 1.6;
+            font-size: 15px;
+        }
+
+        /* ================================
+           TABS
+        ================================ */
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 10px;
+            padding: 6px;
+            background: #f2f5f9;
+            border-radius: 14px;
+            width: max-content;
+            max-width: 100%;
+            overflow: auto;
+        }
+
+        .tab {
+            border: 0;
+            background: transparent;
+            padding: 11px 18px;
+            border-radius: 10px;
+            font-size: 13px;
+            font-weight: 800;
+            color: #68748a;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: var(--transition);
+        }
+
+        .tab:hover {
+            color: var(--py-blue);
+        }
+
+        .tab.active {
+            background: white;
+            color: var(--py-blue);
+            box-shadow: 0 4px 12px rgba(20,35,70,.08);
+        }
+
+        /* ================================
+           SECTION TITLE
+        ================================ */
+        .section-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+            gap: 20px;
+            margin-bottom: 22px;
+        }
+
+        .section-title h2 {
+            margin: 0;
+            font-size: 24px;
+            letter-spacing: -.5px;
+        }
+
+        .section-title p {
+            margin: 5px 0 0;
+            color: #748096;
+            font-size: 13px;
+        }
+
+        /* ================================
+           COMPARISON CARD
+        ================================ */
+        .comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 22px;
+        }
+
+        .panel {
+            padding: 25px;
+            border: 1px solid #e5eaf1;
+            border-radius: 20px;
+            background: #fbfcfe;
+            transition: var(--transition);
+        }
+
+        .panel:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .panel-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 22px;
+        }
+
+        .panel-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 900;
+        }
+
+        .panel-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--py-blue);
+        }
+
+        .context {
+            font-size: 11px;
+            color: #7c879a;
+            background: #eef2f7;
+            padding: 6px 9px;
+            border-radius: 8px;
+            font-weight: 700;
+        }
+
+        /* ================================
+           BAR
+        ================================ */
+        .metric {
+            margin-bottom: 22px;
+        }
+
+        .metric:last-child {
+            margin-bottom: 0;
+        }
+
+        .metric-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .metric-name {
+            font-size: 13px;
+            font-weight: 750;
+            color: #3d475b;
+        }
+
+        .metric-value {
+            font-size: 16px;
+            font-weight: 950;
+            color: #172033;
+        }
+
+        .bar {
+            height: 12px;
+            background: #e9edf3;
+            border-radius: 50px;
+            overflow: hidden;
+        }
+
+        .bar-fill {
+            width: 0;
+            height: 100%;
+            border-radius: 50px;
+            background: linear-gradient(90deg, #306998, #eab308);
+            transition: width 1s cubic-bezier(.2,.8,.2,1);
+        }
+
+        /* ================================
+           HIGHLIGHT
+        ================================ */
+        .highlight {
+            margin-top: 25px;
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            padding: 20px;
+            border-radius: 18px;
+            background: linear-gradient(135deg, #eff6ff, #fefce8);
+            border: 1px solid #e2e8f0;
+        }
+
+        .highlight-number {
+            min-width: 65px;
+            height: 65px;
+            display: grid;
+            place-items: center;
+            border-radius: 17px;
+            color: white;
+            font-size: 14px;
+            font-weight: 950;
+            background: linear-gradient(135deg, #306998, #ca8a04);
+        }
+
+        .highlight strong {
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .highlight span {
+            font-size: 12px;
+            color: #475569;
+            line-height: 1.5;
+        }
+
+        /* ================================
+           FULL WIDTH GRAPH
+        ================================ */
+        .full-card {
+            margin-top: 25px;
+            padding: 27px;
+            border: 1px solid #e5eaf1;
+            border-radius: 20px;
+            background: white;
+        }
+
+        .graph-row {
+            display: grid;
+            grid-template-columns: 150px 1fr 70px;
+            align-items: center;
+            gap: 15px;
+            margin: 18px 0;
+        }
+
+        .graph-label {
+            font-size: 13px;
+            font-weight: 800;
+        }
+
+        .graph-track {
+            height: 15px;
+            background: #edf0f5;
+            border-radius: 30px;
+            overflow: hidden;
+        }
+
+        .graph-fill {
+            width: 0;
+            height: 100%;
+            border-radius: 30px;
+            background: linear-gradient(90deg, #306998, #059669);
+            transition: width 1.2s ease;
+        }
+
+        .graph-value {
+            text-align: right;
+            font-size: 14px;
+            font-weight: 950;
+        }
+
+        /* ================================
+           SKILL CARDS
+        ================================ */
+        .skill-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 14px;
+            margin-top: 25px;
+        }
+
+        .skill {
+            padding: 20px;
+            border: 1px solid #e6eaf1;
+            border-radius: 17px;
+            background: white;
+            transition: var(--transition);
+        }
+
+        .skill:hover {
+            transform: translateY(-4px);
+            border-color: #93c5fd;
+            box-shadow: 0 10px 25px rgba(48,105,152,.08);
+        }
+
+        .skill-number {
+            font-size: 11px;
+            color: #306998;
+            font-weight: 900;
+            letter-spacing: 1px;
+        }
+
+        .skill h3 {
+            margin: 8px 0 5px;
+            font-size: 16px;
+        }
+
+        .skill p {
+            margin: 0;
+            color: #778399;
+            font-size: 12px;
+            line-height: 1.5;
+        }
+
+        /* ================================
+           FOOTNOTE / NOTE
+        ================================ */
+        .note {
+            margin-top: 28px;
+            padding: 15px 18px;
+            border-left: 3px solid var(--py-blue);
+            background: #f7f9fc;
+            color: #6c778a;
+            font-size: 11px;
+            line-height: 1.6;
+            border-radius: 0 10px 10px 0;
+        }
+
+        /* ================================
+           ADDITIONAL COMPONENTS STYLING
+        ================================ */
+        .extra-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+
+        .extra-card:hover {
+            border-color: var(--border-hover);
+            box-shadow: var(--shadow-md);
+        }
+
+        .actions-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 16px;
+            margin-top: 16px;
+        }
+
+        .action-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 16px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .action-icon {
+            width: 42px;
+            height: 42px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .action-title {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--navy-deep);
+            letter-spacing: 0.05em;
+        }
+
+        .action-desc {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            line-height: 1.35;
+        }
+
+        .levels-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .level-card {
+            background: var(--bg-card);
+            border: 2px solid var(--border-color);
+            border-radius: 16px;
+            padding: 24px;
+            cursor: pointer;
+            transition: var(--transition);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .level-card.active, .level-card:hover {
+            border-color: var(--py-blue);
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-2px);
+        }
+
+        .level-card.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 20%;
+            right: 20%;
+            height: 4px;
+            background: var(--py-blue);
+            border-radius: 4px 4px 0 0;
+        }
+
+        .level-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 12px;
+        }
+
+        .level-num {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--py-blue);
+        }
+
+        .level-exp {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            background: var(--bg-main);
+            padding: 2px 8px;
+            border-radius: 6px;
+        }
+
+        .level-title {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--navy-deep);
+        }
+
+        .level-focus {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--py-blue);
+        }
+
+        .level-skills-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .tag {
+            font-size: 0.7rem;
+            font-weight: 600;
+            background: var(--bg-main);
+            color: var(--text-secondary);
+            padding: 3px 8px;
+            border-radius: 4px;
+            border: 1px solid var(--border-color);
+        }
+
+        .roadmap-tabs-container {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .roadmap-tab-btn {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 12px 24px;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .roadmap-tab-btn:hover {
+            border-color: var(--py-blue);
+            color: var(--py-blue);
+        }
+
+        .roadmap-tab-btn.active {
+            background: var(--py-blue);
+            color: white;
+            border-color: var(--py-blue);
+            box-shadow: var(--shadow-md);
+        }
+
+        .roadmap-content-pane {
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .roadmap-content-pane.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(6px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .topics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .topic-item {
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 14px;
+            background: var(--bg-main);
+            transition: var(--transition);
+        }
+
+        .topic-item:hover {
+            background: var(--bg-card);
+            border-color: var(--py-blue);
+        }
+
+        .topic-title {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--navy-deep);
+            margin-bottom: 4px;
+        }
+
+        .topic-desc {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        .split-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .checklist-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        .check-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+
+        .check-icon {
+            color: var(--py-blue);
+            font-weight: 800;
+        }
+
+        .career-path-flow {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .path-step {
+            background: var(--bg-main);
+            border: 1px solid var(--border-color);
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--navy-deep);
+            text-align: center;
+        }
+
+        .path-arrow {
+            text-align: center;
+            color: var(--py-blue);
+            font-size: 0.75rem;
+            margin: -4px 0;
+        }
+
+        .cta-banner {
+            background: linear-gradient(135deg, #1e3a5f 0%, #059669 100%);
+            color: white;
+            border-radius: 16px;
+            padding: 36px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .cta-content {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .cta-icon-bg {
+            width: 56px;
+            height: 56px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .cta-text h3 {
+            font-size: 1.35rem;
+            font-weight: 800;
+            line-height: 1.2;
+        }
+
+        .cta-btn {
+            background: white;
+            color: var(--py-blue);
+            padding: 12px 24px;
+            border-radius: 10px;
+            font-weight: 800;
+            font-size: 0.9rem;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            white-space: nowrap;
+            text-decoration: none;
+        }
+
+        .cta-btn:hover {
+            background: var(--py-blue-light);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* ================================
+           MOBILE RESPONSIVE
+        ================================ */
+        @media(max-width: 1024px) {
+            .comparison { grid-template-columns: 1fr; }
+            .skill-grid { grid-template-columns: repeat(2, 1fr); }
+            .actions-grid { grid-template-columns: repeat(3, 1fr); }
+            .levels-grid { grid-template-columns: 1fr; }
+            .split-3 { grid-template-columns: 1fr; }
+        }
+
+        @media(max-width: 800px) {
+            body { padding: 12px; }
+            .header { padding: 27px 24px; }
+            .dashboard-content-wrapper { padding: 25px 20px 30px; }
+        }
+
+        @media(max-width: 520px) {
+            .header-top { display: block; }
+            .header h1 { font-size: 32px; }
+            .tabs { width: 100%; }
+            .graph-row { grid-template-columns: 105px 1fr 50px; gap: 9px; }
+            .skill-grid { grid-template-columns: 1fr; }
+            .highlight { align-items: flex-start; }
+            .actions-grid { grid-template-columns: repeat(2, 1fr); }
+            .cta-banner { flex-direction: column; text-align: center; gap: 20px; }
+            .cta-content { flex-direction: column; }
+        }
+    </style>
+</head>
+
+<body>
+  <a class="back-to-roadmaps" href="index.html" aria-label="Back to roadmaps" style="display:inline-flex;align-items:center;gap:8px;margin:18px 0 0 18px;background:#fff;color:#0f172a;padding:10px 16px;border-radius:999px;border:1px solid #e2e8f0;box-shadow:0 10px 20px rgba(15,23,42,0.08);font-weight:700;text-decoration:none;">&larr; Back to roadmaps</a>
+
+
+<div class="dashboard">
+
+    <!-- =================================
+       HEADER
+    ================================= -->
+    <header class="header">
+        <div class="header-top">
+            <span class="badge">Python Full Stack Engineering</span>
+            <span style="font-size:11px; color:#cbd5e1;">Python • Django / FastAPI • React • Cloud & AI</span>
+        </div>
+        <h1>
+            Full Stack Python Developer
+            <br>
+            <span style="color:#fde047">Market, Skill Evidence & A-to-Z Roadmap</span>
+        </h1>
+        <p>
+            A comprehensive overview of Python web demand, asynchronous backend services (FastAPI/Django), reactive frontend interfaces (React), data pipelines, and scalable cloud architectures.
+        </p>
+    </header>
+
+    <div class="dashboard-content-wrapper">
+
+        <!-- =================================
+           TABS
+        ================================ -->
+        <div class="tabs">
+            <button class="tab active" data-tab="roadmap">Career & Roadmap</button>
+            <button class="tab" data-tab="technology">Core Tech Stack</button>
+            <button class="tab" data-tab="future">Async, Cloud & AI</button>
+            <button class="tab" data-tab="market">Market Signals</button>
+        </div>
+
+        <!-- =================================
+           MARKET TAB CONTENT
+        ================================ -->
+        <section id="market" class="tab-content" style="display:none">
+            <div class="section-title">
+                <div>
+                    <h2>2026 Full Stack Python Hiring</h2>
+                    <p>Hiring dynamics for developers combining web development, data-backed APIs, and automation.</p>
+                </div>
+            </div>
+
+            <div class="comparison">
+                <div class="panel">
+                    <div class="panel-head">
+                        <div class="panel-title">
+                            <span class="panel-dot"></span>
+                            Python Web & API Services
+                        </div>
+                        <span class="context">2026</span>
+                    </div>
+
+                    <div class="metric">
+                        <div class="metric-top">
+                            <span class="metric-name">Full Stack Python Demand</span>
+                            <span class="metric-value">44%</span>
+                        </div>
+                        <div class="bar">
+                            <div class="bar-fill" data-value="44"></div>
+                        </div>
+                    </div>
+
+                    <div class="metric">
+                        <div class="metric-top">
+                            <span class="metric-name">FastAPI & Async Services</span>
+                            <span class="metric-value">41%</span>
+                        </div>
+                        <div class="bar">
+                            <div class="bar-fill" data-value="41"></div>
+                        </div>
+                    </div>
+
+                    <div class="metric">
+                        <div class="metric-top">
+                            <span class="metric-name">AI-Assisted Web Applications</span>
+                            <span class="metric-value">38%</span>
+                        </div>
+                        <div class="bar">
+                            <div class="bar-fill" data-value="38"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel">
+                    <div class="panel-head">
+                        <div class="panel-title">
+                            <span class="panel-dot" style="background:#eab308"></span>
+                            Ecosystem Demand Signal
+                        </div>
+                        <span class="context">Core Pillar</span>
+                    </div>
+
+                    <div class="metric">
+                        <div class="metric-top">
+                            <span class="metric-name">Python + React / Next.js Stack</span>
+                            <span class="metric-value">86%</span>
+                        </div>
+                        <div class="bar">
+                            <div class="bar-fill" style="background: linear-gradient(90deg, #306998, #eab308); width: 86%"></div>
+                        </div>
+                    </div>
+
+                    <div class="metric">
+                        <div class="metric-top">
+                            <span class="metric-name">PostgreSQL & Redis Caching</span>
+                            <span class="metric-value">82%</span>
+                        </div>
+                        <div class="bar">
+                            <div class="bar-fill" style="background: linear-gradient(90deg, #306998, #eab308); width: 82%"></div>
+                        </div>
+                    </div>
+
+                    <div class="highlight">
+                        <div class="highlight-number">A-to-Z</div>
+                        <div>
+                            <strong>Why Python Developers Excel</strong>
+                            <span>Python uniquely unifies clean web development, high-throughput asynchronous APIs, scalable background job queues, and native integration with data science and AI models.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="note">
+                <strong>Important:</strong> Full stack Python developers bridge robust server-side logic and ORM data structures with modern reactive frontends and cloud containerization.
+            </div>
+        </section>
+
+        <!-- =================================
+           TECHNOLOGY TAB CONTENT
+        ================================ -->
+        <section id="technology" class="tab-content" style="display:none">
+            <div class="section-title">
+                <div>
+                    <h2>Python Full Stack Technology Ecosystem</h2>
+                    <p>Core language features, backend frameworks, database mappers, and reactive UI libraries.</p>
+                </div>
+            </div>
+
+            <div class="full-card">
+                <div class="graph-row">
+                    <span class="graph-label">Python 3.x (Core & OOP)</span>
+                    <div class="graph-track">
+                        <div class="graph-fill" data-width="95%"></div>
+                    </div>
+                    <span class="graph-value">95%</span>
+                </div>
+
+                <div class="graph-row">
+                    <span class="graph-label">FastAPI / Django REST</span>
+                    <div class="graph-track">
+                        <div class="graph-fill" data-width="90%"></div>
+                    </div>
+                    <span class="graph-value">90%</span>
+                </div>
+
+                <div class="graph-row">
+                    <span class="graph-label">React / Modern Web UI</span>
+                    <div class="graph-track">
+                        <div class="graph-fill" data-width="84%"></div>
+                    </div>
+                    <span class="graph-value">84%</span>
+                </div>
+
+                <div class="graph-row">
+                    <span class="graph-label">PostgreSQL & SQLAlchemy</span>
+                    <div class="graph-track">
+                        <div class="graph-fill" data-width="86%"></div>
+                    </div>
+                    <span class="graph-value">86%</span>
+                </div>
+            </div>
+
+            <div class="skill-grid">
+                <div class="skill">
+                    <span class="skill-number">01</span>
+                    <h3>Core Python</h3>
+                    <p>Data structures, decorators, generators, OOP, and type hints.</p>
+                </div>
+                <div class="skill">
+                    <span class="skill-number">02</span>
+                    <h3>Backend Frameworks</h3>
+                    <p>Django for battery-included apps; FastAPI for high-performance async APIs.</p>
+                </div>
+                <div class="skill">
+                    <span class="skill-number">03</span>
+                    <h3>Frontend UI</h3>
+                    <p>React, Next.js, Tailwind CSS, component state, and REST consuming.</p>
+                </div>
+                <div class="skill">
+                    <span class="skill-number">04</span>
+                    <h3>Databases & ORMs</h3>
+                    <p>PostgreSQL, Django ORM, SQLAlchemy, Alembic migrations, and Redis.</p>
+                </div>
+            </div>
+
+            <div class="note">
+                Mastering Pydantic validation, asynchronous programming, and ORM query optimization ensures clean code architecture and prevents common N+1 query bottlenecks.
+            </div>
+        </section>
+
+        <!-- =================================
+           FUTURE / ASYNC, CLOUD & AI TAB CONTENT
+        ================================ -->
+        <section id="future" class="tab-content" style="display:none">
+            <div class="section-title">
+                <div>
+                    <h2>Async Architectures, Cloud & AI Integration</h2>
+                    <p>Distributed task processing, microservices, containerization, and intelligent API endpoints.</p>
+                </div>
+            </div>
+
+            <div class="comparison">
+                <div class="panel">
+                    <div class="panel-head">
+                        <div class="panel-title">
+                            <span class="panel-dot"></span>
+                            Scalability & Async Processing
+                        </div>
+                        <span class="context">High Throughput</span>
+                    </div>
+
+                    <div class="metric">
+                        <div class="metric-top">
+                            <span class="metric-name">Asynchronous I/O (asyncio)</span>
+                            <span class="metric-value">88%</span>
+                        </div>
+                        <div class="bar">
+                            <div class="bar-fill" style="width:88%"></div>
+                        </div>
+                    </div>
+
+                    <div class="metric">
+                        <div class="metric-top">
+                            <span class="metric-name">Background Workers (Celery / Redis)</span>
+                            <span class="metric-value">84%</span>
+                        </div>
+                        <div class="bar">
+                            <div class="bar-fill" style="width:84%"></div>
+                        </div>
+                    </div>
+
+                    <div class="metric">
+                        <div class="metric-top">
+                            <span class="metric-name">Docker & Multi-Stage Builds</span>
+                            <span class="metric-value">86%</span>
+                        </div>
+                        <div class="bar">
+                            <div class="bar-fill" style="width:86%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel">
+                    <div class="panel-head">
+                        <div class="panel-title">
+                            <span class="panel-dot" style="background:#059669"></span>
+                            Cloud Infrastructure & AI
+                        </div>
+                        <span class="context">Modern Edge</span>
+                    </div>
+
+                    <div class="metric">
+                        <div class="metric-top">
+                            <span class="metric-name">AI / LLM API Integration (OpenAI/LangChain)</span>
+                            <span class="metric-value">85%</span>
+                        </div>
+                        <div class="bar">
+                            <div class="bar-fill" style="background: linear-gradient(90deg, #306998, #059669); width:85%"></div>
+                        </div>
+                    </div>
+
+                    <div class="metric">
+                        <div class="metric-top">
+                            <span class="metric-name">CI/CD & Cloud (AWS / Render)</span>
+                            <span class="metric-value">82%</span>
+                        </div>
+                        <div class="bar">
+                            <div class="bar-fill" style="background: linear-gradient(90deg, #306998, #059669); width:82%"></div>
+                        </div>
+                    </div>
+
+                    <div class="metric">
+                        <div class="metric-top">
+                            <span class="metric-name">Microservices & Event Streaming</span>
+                            <span class="metric-value">76%</span>
+                        </div>
+                        <div class="bar">
+                            <div class="bar-fill" style="background: linear-gradient(90deg, #306998, #059669); width:76%"></div>
+                        </div>
+                    </div>
+
+                    <div class="highlight">
+                        <div class="highlight-number">Scale</div>
+                        <div>
+                            <strong>Full Stack Meets Intelligence</strong>
+                            <span>Deploy asynchronous web services capable of processing background tasks, serving reactive UIs, and interfacing with LLM APIs in real time.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="note">
+                Modern Python full-stack systems frequently combine web UIs with async task brokers (Celery), caching layers (Redis), and AI/data endpoints.
+            </div>
+        </section>
+
+        <!-- =================================
+           ROADMAP TAB CONTENT (A-to-Z Full Stack Python Curriculum)
+        ================================ -->
+        <section id="roadmap" class="tab-content" style="display:block">
+            <div class="section-title">
+                <div>
+                    <h2>Full Stack Python A-to-Z Course & Career Roadmap</h2>
+                    <p>Master end-to-end development from Core Python and UI fundamentals to Django, FastAPI, React, and Cloud Scaling.</p>
+                </div>
+            </div>
+
+            <!-- Course Duration & Delivery Models -->
+            <div class="extra-card" style="margin-bottom: 24px;">
+                <div class="section-header" style="text-align: left; margin-bottom: 16px;">
+                    <h3 style="font-size: 1.2rem; font-weight: 800; color: var(--navy-deep);">Course Duration & Delivery Models</h3>
+                    <p style="font-size: 0.85rem; color: var(--text-secondary);">Structured pathways for mastering full-stack Python development.</p>
+                </div>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px;">
+                    <div style="background: var(--bg-main); border: 1px solid var(--border-color); border-radius: 12px; padding: 16px; text-align: center;">
+                        <div style="font-size: 1.5rem; margin-bottom: 8px;">🚀</div>
+                        <h4 style="font-size: 1rem; font-weight: 800; color: var(--navy-deep); margin-bottom: 4px;">Bootcamp</h4>
+                        <p style="font-size: 0.78rem; color: var(--text-secondary);">Intensive, full-time project immersion.</p>
+                    </div>
+                    <div style="background: var(--bg-main); border: 1px solid var(--border-color); border-radius: 12px; padding: 16px; text-align: center;">
+                        <div style="font-size: 1.5rem; margin-bottom: 8px;">⚡</div>
+                        <h4 style="font-size: 1rem; font-weight: 800; color: var(--navy-deep); margin-bottom: 4px;">Accelerated</h4>
+                        <span class="badge" style="background: var(--py-blue-light); color: var(--py-blue); margin-bottom: 8px;">45 Days</span>
+                        <p style="font-size: 0.78rem; color: var(--text-secondary);">Fast-track Django & REST APIs.</p>
+                    </div>
+                    <div style="background: var(--bg-main); border: 1px solid var(--border-color); border-radius: 12px; padding: 16px; text-align: center;">
+                        <div style="font-size: 1.5rem; margin-bottom: 8px;">🏃</div>
+                        <h4 style="font-size: 1rem; font-weight: 800; color: var(--navy-deep); margin-bottom: 4px;">Medium</h4>
+                        <span class="badge" style="background: var(--py-gold-light); color: #854d0e; margin-bottom: 8px;">90 Days</span>
+                        <p style="font-size: 0.78rem; color: var(--text-secondary);">Balanced React, FastAPI & SQL pace.</p>
+                    </div>
+                    <div style="background: var(--bg-main); border: 1px solid var(--border-color); border-radius: 12px; padding: 16px; text-align: center;">
+                        <div style="font-size: 1.5rem; margin-bottom: 8px;">🧠</div>
+                        <h4 style="font-size: 1rem; font-weight: 800; color: var(--navy-deep); margin-bottom: 4px;">Complete A-to-Z</h4>
+                        <span class="badge" style="background: var(--py-emerald-light); color: var(--py-emerald); margin-bottom: 8px;">180 Days</span>
+                        <p style="font-size: 0.78rem; color: var(--text-secondary);">Deep dive into Async, Docker & Microservices.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- What a Full Stack Python Developer Does -->
+            <div class="extra-card" style="margin-bottom: 24px;">
+                <div class="section-header" style="text-align: left; margin-bottom: 16px;">
+                    <h3 style="font-size: 1.2rem; font-weight: 800; color: var(--navy-deep);">What Does a Full Stack Python Developer Do?</h3>
+                </div>
+                <div class="actions-grid">
+                    <div class="action-card">
+                        <div class="action-icon" style="background: var(--py-blue-light); color: var(--py-blue);">UI</div>
+                        <div class="action-title">FRONTEND</div>
+                        <div class="action-desc">Build reactive React UIs.</div>
+                    </div>
+                    <div class="action-card">
+                        <div class="action-icon" style="background: var(--py-gold-light); color: #854d0e;">API</div>
+                        <div class="action-title">BACKEND</div>
+                        <div class="action-desc">FastAPI & Django REST APIs.</div>
+                    </div>
+                    <div class="action-card">
+                        <div class="action-icon" style="background: var(--py-emerald-light); color: var(--py-emerald);">ORM</div>
+                        <div class="action-title">DATA MODELS</div>
+                        <div class="action-desc">PostgreSQL & SQLAlchemy.</div>
+                    </div>
+                    <div class="action-card">
+                        <div class="action-icon" style="background: var(--py-blue-light); color: var(--py-blue);">SEC</div>
+                        <div class="action-title">SECURITY</div>
+                        <div class="action-desc">OAuth 2.0 & JWT auth tokens.</div>
+                    </div>
+                    <div class="action-card">
+                        <div class="action-icon" style="background: var(--py-gold-light); color: #854d0e;">JOB</div>
+                        <div class="action-title">ASYNC JOBS</div>
+                        <div class="action-desc">Celery task queues & Redis.</div>
+                    </div>
+                    <div class="action-card">
+                        <div class="action-icon" style="background: var(--py-emerald-light); color: var(--py-emerald);">OPS</div>
+                        <div class="action-title">CONTAINERS</div>
+                        <div class="action-desc">Docker & cloud hosting.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Career Levels Selection -->
+            <div style="margin-bottom: 24px;">
+                <div class="section-header" style="text-align: left; margin-bottom: 16px;">
+                    <h3 style="font-size: 1.2rem; font-weight: 800; color: var(--navy-deep);">Career Levels</h3>
+                </div>
+                <div class="levels-grid">
+                    <div class="level-card active" onclick="selectLevelCard(1)" id="level-card-1">
+                        <div class="level-header">
+                            <span class="level-num">LEVEL 01</span>
+                            <span class="level-exp">0 – 2 Years</span>
+                        </div>
+                        <h4 class="level-title">Junior Python Developer</h4>
+                        <div class="level-focus">Focus: Python Core, HTML/CSS & Django Basics</div>
+                        <div class="level-skills-tags">
+                            <span class="tag">Python 3</span><span class="tag">Django</span><span class="tag">SQLite/Postgres</span><span class="tag">Git</span>
+                        </div>
+                    </div>
+
+                    <div class="level-card" onclick="selectLevelCard(2)" id="level-card-2">
+                        <div class="level-header">
+                            <span class="level-num">LEVEL 02</span>
+                            <span class="level-exp">2 – 5 Years</span>
+                        </div>
+                        <h4 class="level-title">Full Stack Python Engineer</h4>
+                        <div class="level-focus">Focus: FastAPI, React, Celery & Docker</div>
+                        <div class="level-skills-tags">
+                            <span class="tag">FastAPI</span><span class="tag">React</span><span class="tag">PostgreSQL</span><span class="tag">Celery</span>
+                        </div>
+                    </div>
+
+                    <div class="level-card" onclick="selectLevelCard(3)" id="level-card-3">
+                        <div class="level-header">
+                            <span class="level-num">LEVEL 03</span>
+                            <span class="level-exp">5+ Years</span>
+                        </div>
+                        <h4 class="level-title">Lead / Python Architect</h4>
+                        <div class="level-focus">Focus: Microservices, Async I/O & Cloud Scale</div>
+                        <div class="level-skills-tags">
+                            <span class="tag">Microservices</span><span class="tag">Docker</span><span class="tag">AWS</span><span class="tag">Redis/Kafka</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Interactive Learning Roadmap Tabs -->
+            <div style="margin-bottom: 24px;">
+                <div class="section-header" style="text-align: left; margin-bottom: 16px;">
+                    <h3 style="font-size: 1.2rem; font-weight: 800; color: var(--navy-deep);">A-to-Z Learning Modules</h3>
+                </div>
+
+                <div class="roadmap-tabs-container">
+                    <button class="roadmap-tab-btn active" id="tab-btn-1" onclick="switchRoadmapTab(1)">LEVEL 1 – FOUNDATION</button>
+                    <button class="roadmap-tab-btn" id="tab-btn-2" onclick="switchRoadmapTab(2)">LEVEL 2 – PROFESSIONAL</button>
+                    <button class="roadmap-tab-btn" id="tab-btn-3" onclick="switchRoadmapTab(3)">LEVEL 3 – ARCHITECTURE</button>
+                </div>
+
+                <div class="roadmap-content-pane active" id="roadmap-tab-1">
+                    <div class="extra-card">
+                        <h4 style="font-size: 1.1rem; font-weight: 800; color: var(--navy-deep); margin-bottom: 4px;">Level 1: Python Core, Web UI & Django Fundamentals</h4>
+                        <p style="font-size: 0.82rem; color: var(--text-secondary); margin-bottom: 16px;">Python syntax, OOP, relational databases, and server-rendered web applications.</p>
+                        <div class="topics-grid">
+                            <div class="topic-item">
+                                <div class="topic-title">1. Python Fundamentals & OOP</div>
+                                <div class="topic-desc">Data types, functions, control flow, list comprehensions, classes, inheritance, and virtual environments.</div>
+                            </div>
+                            <div class="topic-item">
+                                <div class="topic-title">2. Web UI Basics (HTML/CSS/JS)</div>
+                                <div class="topic-desc">Semantic HTML, Flexbox, CSS styling, DOM manipulation, and JavaScript fetch calls.</div>
+                            </div>
+                            <div class="topic-item">
+                                <div class="topic-title">3. Django Web Framework</div>
+                                <div class="topic-desc">MVT pattern, URL dispatching, Django views, templates, forms, and administrative panel.</div>
+                            </div>
+                            <div class="topic-item">
+                                <div class="topic-title">4. Relational Data & SQL</div>
+                                <div class="topic-desc">PostgreSQL/SQLite, Django ORM models, migrations, relationships, and queries.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="roadmap-content-pane" id="roadmap-tab-2">
+                    <div class="extra-card">
+                        <h4 style="font-size: 1.1rem; font-weight: 800; color: var(--navy-deep); margin-bottom: 4px;">Level 2: RESTful APIs, React & Async Background Tasks</h4>
+                        <p style="font-size: 0.82rem; color: var(--text-secondary); margin-bottom: 16px;">FastAPI, Django REST Framework, React integration, and task workers.</p>
+                        <div class="topics-grid">
+                            <div class="topic-item">
+                                <div class="topic-title">1. Django REST Framework & FastAPI</div>
+                                <div class="topic-desc">Serializers, Pydantic models, dependency injection, CRUD endpoints, and OpenAPI docs.</div>
+                            </div>
+                            <div class="topic-item">
+                                <div class="topic-title">2. Modern Frontend (React)</div>
+                                <div class="topic-desc">React hooks, state management, Axios API consumption, and Tailwind CSS layouts.</div>
+                            </div>
+                            <div class="topic-item">
+                                <div class="topic-title">3. Authentication & Security</div>
+                                <div class="topic-desc">JWT token lifecycles, OAuth 2.0 social logins, password hashing, and CORS headers.</div>
+                            </div>
+                            <div class="topic-item">
+                                <div class="topic-title">4. Background Jobs & Caching</div>
+                                <div class="topic-desc">Celery task queues, Redis brokers, scheduled cron tasks, and in-memory query caching.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="roadmap-content-pane" id="roadmap-tab-3">
+                    <div class="extra-card">
+                        <h4 style="font-size: 1.1rem; font-weight: 800; color: var(--navy-deep); margin-bottom: 4px;">Level 3: Microservices, System Design & Cloud Scale</h4>
+                        <p style="font-size: 0.82rem; color: var(--text-secondary); margin-bottom: 16px;">Asynchronous I/O, Docker containerization, CI/CD pipelines, and cloud hosting.</p>
+                        <div class="topics-grid">
+                            <div class="topic-item">
+                                <div class="topic-title">1. High-Performance Async (asyncio)</div>
+                                <div class="topic-desc">Event loops, coroutines, async database drivers (asyncpg), and WebSocket streaming.</div>
+                            </div>
+                            <div class="topic-item">
+                                <div class="topic-title">2. Containerization (Docker)</div>
+                                <div class="topic-desc">Dockerfiles for Python, multi-container stacks via Docker Compose (Web, DB, Redis, Celery).</div>
+                            </div>
+                            <div class="topic-item">
+                                <div class="topic-title">3. CI/CD & Automated Testing</div>
+                                <div class="topic-desc">Pytest test suites, coverage reports, and automated deployment via GitHub Actions.</div>
+                            </div>
+                            <div class="topic-item">
+                                <div class="topic-title">4. Cloud Deployment & System Design</div>
+                                <div class="topic-desc">Nginx reverse proxies, Gunicorn/Uvicorn workers, AWS/Render hosting, and database indexing.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Split Section: Skills, Path, & Responsibilities -->
+            <div class="split-3" style="margin-bottom: 24px;">
+                <div class="extra-card">
+                    <h4 style="font-size: 1rem; font-weight: 800; color: var(--navy-deep); margin-bottom: 12px;">Key Skills</h4>
+                    <div class="checklist-grid">
+                        <div class="check-item"><span class="check-icon">✓</span> Python 3 & OOP</div>
+                        <div class="check-item"><span class="check-icon">✓</span> Django & DRF</div>
+                        <div class="check-item"><span class="check-icon">✓</span> FastAPI & Pydantic</div>
+                        <div class="check-item"><span class="check-icon">✓</span> React & JavaScript</div>
+                        <div class="check-item"><span class="check-icon">✓</span> PostgreSQL & Redis</div>
+                        <div class="check-item"><span class="check-icon">✓</span> Celery & Docker</div>
+                    </div>
+                </div>
+
+                <div class="extra-card">
+                    <h4 style="font-size: 1rem; font-weight: 800; color: var(--navy-deep); margin-bottom: 12px;">Career Path</h4>
+                    <div class="career-path-flow">
+                        <div class="path-step">Python Intern</div>
+                        <div class="path-arrow">↓</div>
+                        <div class="path-step">Junior Python Developer</div>
+                        <div class="path-arrow">↓</div>
+                        <div class="path-step" style="background: var(--py-blue-light); border-color: var(--py-blue);">Full Stack Python Engineer</div>
+                        <div class="path-arrow">↓</div>
+                        <div class="path-step">Lead / Python Architect</div>
+                    </div>
+                </div>
+
+                <div class="extra-card" id="dynamic-resp-card">
+                    <h4 style="font-size: 1rem; font-weight: 800; color: var(--navy-deep); margin-bottom: 8px;" id="resp-title">Level 1 Responsibilities</h4>
+                    <ul style="font-size: 0.78rem; color: var(--text-secondary); padding-left: 14px; display: flex; flex-direction: column; gap: 4px;" id="resp-list">
+                        <li>Write clean, modular Python functions and classes</li>
+                        <li>Build responsive UI pages using HTML, CSS, and basic JS</li>
+                        <li>Configure Django models, views, and URL routing</li>
+                        <li>Manage relational database migrations and CRUD operations</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bottom CTA Banner -->
+            <div class="cta-banner">
+                <div class="cta-content">
+                    <div class="cta-icon-bg">🐍</div>
+                    <div class="cta-text">
+                        <h3>Build modern data-driven web applications with Python & React.</h3>
+                    </div>
+                </div>
+                <a href="#market" onclick="switchMainTab('market')" class="cta-btn">View Market Signals →</a>
+            </div>
+        </section>
+
+    </div>
+
+</div>
+
+<script>
+/* =========================================
+   MAIN DASHBOARD TAB SWITCHING
+========================================= */
+const dashboardTabs = document.querySelectorAll(".tabs .tab");
+const sections = document.querySelectorAll(".dashboard-content-wrapper > .tab-content");
+
+function syncDashboardState(tabId) {
+    dashboardTabs.forEach(t => {
+        t.classList.toggle("active", t.dataset.tab === tabId);
+    });
+
+    sections.forEach(section => {
+        section.style.display = section.id === tabId ? "block" : "none";
+    });
+
+    const selected = document.getElementById(tabId);
+    if (selected) {
+        animateBars(selected);
+    }
+}
+
+dashboardTabs.forEach(tab => {
+    tab.addEventListener("click", () => {
+        syncDashboardState(tab.dataset.tab);
+    });
+});
+
+function switchMainTab(tabId) {
+    dashboardTabs.forEach(t => {
+        if (t.dataset.tab === tabId) {
+            t.click();
+        }
+    });
+}
+
+/* =========================================
+   BAR & GRAPH ANIMATION
+========================================= */
+function animateBars(container){
+    const bars = container.querySelectorAll(".bar-fill[data-value]");
+    bars.forEach(bar => {
+        const value = Number(bar.dataset.value);
+        const width = Math.min((value / 50) * 100, 100);
+        setTimeout(() => {
+            bar.style.width = width + "%";
+        }, 100);
+    });
+
+    const graphBars = container.querySelectorAll(".graph-fill[data-width]");
+    graphBars.forEach(bar => {
+        setTimeout(() => {
+            bar.style.width = bar.dataset.width;
+        }, 100);
+    });
+}
+
+window.addEventListener("load", () => {
+    syncDashboardState("roadmap");
+});
+
+/* =========================================
+   ROADMAP / CAREER LEVEL INTERACTION
+========================================= */
+const levelResponsibilities = {
+    1: {
+        title: "Junior Responsibilities",
+        items: [
+            "Write clean, modular Python functions and classes",
+            "Build responsive UI pages using HTML, CSS, and basic JS",
+            "Configure Django models, views, and URL routing",
+            "Manage relational database migrations and CRUD operations"
+        ]
+    },
+    2: {
+        title: "Mid-Level Responsibilities",
+        items: [
+            "Develop asynchronous REST APIs using FastAPI and Pydantic",
+            "Build dynamic single-page applications using React and Tailwind CSS",
+            "Set up Celery background job workers and Redis caching layers",
+            "Implement secure JWT authentication and third-party OAuth flows"
+        ]
+    },
+    3: {
+        title: "Senior / Architect Responsibilities",
+        items: [
+            "Design scalable microservices and asynchronous backend architectures",
+            "Containerize multi-service applications using Docker and Docker Compose",
+            "Set up automated CI/CD deployment pipelines using GitHub Actions",
+            "Optimize database indexing, query execution, and high-concurrency performance"
+        ]
+    }
+};
+
+function selectLevelCard(levelNum) {
+    for (let i = 1; i <= 3; i++) {
+        const card = document.getElementById(`level-card-${i}`);
+        if (card) card.classList.remove('active');
+    }
+    const targetCard = document.getElementById(`level-card-${levelNum}`);
+    if (targetCard) targetCard.classList.add('active');
+
+    const respData = levelResponsibilities[levelNum];
+    const respTitle = document.getElementById('resp-title');
+    if (respTitle) respTitle.innerText = respData.title;
+    
+    const listContainer = document.getElementById('resp-list');
+    if (listContainer) {
+        listContainer.innerHTML = '';
+        respData.items.forEach(itemText => {
+            const li = document.createElement('li');
+            li.innerText = itemText;
+            listContainer.appendChild(li);
+        });
+    }
+
+    switchRoadmapTab(levelNum);
+}
+
+function switchRoadmapTab(tabNum) {
+    for (let i = 1; i <= 3; i++) {
+        const btn = document.getElementById(`tab-btn-${i}`);
+        const content = document.getElementById(`roadmap-tab-${i}`);
+        
+        if (btn && content) {
+            if (i === tabNum) {
+                btn.classList.add('active');
+                content.classList.add('active');
+            } else {
+                btn.classList.remove('active');
+                content.classList.remove('active');
+            }
+        }
+    }
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,1497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantum Computing Engineer — Market, Skill Evidence & A-to-Z Roadmap</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-main: #f4f7fb;
+            --bg-card: #FFFFFF;
+            --text-primary: #172033;
+            --text-secondary: #475569;
+            --text-muted: #64748B;
+            --border-color: #e5eaf2;
+            --border-hover: #cbd8f2;
+
+            /* Quantum Computing Palette (Deep Ultraviolet / Cyan / Cosmic Indigo) */
+            --navy-deep: #0b0f19;
+            --qc-violet: #8b5cf6;
+            --qc-violet-light: #f5f3ff;
+            --qc-cyan: #06b6d4;
+            --qc-cyan-light: #ecfeff;
+            --qc-blue: #2563eb;
+            --qc-blue-light: #eff6ff;
+
+            --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(15, 23, 42, 0.08), 0 2px 4px -2px rgba(15, 23, 42, 0.05);
+            --shadow-lg: 0 20px 60px rgba(27,42,74,.09);
+            --shadow-hover: 0 12px 35px rgba(30,50,90,.08);
+
+            --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+
+            --transition: all 0.25s ease;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-primary);
+            font-family: var(--font-sans);
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+            padding: 30px;
+        }
+
+        /* ================================
+           MAIN CONTAINER / DASHBOARD WRAPPER
+        ================================ */
+        .dashboard {
+            width: min(1150px, 100%);
+            margin: auto;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 26px;
+            box-shadow: var(--shadow-lg);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .dashboard-content-wrapper {
+            padding: 35px 40px 45px;
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
+
+        /* ================================
+           HEADER
+        ================================ */
+        .header {
+            padding: 35px 40px;
+            background: linear-gradient(135deg, #090d16, #2e1065 55%, #083344);
+            color: white;
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .badge {
+            display: inline-flex;
+            padding: 7px 12px;
+            border-radius: 30px;
+            background: rgba(255,255,255,.15);
+            color: #a5f3fc;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .header h1 {
+            margin: 15px 0 8px;
+            font-size: clamp(28px, 4vw, 46px);
+            letter-spacing: -1.5px;
+        }
+
+        .header p {
+            margin: 0;
+            max-width: 700px;
+            color: #cbd5e1;
+            line-height: 1.6;
+            font-size: 15px;
+        }
+
+        /* ================================
+           TABS
+        ================================ */
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 10px;
+            padding: 6px;
+            background: #f2f5f9;
+            border-radius: 14px;
+            width: max-content;
+            max-width: 100%;
+            overflow: auto;
+        }
+
+        .tab {
+            border: 0;
+            background: transparent;
+            padding: 11px 18px;
+            border-radius: 10px;
+            font-size: 13px;
+            font-weight: 800;
+            color: #68748a;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: var(--transition);
+        }
+
+        .tab:hover {
+            color: var(--qc-violet);
+        }
+
+        .tab.active {
+            background: white;
+            color: var(--qc-violet);
+            box-shadow: 0 4px 12px rgba(20,35,70,.08);
+        }
+
+        /* ================================
+           SECTION TITLE
+        ================================ */
+        .section-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+            gap: 20px;
+            margin-bottom: 22px;
+        }
+
+        .section-title h2 {
+            margin: 0;
+            font-size: 24px;
+            letter-spacing: -.5px;
+        }
+
+        .section-title p {
+            margin: 5px 0 0;
+            color: #748096;
+            font-size: 13px;
+        }
+
+        /* ================================
+           COMPARISON CARD
+        ================================ */
+        .comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 22px;
+        }
+
+        .panel {
+            padding: 25px;
+            border: 1px solid #e5eaf1;
+            border-radius: 20px;
+            background: #fbfcfe;
+            transition: var(--transition);
+        }
+
+        .panel:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .panel-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 22px;
+        }
+
+        .panel-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 900;
+        }
+
+        .panel-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--qc-violet);
+        }
+
+        .context {
+            font-size: 11px;
+            color: #7c879a;
+            background: #eef2f7;
+            padding: 6px 9px;
+            border-radius: 8px;
+            font-weight: 700;
+        }
+
+        /* ================================
+           BAR
+        ================================ */
+        .metric {
+            margin-bottom: 22px;
+        }
+
+        .metric:last-child {
+            margin-bottom: 0;
+        }
+
+        .metric-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .metric-name {
+            font-size: 13px;
+            font-weight: 750;
+            color: #3d475b;
+        }
+
+        .metric-value {
+            font-size: 16px;
+            font-weight: 950;
+            color: #172033;
+        }
+
+        .bar {
+            height: 12px;
+            background: #e9edf3;
+            border-radius: 50px;
+            overflow: hidden;
+        }
+
+        .bar-fill {
+            width: 0;
+            height: 100%;
+            border-radius: 50px;
+            background: linear-gradient(90deg, #8b5cf6, #06b6d4);
+            transition: width 1s cubic-bezier(.2,.8,.2,1);
+        }
+
+        /* ================================
+           HIGHLIGHT
+        ================================ */
+        .highlight {
+            margin-top: 25px;
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            padding: 20px;
+            border-radius: 18px;
+            background: linear-gradient(135deg, #f5f3ff, #ecfeff);
+            border: 1px solid #ede9fe;
+        }
+
+        .highlight-number {
+            min-width: 65px;
+            height: 65px;
+            display: grid;
+            place-items: center;
+            border-radius: 17px;
+            color: white;
+            font-size: 13px;
+            font-weight: 950;
+            background: linear-gradient(135deg, #8b5cf6, #06b6d4);
+            text-align: center;
+            line-height: 1.1;
+            padding: 4px;
+        }
+
+        .highlight strong {
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .highlight span {
+            font-size: 12px;
+            color: #475569;
+            line-height: 1.5;
+        }
+
+        /* ================================
+           FULL WIDTH GRAPH
+        ================================ */
+        .full-card {
+            margin-top: 25px;
+            padding: 27px;
+            border: 1px solid #e5eaf1;
+            border-radius: 20px;
+            background: white;
+        }
+
+        .graph-row {
+            display: grid;
+            grid-template-columns: 210px 1fr 70px;
+            align-items: center;
+            gap: 15px;
+            margin: 18px 0;
+        }
+
+        .graph-label {
+            font-size: 13px;
+            font-weight: 800;
+        }
+
+        .graph-track {
+            height: 15px;
+            background: #edf0f5;
+            border-radius: 30px;
+            overflow: hidden;
+        }
+
+        .graph-fill {
+            width: 0;
+            height: 100%;
+            border-radius: 30px;
+            background: linear-gradient(90deg, #8b5cf6, #2563eb);
+            transition: width 1.2s ease;
+        }
+
+        .graph-value {
+            text-align: right;
+            font-size: 14px;
+            font-weight: 950;
+        }
+
+        /* ================================
+           SKILL CARDS
+        ================================ */
+        .skill-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 14px;
+            margin-top: 25px;
+        }
+
+        .skill {
+            padding: 20px;
+            border: 1px solid #e6eaf1;
+            border-radius: 17px;
+            background: white;
+            transition: var(--transition);
+        }
+
+        .skill:hover {
+            transform: translateY(-4px);
+            border-color: #c4b5fd;
+            box-shadow: 0 10px 25px rgba(139,92,246,.08);
+        }
+
+        .skill-number {
+            font-size: 11px;
+            color: #8b5cf6;
+            font-weight: 900;
+            letter-spacing: 1px;
+        }
+
+        .skill h3 {
+            margin: 8px 0 5px;
+            font-size: 16px;
+        }
+
+        .skill p {
+            margin: 0;
+            color: #778399;
+            font-size: 12px;
+            line-height: 1.5;
+        }
+
+        /* ================================
+           FOOTNOTE / NOTE
+        ================================ */
+        .note {
+            margin-top: 28px;
+            padding: 15px 18px;
+            border-left: 3px solid var(--qc-violet);
+            background: #f7f9fc;
+            color: #6c778a;
+            font-size: 11px;
+            line-height: 1.6;
+            border-radius: 0 10px 10px 0;
+        }
+
+        /* ================================
+           ADDITIONAL COMPONENTS STYLING
+        ================================ */
+        .extra-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+
+        .extra-card:hover {
+            border-color: var(--border-hover);
+            box-shadow: var(--shadow-md);
+        }
+
+        .actions-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 16px;
+            margin-top: 16px;
+        }
+
+        .action-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 16px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .action-icon {
+            width: 42px;
+            height: 42px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .action-title {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--navy-deep);
+            letter-spacing: 0.05em;
+        }
+
+        .action-desc {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            line-height: 1.35;
+        }
+
+        .levels-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .level-card {
+            background: var(--bg-card);
+            border: 2px solid var(--border-color);
+            border-radius: 16px;
+            padding: 24px;
+            cursor: pointer;
+            transition: var(--transition);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .level-card.active, .level-card:hover {
+            border-color: var(--qc-violet);
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-2px);
+        }
+
+        .level-card.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 20%;
+            right: 20%;
+            height: 4px;
+            background: var(--qc-violet);
+            border-radius: 4px 4px 0 0;
+        }
+
+        .level-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 12px;
+        }
+
+        .level-num {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--qc-violet);
+        }
+
+        .level-exp {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            background: var(--bg-main);
+            padding: 2px 8px;
+            border-radius: 6px;
+        }
+
+        .level-title {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--navy-deep);
+        }
+
+        .level-focus {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--qc-violet);
+        }
+
+        .level-skills-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .tag {
+            font-size: 0.7rem;
+            font-weight: 600;
+            background: var(--bg-main);
+            color: var(--text-secondary);
+            padding: 3px 8px;
+            border-radius: 4px;
+            border: 1px solid var(--border-color);
+        }
+
+        .roadmap-tabs-container {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .roadmap-tab-btn {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 12px 24px;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .roadmap-tab-btn:hover {
+            border-color: var(--qc-violet);
+            color: var(--qc-violet);
+        }
+
+        .roadmap-tab-btn.active {
+            background: var(--qc-violet);
+            color: white;
+            border-color: var(--qc-violet);
+            box-shadow: var(--shadow-md);
+        }
+
+        .roadmap-content-pane {
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .roadmap-content-pane.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(6px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .topics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .topic-item {
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 14px;
+            background: var(--bg-main);
+            transition: var(--transition);
+        }
+
+        .topic-item:hover {
+            background: var(--bg-card);
+            border-color: var(--qc-violet);
+        }
+
+        .topic-title {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--navy-deep);
+            margin-bottom: 4px;
+        }
+
+        .topic-desc {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        .split-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .checklist-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        .check-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+
+        .check-icon {
+            color: var(--qc-violet);
+            font-weight: 800;
+        }
+
+        .career-path-flow {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .path-step {
+            background: var(--bg-main);
+            border: 1px solid var(--border-color);
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--navy-deep);
+            text-align: center;
+        }
+
+        .path-arrow {
+            text-align: center;
+            color: var(--qc-violet);
+            font-size: 0.75rem;
+            margin: -4px 0;
+        }
+
+        .cta-banner {
+            background: linear-gradient(135deg, #7c3aed 0%, #06b6d4 100%);
+            color: white;
+            border-radius: 16px;
+            padding: 36px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .cta-content {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .cta-icon-bg {
+            width: 56px;
+            height: 56px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .cta-text h3 {
+            font-size: 1.35rem;
+            font-weight: 800;
+            line-height: 1.2;
+        }
+
+        .cta-btn {
+            background: white;
+            color: var(--qc-violet);
+            padding: 12px 24px;
+            border-radius: 10px;
+            font-weight: 800;
+            font-size: 0.9rem;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            white-space: nowrap;
+            text-decoration: none;
+        }
+
+        .cta-btn:hover {
+            background: var(--qc-violet-light);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* ================================
+           MOBILE RESPONSIVE
+        ================================ */
+        @media(max-width: 1024px) {
+            .comparison { grid-template-columns: 1fr; }
+            .skill-grid { grid-template-columns: repeat(2, 1fr); }
+            .actions-grid { grid-template-columns: repeat(3, 1fr); }
+            .levels-grid { grid-template-columns: 1fr; }
+            .split-3 { grid-template-columns: 1fr; }
+        }
+
+        @media(max-width: 800px) {
+            body { padding: 12px; }
+            .header { padding: 27px 24px; }
+            .dashboard-content-wrapper { padding: 25px 20px 30px; }
+        }
+
+        @media(max-width: 520px) {
+            .header-top { display: block; }
+            .header h1 { font-size: 32px; }
+            .tabs { width: 100%; }
+            .graph-row { grid-template-columns: 105px 1fr 50px; gap: 9px; }
+            .skill-grid { grid-template-columns: 1fr; }
+            .highlight { align-items: flex-start; }
+            .actions-grid { grid-template-columns: repeat(2, 1fr); }
+            .cta-banner { flex-direction: column; text-align: center; gap: 20px; }
+            .cta-content { flex-direction: column; }
+        }
+    </style>
+</head>
+
+<body>
+  <a class="back-to-roadmaps" href="index.html" aria-label="Back to roadmaps" style="display:inline-flex;align-items:center;gap:8px;margin:18px 0 0 18px;background:#fff;color:#0f172a;padding:10px 16px;border-radius:999px;border:1px solid #e2e8f0;box-shadow:0 10px 20px rgba(15,23,42,0.08);font-weight:700;text-decoration:none;">&larr; Back to roadmaps</a>
+
+
+<div class="dashboard">
+
+    <!-- =================================
+       HEADER
+    ================================= -->
+    <header class="header">
+        <div class="header-top">
+            <span class="badge">Quantum Information & Computing</span>
+            <span style="font-size:11px; color:#cbd5e1;">Qubits • Qiskit / Cirq • Quantum Algorithms • Fault-Tolerant QEC</span>
+        </div>
+        <h1>
+            Quantum Computing Engineer
+            <br>
+            <span style="color:#c4b5fd">Market, Skill Evidence & A-to-Z Roadmap</span>
+        </h1>
+        <p>
+            A comprehensive overview of quantum computing software engineering, Hilbert space mathematics, quantum circuit compilation, NISQ-era variational algorithms (VQE/QAOA), quantum error correction, and quantum hardware execution.
+        </p>
+    </header>
+
+    <div class="dashboard-content-wrapper">
+
+        <!-- =================================
+           TABS
+        ================================ -->
+        <div class="tabs">
+            <button class="tab active" data-tab="roadmap">Career & Roadmap</button>
+            <button class="tab" data-tab="technology">Core Quantum Stack</button>
+            <button class="tab" data-tab="future">Error Correction & Fault Tolerance</button>
+            <button class="tab" data-tab="market">Market Signals</button>
+        </div>
+
+        <!-- =================================
+           MARKET TAB CONTENT
+        ================================ -->
+        <section id="market" class="tab-content" style="display:none">
+            <div class="section-title">
+                <div>
+                    <h2>2026 Quantum Computing Hiring & Research</h2>
+                    <p>Demand indicators for quantum software developers, quantum algorithm researchers, and quantum chemistry modelers.</p>
+                </div>
+            </div>
+
+            <div class="comparison">
+                <div class="panel">
+                    <div class="panel-head">
+                        <div class="panel-title">
+                            <span class="panel-dot"></span>
+                            Quantum Software & Algorithms Demand
+                        </div>
+                        <span class="context">2026</span>
+                    </div>
+
+                    <div class="metric">
+                        <div class="metric-top">
+                            <span class="metric-name">Quantum Algorithm Engineering (NISQ & VQE)</span>
+                            <span class="metric-value">44%</span>
+                        </div>
+                        <div class="bar">
+                            <div class="bar-fill" data-value="44"></div>
+                        </div>
+                    </div>
+
+                    <div class="metric">
+                        <div class="metric-top">
+                            <span class="metric-name">Post-Quantum Cryptography (PQC) Migration</span>
+                            <span class="metric-value">47%</span>
+                        </div>
+                        <div class="bar">
+                            <div class="bar-fill" data-value="47"></div>
+                        </div>
+                    </div>
+
+                    <div class="metric">
+                        <div class="metric-top">
+                            <span class="metric-name">Quantum Machine Learning (QML)</span>
+                            <span class="metric-value">39%</span>
+                        </div>
+                        <div class="bar">
+                            <div class="bar-fill" data-value="39"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel">
+                    <div class="panel-head">
+                        <div class="panel-title">
+                            <span class="panel-dot" style="background:#06b6d4"></span>
+                            Ecosystem Demand Signal
+                        </div>
+                        <span class="context">Core Pillar</span>
+                    </div>
+
+                    <div class="metric">
+                        <div class="metric-top">
+                            <span class="metric-name">IBM Qiskit SDK & Ecosystem Adoption</span>
+                            <span class="metric-value">91%</span>
+                        </div>
+                        <div class="bar">
+                            <div class="bar-fill" style="background: linear-gradient(90deg, #8b5cf6, #06b6d4); width: 91%"></div>
+                        </div>
+                    </div>
+
+                    <div class="metric">
+                        <div class="metric-top">
+                            <span class="metric-name">Hybrid Quantum-Classical Infrastructure</span>
+                            <span class="metric-value">86%</span>
+                        </div>
+                        <div class="bar">
+                            <div class="bar-fill" style="background: linear-gradient(90deg, #8b5cf6, #06b6d4); width: 86%"></div>
+                        </div>
+                    </div>
+
+                    <div class="highlight">
+                        <div class="highlight-number">QUANTUM</div>
+                        <div>
+                            <strong>Beyond Classical Computation</strong>
+                            <span>Quantum computing exploits superposition, interference, and entanglement to solve intractable problems in molecular simulation, combinatorial optimization, and cryptography exponentially faster than classical supercomputers.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="note">
+                <strong>Important:</strong> Quantum software engineers primarily program high-level abstract circuits and hybrid workflows targeting physical QPUs (superconducting, trapped-ion, neutral atom) or classical statevector simulators.
+            </div>
+        </section>
+
+        <!-- =================================
+           TECHNOLOGY TAB CONTENT
+        ================================ -->
+        <section id="technology" class="tab-content" style="display:none">
+            <div class="section-title">
+                <div>
+                    <h2>Core Quantum Software Stack</h2>
+                    <p>Linear algebra, quantum circuit SDKs, noise characterization, and hybrid quantum-classical optimizers.</p>
+                </div>
+            </div>
+
+            <div class="full-card">
+                <div class="graph-row">
+                    <span class="graph-label">Linear Algebra & Dirac Notation</span>
+                    <div class="graph-track">
+                        <div class="graph-fill" data-width="96%"></div>
+                    </div>
+                    <span class="graph-value">96%</span>
+                </div>
+
+                <div class="graph-row">
+                    <span class="graph-label">IBM Qiskit / Google Cirq</span>
+                    <div class="graph-track">
+                        <div class="graph-fill" data-width="92%"></div>
+                    </div>
+                    <span class="graph-value">92%</span>
+                </div>
+
+                <div class="graph-row">
+                    <span class="graph-label">Hybrid Algorithms (VQE / QAOA)</span>
+                    <div class="graph-track">
+                        <div class="graph-fill" data-width="87%"></div>
+                    </div>
+                    <span class="graph-value">87%</span>
+                </div>
+
+                <div class="graph-row">
+                    <span class="graph-label">Differentiable QML (PennyLane)</span>
+                    <div class="graph-track">
+                        <div class="graph-fill" data-width="81%"></div>
+                    </div>
+                    <span class="graph-value">81%</span>
+                </div>
+            </div>
+
+            <div class="skill-grid">
+                <div class="skill">
+                    <span class="skill-number">01</span>
+                    <h3>Qubits & Gates</h3>
+                    <p>Bloch sphere representation, Pauli X/Y/Z, Hadamard, Phase, and 2-qubit CNOT / CZ entangling gates.</p>
+                </div>
+                <div class="skill">
+                    <span class="skill-number">02</span>
+                    <h3>Quantum Circuit Design</h3>
+                    <p>Building quantum circuits, state preparation, mid-circuit measurements, and statevector simulation.</p>
+                </div>
+                <div class="skill">
+                    <span class="skill-number">03</span>
+                    <h3>Hybrid Optimizers</h3>
+                    <p>Variational Quantum Eigensolver (VQE), QAOA for graph optimization, and COBYLA/SPSA classical loops.</p>
+                </div>
+                <div class="skill">
+                    <span class="skill-number">04</span>
+                    <h3>Hardware Transpilation</h3>
+                    <p>Mapping logical circuits to physical QPU coupling maps, gate synthesis, and reducing circuit depth.</p>
+                </div>
+            </div>
+
+            <div class="note">
+                Quantum programming blends Python-based SDKs (Qiskit, Cirq, PennyLane) with unitary matrix operations, compiling high-level circuits into hardware-native microwave pulses or laser pulses.
+            </div>
+        </section>
+
+        <!-- =================================
+           FUTURE / ERROR CORRECTION & FAULT TOLERANCE TAB CONTENT
+        ================================ -->
+        <section id="future" class="tab-content" style="display:none">
+            <div class="section-title">
+                <div>
+                    <h2>Quantum Error Correction (QEC) & Scaled Systems</h2>
+                    <p>Surface codes, topological quantum memory, post-quantum cryptography, and fault-tolerant logical qubits.</p>
+                </div>
+            </div>
+
+            <div class="comparison">
+                <div class="panel">
+                    <div class="panel-head">
+                        <div class="panel-title">
+                            <span class="panel-dot"></span>
+                            Fault-Tolerant Quantum Computing
+                        </div>
+                        <span class="context">Long-Term Scalability</span>
+                    </div>
+
+                    <div class="metric">
+                        <div class="metric-top">
+                            <span class="metric-name">Surface Code & Stabilizer Formalism</span>
+                            <span class="metric-value">90%</span>
+                        </div>
+                        <div class="bar">
+                            <div class="bar-fill" style="width:90%"></div>
+                        </div>
+                    </div>
+
+                    <div class="metric">
+                        <div class="metric-top">
+                            <span class="metric-name">Logical Qubit Synergies</span>
+                            <span class="metric-value">85%</span>
+                        </div>
+                        <div class="bar">
+                            <div class="bar-fill" style="width:85%"></div>
+                        </div>
+                    </div>
+
+                    <div class="metric">
+                        <div class="metric-top">
+                            <span class="metric-name">Zero-Noise Extrapolation (ZNE Mitigation)</span>
+                            <span class="metric-value">88%</span>
+                        </div>
+                        <div class="bar">
+                            <div class="bar-fill" style="width:88%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel">
+                    <div class="panel-head">
+                        <div class="panel-title">
+                            <span class="panel-dot" style="background:#06b6d4"></span>
+                            PQC & Advanced Algorithms
+                        </div>
+                        <span class="context">Cryptographic Frontier</span>
+                    </div>
+
+                    <div class="metric">
+                        <div class="metric-top">
+                            <span class="metric-name">Post-Quantum Cryptography (ML-KEM / Dilithium)</span>
+                            <span class="metric-value">92%</span>
+                        </div>
+                        <div class="bar">
+                            <div class="bar-fill" style="background: linear-gradient(90deg, #8b5cf6, #06b6d4); width:92%"></div>
+                        </div>
+                    </div>
+
+                    <div class="metric">
+                        <div class="metric-top">
+                            <span class="metric-name">Quantum Phase Estimation (QPE / Shor's)</span>
+                            <span class="metric-value">84%</span>
+                        </div>
+                        <div class="bar">
+                            <div class="bar-fill" style="background: linear-gradient(90deg, #8b5cf6, #06b6d4); width:84%"></div>
+                        </div>
+                    </div>
+
+                    <div class="metric">
+                        <div class="metric-top">
+                            <span class="metric-name">Quantum Chemistry & Material Simulation</span>
+                            <span class="metric-value">86%</span>
+                        </div>
+                        <div class="bar">
+                            <div class="bar-fill" style="background: linear-gradient(90deg, #8b5cf6, #06b6d4); width:86%"></div>
+                        </div>
+                    </div>
+
+                    <div class="highlight">
+                        <div class="highlight-number">FAULT TOLERANCE</div>
+                        <div>
+                            <strong>From NISQ to Logical Qubits</strong>
+                            <span>The breakthrough milestone in quantum computing is transitioning from noisy physical qubits to fault-tolerant logical qubits protected by continuous stabilizer syndrome measurements and real-time error decoding.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="note">
+                Quantum Error Correction (QEC) requires thousands of physical qubits to encode a single fault-tolerant logical qubit, creating huge demand for decoding algorithms (MWPM) and real-time FPGA control logic.
+            </div>
+        </section>
+
+        <!-- =================================
+           ROADMAP TAB CONTENT (A-to-Z Quantum Curriculum)
+        ================================ -->
+        <section id="roadmap" class="tab-content" style="display:block">
+            <div class="section-title">
+                <div>
+                    <h2>Quantum Computing Engineer A-to-Z Roadmap</h2>
+                    <p>Master quantum information science from linear algebra and Dirac notation to Qiskit circuits, variational algorithms (VQE/QAOA), quantum error correction, and QPU execution.</p>
+                </div>
+            </div>
+
+            <!-- Course Duration & Delivery Models -->
+            <div class="extra-card" style="margin-bottom: 24px;">
+                <div class="section-header" style="text-align: left; margin-bottom: 16px;">
+                    <h3 style="font-size: 1.2rem; font-weight: 800; color: var(--navy-deep);">Course Duration & Delivery Models</h3>
+                    <p style="font-size: 0.85rem; color: var(--text-secondary);">Structured pathways for mastering quantum information science and software.</p>
+                </div>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px;">
+                    <div style="background: var(--bg-main); border: 1px solid var(--border-color); border-radius: 12px; padding: 16px; text-align: center;">
+                        <div style="font-size: 1.5rem; margin-bottom: 8px;">🚀</div>
+                        <h4 style="font-size: 1rem; font-weight: 800; color: var(--navy-deep); margin-bottom: 4px;">Bootcamp</h4>
+                        <p style="font-size: 0.78rem; color: var(--text-secondary);">Intensive linear algebra & Qiskit circuit sprint.</p>
+                    </div>
+                    <div style="background: var(--bg-main); border: 1px solid var(--border-color); border-radius: 12px; padding: 16px; text-align: center;">
+                        <div style="font-size: 1.5rem; margin-bottom: 8px;">⚡</div>
+                        <h4 style="font-size: 1rem; font-weight: 800; color: var(--navy-deep); margin-bottom: 4px;">Accelerated</h4>
+                        <span class="badge" style="background: var(--qc-violet-light); color: var(--qc-violet); margin-bottom: 8px;">45 Days</span>
+                        <p style="font-size: 0.78rem; color: var(--text-secondary);">Fast-track quantum gates, Grover & statevectors.</p>
+                    </div>
+                    <div style="background: var(--bg-main); border: 1px solid var(--border-color); border-radius: 12px; padding: 16px; text-align: center;">
+                        <div style="font-size: 1.5rem; margin-bottom: 8px;">🏃</div>
+                        <h4 style="font-size: 1rem; font-weight: 800; color: var(--navy-deep); margin-bottom: 4px;">Medium</h4>
+                        <span class="badge" style="background: var(--qc-cyan-light); color: #0891b2; margin-bottom: 8px;">90 Days</span>
+                        <p style="font-size: 0.78rem; color: var(--text-secondary);">Balanced VQE, QAOA & QPU execution pace.</p>
+                    </div>
+                    <div style="background: var(--bg-main); border: 1px solid var(--border-color); border-radius: 12px; padding: 16px; text-align: center;">
+                        <div style="font-size: 1.5rem; margin-bottom: 8px;">🧠</div>
+                        <h4 style="font-size: 1rem; font-weight: 800; color: var(--navy-deep); margin-bottom: 4px;">Complete A-to-Z</h4>
+                        <span class="badge" style="background: var(--qc-blue-light); color: var(--qc-blue); margin-bottom: 8px;">180 Days</span>
+                        <p style="font-size: 0.78rem; color: var(--text-secondary);">Deep dive into Surface Codes, QEC & QML.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- What a Quantum Engineer Does -->
+            <div class="extra-card" style="margin-bottom: 24px;">
+                <div class="section-header" style="text-align: left; margin-bottom: 16px;">
+                    <h3 style="font-size: 1.2rem; font-weight: 800; color: var(--navy-deep);">What Does a Quantum Computing Engineer Do?</h3>
+                </div>
+                <div class="actions-grid">
+                    <div class="action-card">
+                        <div class="action-icon" style="background: var(--qc-violet-light); color: var(--qc-violet);">QUB</div>
+                        <div class="action-title">MODEL QUBITS</div>
+                        <div class="action-desc">Superposition & entanglement states.</div>
+                    </div>
+                    <div class="action-card">
+                        <div class="action-icon" style="background: var(--qc-cyan-light); color: #0891b2;">CIR</div>
+                        <div class="action-title">CIRCUIT DESIGN</div>
+                        <div class="action-desc">Construct unitary quantum gates.</div>
+                    </div>
+                    <div class="action-card">
+                        <div class="action-icon" style="background: var(--qc-blue-light); color: var(--qc-blue);">HYB</div>
+                        <div class="action-title">HYBRID ALGO</div>
+                        <div class="action-desc">Optimize VQE & QAOA heuristics.</div>
+                    </div>
+                    <div class="action-card">
+                        <div class="action-icon" style="background: var(--qc-violet-light); color: var(--qc-violet);">QPU</div>
+                        <div class="action-title">TRANSPILATION</div>
+                        <div class="action-desc">Map circuits to real hardware topology.</div>
+                    </div>
+                    <div class="action-card">
+                        <div class="action-icon" style="background: var(--qc-cyan-light); color: #0891b2;">QEC</div>
+                        <div class="action-title">ERROR MITIGATION</div>
+                        <div class="action-desc">Zero-noise extrapolation & readout tweaks.</div>
+                    </div>
+                    <div class="action-card">
+                        <div class="action-icon" style="background: var(--qc-blue-light); color: var(--qc-blue);">PQC</div>
+                        <div class="action-title">CRYPTOGRAPHY</div>
+                        <div class="action-desc">Implement post-quantum algorithms.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Career Levels Selection -->
+            <div style="margin-bottom: 24px;">
+                <div class="section-header" style="text-align: left; margin-bottom: 16px;">
+                    <h3 style="font-size: 1.2rem; font-weight: 800; color: var(--navy-deep);">Career Levels</h3>
+                </div>
+                <div class="levels-grid">
+                    <div class="level-card active" onclick="selectLevelCard(1)" id="level-card-1">
+                        <div class="level-header">
+                            <span class="level-num">LEVEL 01</span>
+                            <span class="level-exp">0 – 2 Years</span>
+                        </div>
+                        <h4 class="level-title">Junior Quantum Software Developer</h4>
+                        <div class="level-focus">Focus: Linear Algebra, Qiskit Circuits & Quantum Simulators</div>
+                        <div class="level-skills-tags">
+                            <span class="tag">Python</span><span class="tag">Linear Algebra</span><span class="tag">Qiskit Basics</span><span class="tag">Bell States</span>
+                        </div>
+                    </div>
+
+                    <div class="level-card" onclick="selectLevelCard(2)" id="level-card-2">
+                        <div class="level-header">
+                            <span class="level-num">LEVEL 02</span>
+                            <span class="level-exp">2 – 5 Years</span>
+                        </div>
+                        <h4 class="level-title">Quantum Algorithm Engineer</h4>
+                        <div class="level-focus">Focus: VQE, QAOA, Noise Mitigation & Hardware Execution</div>
+                        <div class="level-skills-tags">
+                            <span class="tag">VQE / QAOA</span><span class="tag">PennyLane QML</span><span class="tag">Cirq</span><span class="tag">Hardware Transpilation</span>
+                        </div>
+                    </div>
+
+                    <div class="level-card" onclick="selectLevelCard(3)" id="level-card-3">
+                        <div class="level-header">
+                            <span class="level-num">LEVEL 03</span>
+                            <span class="level-exp">5+ Years</span>
+                        </div>
+                        <h4 class="level-title">Principal Quantum Architect</h4>
+                        <div class="level-focus">Focus: Quantum Error Correction (QEC), Surface Codes & Fault Tolerance</div>
+                        <div class="level-skills-tags">
+                            <span class="tag">Surface Codes</span><span class="tag">QEC Decoders</span><span class="tag">Pulse-Level Control</span><span class="tag">PQC Cryptography</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Interactive Learning Roadmap Tabs -->
+            <div style="margin-bottom: 24px;">
+                <div class="section-header" style="text-align: left; margin-bottom: 16px;">
+                    <h3 style="font-size: 1.2rem; font-weight: 800; color: var(--navy-deep);">A-to-Z Learning Modules</h3>
+                </div>
+
+                <div class="roadmap-tabs-container">
+                    <button class="roadmap-tab-btn active" id="tab-btn-1" onclick="switchRoadmapTab(1)">LEVEL 1 – FOUNDATION</button>
+                    <button class="roadmap-tab-btn" id="tab-btn-2" onclick="switchRoadmapTab(2)">LEVEL 2 – PROFESSIONAL</button>
+                    <button class="roadmap-tab-btn" id="tab-btn-3" onclick="switchRoadmapTab(3)">LEVEL 3 – ADVANCED</button>
+                </div>
+
+                <div class="roadmap-content-pane active" id="roadmap-tab-1">
+                    <div class="extra-card">
+                        <h4 style="font-size: 1.1rem; font-weight: 800; color: var(--navy-deep); margin-bottom: 4px;">Level 1: Mathematics of Quantum Mechanics & Quantum Circuit Basics</h4>
+                        <p style="font-size: 0.82rem; color: var(--text-secondary); margin-bottom: 16px;">Vector spaces, tensor products, Dirac bra-ket notation, single and multi-qubit gate logic.</p>
+                        <div class="topics-grid">
+                            <div class="topic-item">
+                                <div class="topic-title">1. Linear Algebra & Hilbert Spaces</div>
+                                <div class="topic-desc">Complex vector spaces, inner products, unitary matrices, Hermitian operators, eigenvalues, and tensor products.</div>
+                            </div>
+                            <div class="topic-item">
+                                <div class="topic-title">2. Qubit Physics & Dirac Notation</div>
+                                <div class="topic-desc">Bloch sphere geometric representation, superposition, measurement postulates, and bra-ket formalism (|0⟩ and |1⟩).</div>
+                            </div>
+                            <div class="topic-item">
+                                <div class="topic-title">3. Quantum Gates & Entanglement</div>
+                                <div class="topic-desc">Pauli X, Y, Z, Hadamard, S and T phase gates, CNOT entangling gates, Bell state generation, and quantum teleportation.</div>
+                            </div>
+                            <div class="topic-item">
+                                <div class="topic-title">4. Quantum SDKs & Statevector Simulation</div>
+                                <div class="topic-desc">Setting up IBM Qiskit and Google Cirq, constructing QuantumCircuit instances, and analyzing probability amplitudes.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="roadmap-content-pane" id="roadmap-tab-2">
+                    <div class="extra-card">
+                        <h4 style="font-size: 1.1rem; font-weight: 800; color: var(--navy-deep); margin-bottom: 4px;">Level 2: Canonical Algorithms, NISQ Optimization & Hardware Transpilation</h4>
+                        <p style="font-size: 0.82rem; color: var(--text-secondary); margin-bottom: 16px;">Deutsch-Jozsa, Grover's search, variational algorithms, noise models, and cloud QPU execution.</p>
+                        <div class="topics-grid">
+                            <div class="topic-item">
+                                <div class="topic-title">1. Foundational Quantum Algorithms</div>
+                                <div class="topic-desc">Deutsch-Jozsa, Bernstein-Vazirani, Simon's algorithm, and Grover's search with oracle amplification.</div>
+                            </div>
+                            <div class="topic-item">
+                                <div class="topic-title">2. Variational Quantum Eigensolver (VQE)</div>
+                                <div class="topic-desc">Parameterizing ansätze circuits, measuring Hamiltonian expectation values, and classical optimization loops (COBYLA/SPSA).</div>
+                            </div>
+                            <div class="topic-item">
+                                <div class="topic-title">3. QAOA for Combinatorial Optimization</div>
+                                <div class="topic-desc">Quantum Approximate Optimization Algorithm for Max-Cut and graph partitioning problems on current NISQ devices.</div>
+                            </div>
+                            <div class="topic-item">
+                                <div class="topic-title">4. Hardware Execution & Transpilation</div>
+                                <div class="topic-desc">Compiling circuits to physical IBM/Rigetti topologies, gate decomposition, readout error mitigation, and zero-noise extrapolation.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="roadmap-content-pane" id="roadmap-tab-3">
+                    <div class="extra-card">
+                        <h4 style="font-size: 1.1rem; font-weight: 800; color: var(--navy-deep); margin-bottom: 4px;">Level 3: Fault-Tolerant Quantum Computing, QEC & Quantum Machine Learning</h4>
+                        <p style="font-size: 0.82rem; color: var(--text-secondary); margin-bottom: 16px;">Surface codes, syndrome extraction, Minimum Weight Perfect Matching, PennyLane QML, and Post-Quantum Cryptography.</p>
+                        <div class="topics-grid">
+                            <div class="topic-item">
+                                <div class="topic-title">1. Quantum Error Correction (Surface Codes)</div>
+                                <div class="topic-desc">Stabilizer formalism, bit-flip/phase-flip codes, X and Z syndrome extraction, logical qubit encoding, and MWPM decoders.</div>
+                            </div>
+                            <div class="topic-item">
+                                <div class="topic-title">2. Quantum Phase Estimation & Shor's</div>
+                                <div class="topic-desc">Quantum Fourier Transform (QFT), modular exponentiation circuits, Shor's factoring algorithm, and RSA break implications.</div>
+                            </div>
+                            <div class="topic-item">
+                                <div class="topic-title">3. Quantum Machine Learning (PennyLane)</div>
+                                <div class="topic-desc">Parameter-shift rule, quantum neural networks (QNNs), quantum kernel methods, and barren plateau avoidance.</div>
+                            </div>
+                            <div class="topic-item">
+                                <div class="topic-title">4. Post-Quantum Cryptography (PQC)</div>
+                                <div class="topic-desc">NIST-standardized lattice-based encryption (ML-KEM / Kyber, ML-DSA / Dilithium) and enterprise cryptographic transitions.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Split Section: Skills, Path, & Responsibilities -->
+            <div class="split-3" style="margin-bottom: 24px;">
+                <div class="extra-card">
+                    <h4 style="font-size: 1rem; font-weight: 800; color: var(--navy-deep); margin-bottom: 12px;">Key Skills</h4>
+                    <div class="checklist-grid">
+                        <div class="check-item"><span class="check-icon">✓</span> Linear Algebra & Dirac Math</div>
+                        <div class="check-item"><span class="check-icon">✓</span> IBM Qiskit & Cirq</div>
+                        <div class="check-item"><span class="check-icon">✓</span> Quantum Circuit Synthesis</div>
+                        <div class="check-item"><span class="check-icon">✓</span> VQE & QAOA Optimization</div>
+                        <div class="check-item"><span class="check-icon">✓</span> Error Mitigation (ZNE)</div>
+                        <div class="check-item"><span class="check-icon">✓</span> Surface Codes & QEC</div>
+                    </div>
+                </div>
+
+                <div class="extra-card">
+                    <h4 style="font-size: 1rem; font-weight: 800; color: var(--navy-deep); margin-bottom: 12px;">Career Path</h4>
+                    <div class="career-path-flow">
+                        <div class="path-step">Quantum Research Intern</div>
+                        <div class="path-arrow">↓</div>
+                        <div class="path-step">Junior Quantum Software Developer</div>
+                        <div class="path-arrow">↓</div>
+                        <div class="path-step" style="background: var(--qc-violet-light); border-color: var(--qc-violet);">Quantum Algorithm Engineer</div>
+                        <div class="path-arrow">↓</div>
+                        <div class="path-step">Principal Quantum Computing Architect</div>
+                    </div>
+                </div>
+
+                <div class="extra-card" id="dynamic-resp-card">
+                    <h4 style="font-size: 1rem; font-weight: 800; color: var(--navy-deep); margin-bottom: 8px;" id="resp-title">Level 1 Responsibilities</h4>
+                    <ul style="font-size: 0.78rem; color: var(--text-secondary); padding-left: 14px; display: flex; flex-direction: column; gap: 4px;" id="resp-list">
+                        <li>Implement quantum circuits and state preparation scripts using Qiskit or Cirq</li>
+                        <li>Execute statevector and density-matrix simulations on classical hardware</li>
+                        <li>Calculate quantum gate matrix transformations and evaluate Bell state fidelity</li>
+                        <li>Maintain benchmarking scripts and document circuit depth metrics</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bottom CTA Banner -->
+            <div class="cta-banner">
+                <div class="cta-content">
+                    <div class="cta-icon-bg">⚛️</div>
+                    <div class="cta-text">
+                        <h3>Program qubits, engineer quantum algorithms, and pioneer the next era of compute.</h3>
+                    </div>
+                </div>
+                <a href="#market" onclick="switchMainTab('market')" class="cta-btn">View Market Signals →</a>
+            </div>
+        </section>
+
+    </div>
+
+</div>
+
+<script>
+/* =========================================
+   MAIN DASHBOARD TAB SWITCHING
+========================================= */
+const dashboardTabs = document.querySelectorAll(".tabs .tab");
+const sections = document.querySelectorAll(".dashboard-content-wrapper > .tab-content");
+
+function syncDashboardState(tabId) {
+    dashboardTabs.forEach(t => {
+        t.classList.toggle("active", t.dataset.tab === tabId);
+    });
+
+    sections.forEach(section => {
+        section.style.display = section.id === tabId ? "block" : "none";
+    });
+
+    const selected = document.getElementById(tabId);
+    if (selected) {
+        animateBars(selected);
+    }
+}
+
+dashboardTabs.forEach(tab => {
+    tab.addEventListener("click", () => {
+        syncDashboardState(tab.dataset.tab);
+    });
+});
+
+function switchMainTab(tabId) {
+    dashboardTabs.forEach(t => {
+        if (t.dataset.tab === tabId) {
+            t.click();
+        }
+    });
+}
+
+/* =========================================
+   BAR & GRAPH ANIMATION
+========================================= */
+function animateBars(container){
+    const bars = container.querySelectorAll(".bar-fill[data-value]");
+    bars.forEach(bar => {
+        const value = Number(bar.dataset.value);
+        const width = Math.min((value / 50) * 100, 100);
+        setTimeout(() => {
+            bar.style.width = width + "%";
+        }, 100);
+    });
+
+    const graphBars = container.querySelectorAll(".graph-fill[data-width]");
+    graphBars.forEach(bar => {
+        setTimeout(() => {
+            bar.style.width = bar.dataset.width;
+        }, 100);
+    });
+}
+
+window.addEventListener("load", () => {
+    syncDashboardState("roadmap");
+});
+
+/* =========================================
+   ROADMAP / CAREER LEVEL INTERACTION
+========================================= */
+const levelResponsibilities = {
+    1: {
+        title: "Junior Quantum Developer Responsibilities",
+        items: [
+            "Implement quantum circuits and state preparation scripts using Qiskit or Cirq",
+            "Execute statevector and density-matrix simulations on classical hardware",
+            "Calculate quantum gate matrix transformations and evaluate Bell state fidelity",
+            "Maintain benchmarking scripts and document circuit depth metrics"
+        ]
+    },
+    2: {
+        title: "Quantum Algorithm Engineer Responsibilities",
+        items: [
+            "Design and optimize variational algorithms (VQE, QAOA) for molecular and combinatorial tasks",
+            "Transpile and map logical quantum circuits onto physical QPU coupling constraints",
+            "Implement zero-noise extrapolation and dynamical decoupling error mitigation strategies",
+            "Develop differentiable quantum machine learning models using PennyLane and PyTorch"
+        ]
+    },
+    3: {
+        title: "Principal Quantum Architect Responsibilities",
+        items: [
+            "Architect fault-tolerant quantum computing topologies and surface code syndrome decoders",
+            "Lead pulse-level microwave control optimization and physical-to-logical qubit virtualization",
+            "Direct post-quantum cryptographic (PQC) integration across enterprise infrastructures",
+            "Supervise research into quantum advantage benchmarks for chemistry and optimization"
+        ]
+    }
+};
+
+function selectLevelCard(levelNum) {
+    for (let i = 1; i <= 3; i++) {
+        const card = document.getElementById(`level-card-${i}`);
+        if (card) card.classList.remove('active');
+    }
+    const targetCard = document.getElementById(`level-card-${levelNum}`);
+    if (targetCard) targetCard.classList.add('active');
+
+    const respData = levelResponsibilities[levelNum];
+    const respTitle = document.getElementById('resp-title');
+    if (respTitle) respTitle.innerText = respData.title;
+    
+    const listContainer = document.getElementById('resp-list');
+    if (listContainer) {
+        listContainer.innerHTML = '';
+        respData.items.forEach(itemText => {
+            const li = document.createElement('li');
+            li.innerText = itemText;
+            listContainer.appendChild(li);
+        });
+    }
+
+    switchRoadmapTab(levelNum);
+}
+
+function switchRoadmapTab(tabNum) {
+    for (let i = 1; i <= 3; i++) {
+        const btn = document.getElementById(`tab-btn-${i}`);
+        const content = document.getElementById(`roadmap-tab-${i}`);
+        
+        if (btn && content) {
+            if (i === tabNum) {
+                btn.classList.add('active');
+                content.classList.add('active');
+            } else {
+                btn.classList.remove('active');
+                content.classList.remove('active');
+            }
+        }
+    }
+}
+</script>
+
+</body>
+</html>

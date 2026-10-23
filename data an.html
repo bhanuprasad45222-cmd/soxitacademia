@@ -1,0 +1,1494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Analyst — Market, Skill Evidence & A-to-Z Roadmap</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-main: #f4f7fb;
+            --bg-card: #FFFFFF;
+            --text-primary: #172033;
+            --text-secondary: #475569;
+            --text-muted: #64748B;
+            --border-color: #e5eaf2;
+            --border-hover: #cbd8f2;
+
+            /* Data Analytics Accent Palette (Amber / Royal Blue / Emerald) */
+            --navy-deep: #0f172a;
+            --da-amber: #d97706;
+            --da-amber-light: #fffbeb;
+            --da-blue: #2563eb;
+            --da-blue-light: #eff6ff;
+            --da-emerald: #059669;
+            --da-emerald-light: #ecfdf5;
+
+            --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(15, 23, 42, 0.08), 0 2px 4px -2px rgba(15, 23, 42, 0.05);
+            --shadow-lg: 0 20px 60px rgba(27,42,74,.09);
+            --shadow-hover: 0 12px 35px rgba(30,50,90,.08);
+
+            --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+
+            --transition: all 0.25s ease;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-primary);
+            font-family: var(--font-sans);
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+            padding: 30px;
+        }
+
+        /* ================================
+           MAIN CONTAINER / DASHBOARD WRAPPER
+        ================================ */
+        .dashboard {
+            width: min(1150px, 100%);
+            margin: auto;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 26px;
+            box-shadow: var(--shadow-lg);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .dashboard-content-wrapper {
+            padding: 35px 40px 45px;
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
+
+        /* ================================
+           HEADER
+        ================================ */
+        .header {
+            padding: 35px 40px;
+            background: linear-gradient(135deg, #451a03, #1e3a8a);
+            color: white;
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .badge {
+            display: inline-flex;
+            padding: 7px 12px;
+            border-radius: 30px;
+            background: rgba(255,255,255,.15);
+            color: #fde68a;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .header h1 {
+            margin: 15px 0 8px;
+            font-size: clamp(28px, 4vw, 46px);
+            letter-spacing: -1.5px;
+        }
+
+        .header p {
+            margin: 0;
+            max-width: 700px;
+            color: #cbd5e1;
+            line-height: 1.6;
+            font-size: 15px;
+        }
+
+        /* ================================
+           TABS
+        ================================ */
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 10px;
+            padding: 6px;
+            background: #f2f5f9;
+            border-radius: 14px;
+            width: max-content;
+            max-width: 100%;
+            overflow: auto;
+        }
+
+        .tab {
+            border: 0;
+            background: transparent;
+            padding: 11px 18px;
+            border-radius: 10px;
+            font-size: 13px;
+            font-weight: 800;
+            color: #68748a;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: var(--transition);
+        }
+
+        .tab:hover {
+            color: var(--da-amber);
+        }
+
+        .tab.active {
+            background: white;
+            color: var(--da-amber);
+            box-shadow: 0 4px 12px rgba(20,35,70,.08);
+        }
+
+        /* ================================
+           SECTION TITLE
+        ================================ */
+        .section-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+            gap: 20px;
+            margin-bottom: 22px;
+        }
+
+        .section-title h2 {
+            margin: 0;
+            font-size: 24px;
+            letter-spacing: -.5px;
+        }
+
+        .section-title p {
+            margin: 5px 0 0;
+            color: #748096;
+            font-size: 13px;
+        }
+
+        /* ================================
+           COMPARISON CARD
+        ================================ */
+        .comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 22px;
+        }
+
+        .panel {
+            padding: 25px;
+            border: 1px solid #e5eaf1;
+            border-radius: 20px;
+            background: #fbfcfe;
+            transition: var(--transition);
+        }
+
+        .panel:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .panel-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 22px;
+        }
+
+        .panel-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 900;
+        }
+
+        .panel-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--da-amber);
+        }
+
+        .context {
+            font-size: 11px;
+            color: #7c879a;
+            background: #eef2f7;
+            padding: 6px 9px;
+            border-radius: 8px;
+            font-weight: 700;
+        }
+
+        /* ================================
+           BAR
+        ================================ */
+        .metric {
+            margin-bottom: 22px;
+        }
+
+        .metric:last-child {
+            margin-bottom: 0;
+        }
+
+        .metric-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .metric-name {
+            font-size: 13px;
+            font-weight: 750;
+            color: #3d475b;
+        }
+
+        .metric-value {
+            font-size: 16px;
+            font-weight: 950;
+            color: #172033;
+        }
+
+        .bar {
+            height: 12px;
+            background: #e9edf3;
+            border-radius: 50px;
+            overflow: hidden;
+        }
+
+        .bar-fill {
+            width: 0;
+            height: 100%;
+            border-radius: 50px;
+            background: linear-gradient(90deg, #d97706, #2563eb);
+            transition: width 1s cubic-bezier(.2,.8,.2,1);
+        }
+
+        /* ================================
+           HIGHLIGHT
+        ================================ */
+        .highlight {
+            margin-top: 25px;
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            padding: 20px;
+            border-radius: 18px;
+            background: linear-gradient(135deg, #fffbeb, #eff6ff);
+            border: 1px solid #fef3c7;
+        }
+
+        .highlight-number {
+            min-width: 65px;
+            height: 65px;
+            display: grid;
+            place-items: center;
+            border-radius: 17px;
+            color: white;
+            font-size: 14px;
+            font-weight: 950;
+            background: linear-gradient(135deg, #d97706, #2563eb);
+        }
+
+        .highlight strong {
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .highlight span {
+            font-size: 12px;
+            color: #475569;
+            line-height: 1.5;
+        }
+
+        /* ================================
+           FULL WIDTH GRAPH
+        ================================ */
+        .full-card {
+            margin-top: 25px;
+            padding: 27px;
+            border: 1px solid #e5eaf1;
+            border-radius: 20px;
+            background: white;
+        }
+
+        .graph-row {
+            display: grid;
+            grid-template-columns: 160px 1fr 70px;
+            align-items: center;
+            gap: 15px;
+            margin: 18px 0;
+        }
+
+        .graph-label {
+            font-size: 13px;
+            font-weight: 800;
+        }
+
+        .graph-track {
+            height: 15px;
+            background: #edf0f5;
+            border-radius: 30px;
+            overflow: hidden;
+        }
+
+        .graph-fill {
+            width: 0;
+            height: 100%;
+            border-radius: 30px;
+            background: linear-gradient(90deg, #d97706, #059669);
+            transition: width 1.2s ease;
+        }
+
+        .graph-value {
+            text-align: right;
+            font-size: 14px;
+            font-weight: 950;
+        }
+
+        /* ================================
+           SKILL CARDS
+        ================================ */
+        .skill-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 14px;
+            margin-top: 25px;
+        }
+
+        .skill {
+            padding: 20px;
+            border: 1px solid #e6eaf1;
+            border-radius: 17px;
+            background: white;
+            transition: var(--transition);
+        }
+
+        .skill:hover {
+            transform: translateY(-4px);
+            border-color: #fde68a;
+            box-shadow: 0 10px 25px rgba(217,119,6,.08);
+        }
+
+        .skill-number {
+            font-size: 11px;
+            color: #d97706;
+            font-weight: 900;
+            letter-spacing: 1px;
+        }
+
+        .skill h3 {
+            margin: 8px 0 5px;
+            font-size: 16px;
+        }
+
+        .skill p {
+            margin: 0;
+            color: #778399;
+            font-size: 12px;
+            line-height: 1.5;
+        }
+
+        /* ================================
+           FOOTNOTE / NOTE
+        ================================ */
+        .note {
+            margin-top: 28px;
+            padding: 15px 18px;
+            border-left: 3px solid var(--da-amber);
+            background: #f7f9fc;
+            color: #6c778a;
+            font-size: 11px;
+            line-height: 1.6;
+            border-radius: 0 10px 10px 0;
+        }
+
+        /* ================================
+           ADDITIONAL COMPONENTS STYLING
+        ================================ */
+        .extra-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+
+        .extra-card:hover {
+            border-color: var(--border-hover);
+            box-shadow: var(--shadow-md);
+        }
+
+        .actions-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 16px;
+            margin-top: 16px;
+        }
+
+        .action-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 16px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .action-icon {
+            width: 42px;
+            height: 42px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .action-title {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--navy-deep);
+            letter-spacing: 0.05em;
+        }
+
+        .action-desc {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            line-height: 1.35;
+        }
+
+        .levels-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .level-card {
+            background: var(--bg-card);
+            border: 2px solid var(--border-color);
+            border-radius: 16px;
+            padding: 24px;
+            cursor: pointer;
+            transition: var(--transition);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .level-card.active, .level-card:hover {
+            border-color: var(--da-amber);
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-2px);
+        }
+
+        .level-card.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 20%;
+            right: 20%;
+            height: 4px;
+            background: var(--da-amber);
+            border-radius: 4px 4px 0 0;
+        }
+
+        .level-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 12px;
+        }
+
+        .level-num {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--da-amber);
+        }
+
+        .level-exp {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            background: var(--bg-main);
+            padding: 2px 8px;
+            border-radius: 6px;
+        }
+
+        .level-title {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--navy-deep);
+        }
+
+        .level-focus {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--da-amber);
+        }
+
+        .level-skills-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .tag {
+            font-size: 0.7rem;
+            font-weight: 600;
+            background: var(--bg-main);
+            color: var(--text-secondary);
+            padding: 3px 8px;
+            border-radius: 4px;
+            border: 1px solid var(--border-color);
+        }
+
+        .roadmap-tabs-container {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .roadmap-tab-btn {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 12px 24px;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .roadmap-tab-btn:hover {
+            border-color: var(--da-amber);
+            color: var(--da-amber);
+        }
+
+        .roadmap-tab-btn.active {
+            background: var(--da-amber);
+            color: white;
+            border-color: var(--da-amber);
+            box-shadow: var(--shadow-md);
+        }
+
+        .roadmap-content-pane {
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .roadmap-content-pane.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(6px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .topics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .topic-item {
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 14px;
+            background: var(--bg-main);
+            transition: var(--transition);
+        }
+
+        .topic-item:hover {
+            background: var(--bg-card);
+            border-color: var(--da-amber);
+        }
+
+        .topic-title {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--navy-deep);
+            margin-bottom: 4px;
+        }
+
+        .topic-desc {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        .split-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .checklist-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        .check-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+
+        .check-icon {
+            color: var(--da-amber);
+            font-weight: 800;
+        }
+
+        .career-path-flow {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .path-step {
+            background: var(--bg-main);
+            border: 1px solid var(--border-color);
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--navy-deep);
+            text-align: center;
+        }
+
+        .path-arrow {
+            text-align: center;
+            color: var(--da-amber);
+            font-size: 0.75rem;
+            margin: -4px 0;
+        }
+
+        .cta-banner {
+            background: linear-gradient(135deg, #d97706 0%, #2563eb 100%);
+            color: white;
+            border-radius: 16px;
+            padding: 36px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .cta-content {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .cta-icon-bg {
+            width: 56px;
+            height: 56px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .cta-text h3 {
+            font-size: 1.35rem;
+            font-weight: 800;
+            line-height: 1.2;
+        }
+
+        .cta-btn {
+            background: white;
+            color: var(--da-amber);
+            padding: 12px 24px;
+            border-radius: 10px;
+            font-weight: 800;
+            font-size: 0.9rem;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            white-space: nowrap;
+            text-decoration: none;
+        }
+
+        .cta-btn:hover {
+            background: var(--da-amber-light);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* ================================
+           MOBILE RESPONSIVE
+        ================================ */
+        @media(max-width: 1024px) {
+            .comparison { grid-template-columns: 1fr; }
+            .skill-grid { grid-template-columns: repeat(2, 1fr); }
+            .actions-grid { grid-template-columns: repeat(3, 1fr); }
+            .levels-grid { grid-template-columns: 1fr; }
+            .split-3 { grid-template-columns: 1fr; }
+        }
+
+        @media(max-width: 800px) {
+            body { padding: 12px; }
+            .header { padding: 27px 24px; }
+            .dashboard-content-wrapper { padding: 25px 20px 30px; }
+        }
+
+        @media(max-width: 520px) {
+            .header-top { display: block; }
+            .header h1 { font-size: 32px; }
+            .tabs { width: 100%; }
+            .graph-row { grid-template-columns: 105px 1fr 50px; gap: 9px; }
+            .skill-grid { grid-template-columns: 1fr; }
+            .highlight { align-items: flex-start; }
+            .actions-grid { grid-template-columns: repeat(2, 1fr); }
+            .cta-banner { flex-direction: column; text-align: center; gap: 20px; }
+            .cta-content { flex-direction: column; }
+        }
+    </style>
+</head>
+
+<body>
+  <a class="back-to-roadmaps" href="index.html" aria-label="Back to roadmaps" style="display:inline-flex;align-items:center;gap:8px;margin:18px 0 0 18px;background:#fff;color:#0f172a;padding:10px 16px;border-radius:999px;border:1px solid #e2e8f0;box-shadow:0 10px 20px rgba(15,23,42,0.08);font-weight:700;text-decoration:none;">&larr; Back to roadmaps</a>
+
+
+<div class="dashboard">
+
+    <!-- =================================
+       HEADER
+    ================================= -->
+    <header class="header">
+        <div class="header-top">
+            <span class="badge">Data & Business Analytics</span>
+            <span style="font-size:11px; color:#fde68a;">SQL • Python / R • Power BI / Tableau • ETL</span>
+        </div>
+        <h1>
+            Data Analyst
+            <br>
+            <span style="color:#fef08a">Market, Skill Evidence & A-to-Z Roadmap</span>
+        </h1>
+        <p>
+            A comprehensive overview of analytics demand, SQL querying, data wrangling (Pandas), business intelligence dashboards (Power BI / Tableau), statistical modeling, and data-driven decision workflows.
+        </p>
+    </header>
+
+    <div class="dashboard-content-wrapper">
+
+        <!-- =================================
+           TABS
+        ================================ -->
+        <div class="tabs">
+            <button class="tab active" data-tab="roadmap">Career & Roadmap</button>
+            <button class="tab" data-tab="technology">Core Analytics Toolchain</button>
+            <button class="tab" data-tab="future">BI, Warehousing & AI</button>
+            <button class="tab" data-tab="market">Market Signals</button>
+        </div>
+
+        <!-- =================================
+           MARKET TAB CONTENT
+        ================================ -->
+        <section id="market" class="tab-content" style="display:none">
+            <div class="section-title">
+                <div>
+                    <h2>2026 Data Analytics Hiring</h2>
+                    <p>Demand indicators for business intelligence analysts, data storytellers, and metric modelers.</p>
+                </div>
+            </div>
+
+            <div class="comparison">
+                <div class="panel">
+                    <div class="panel-head">
+                        <div class="panel-title">
+                            <span class="panel-dot"></span>
+                            Analytics & Decision Intelligence
+                        </div>
+                        <span class="context">2026</span>
+                    </div>
+
+                    <div class="metric">
+                        <div class="metric-top">
+                            <span class="metric-name">Business Intelligence & Reporting</span>
+                            <span class="metric-value">44%</span>
+                        </div>
+                        <div class="bar">
+                            <div class="bar-fill" data-value="44"></div>
+                        </div>
+                    </div>
+
+                    <div class="metric">
+                        <div class="metric-top">
+                            <span class="metric-name">SQL & Data Warehousing</span>
+                            <span class="metric-value">46%</span>
+                        </div>
+                        <div class="bar">
+                            <div class="bar-fill" data-value="46"></div>
+                        </div>
+                    </div>
+
+                    <div class="metric">
+                        <div class="metric-top">
+                            <span class="metric-name">Statistical & Exploratory Analysis</span>
+                            <span class="metric-value">37%</span>
+                        </div>
+                        <div class="bar">
+                            <div class="bar-fill" data-value="37"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel">
+                    <div class="panel-head">
+                        <div class="panel-title">
+                            <span class="panel-dot" style="background:#2563eb"></span>
+                            Ecosystem Demand Signal
+                        </div>
+                        <span class="context">Core Pillar</span>
+                    </div>
+
+                    <div class="metric">
+                        <div class="metric-top">
+                            <span class="metric-name">SQL Query Optimization Mastery</span>
+                            <span class="metric-value">94%</span>
+                        </div>
+                        <div class="bar">
+                            <div class="bar-fill" style="background: linear-gradient(90deg, #d97706, #2563eb); width: 94%"></div>
+                        </div>
+                    </div>
+
+                    <div class="metric">
+                        <div class="metric-top">
+                            <span class="metric-name">BI Dashboards (Power BI / Tableau)</span>
+                            <span class="metric-value">88%</span>
+                        </div>
+                        <div class="bar">
+                            <div class="bar-fill" style="background: linear-gradient(90deg, #d97706, #2563eb); width: 88%"></div>
+                        </div>
+                    </div>
+
+                    <div class="highlight">
+                        <div class="highlight-number">A-to-Z</div>
+                        <div>
+                            <strong>Why Data Analysts Are Indispensable</strong>
+                            <span>Data Analysts translate raw, unorganized corporate data into actionable business strategies, metric dashboards, and trend projections that drive key executive decisions.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="note">
+                <strong>Important:</strong> Data Analytics combines technical data wrangling (SQL, Python, Excel) with domain acumen to communicate complex quantitative insights to non-technical stakeholders.
+            </div>
+        </section>
+
+        <!-- =================================
+           TECHNOLOGY TAB CONTENT
+        ================================ -->
+        <section id="technology" class="tab-content" style="display:none">
+            <div class="section-title">
+                <div>
+                    <h2>Core Analytics Toolchain</h2>
+                    <p>Query languages, spreadsheet automation, statistical scripting, and data visualization software.</p>
+                </div>
+            </div>
+
+            <div class="full-card">
+                <div class="graph-row">
+                    <span class="graph-label">SQL (Postgres / MySQL)</span>
+                    <div class="graph-track">
+                        <div class="graph-fill" data-width="95%"></div>
+                    </div>
+                    <span class="graph-value">95%</span>
+                </div>
+
+                <div class="graph-row">
+                    <span class="graph-label">Advanced Excel / Sheets</span>
+                    <div class="graph-track">
+                        <div class="graph-fill" data-width="90%"></div>
+                    </div>
+                    <span class="graph-value">90%</span>
+                </div>
+
+                <div class="graph-row">
+                    <span class="graph-label">Python (Pandas / NumPy)</span>
+                    <div class="graph-track">
+                        <div class="graph-fill" data-width="85%"></div>
+                    </div>
+                    <span class="graph-value">85%</span>
+                </div>
+
+                <div class="graph-row">
+                    <span class="graph-label">BI (Power BI / Tableau)</span>
+                    <div class="graph-track">
+                        <div class="graph-fill" data-width="88%"></div>
+                    </div>
+                    <span class="graph-value">88%</span>
+                </div>
+            </div>
+
+            <div class="skill-grid">
+                <div class="skill">
+                    <span class="skill-number">01</span>
+                    <h3>Advanced SQL</h3>
+                    <p>Window functions, CTEs, self-joins, indexing, and query execution plan analysis.</p>
+                </div>
+                <div class="skill">
+                    <span class="skill-number">02</span>
+                    <h3>Spreadsheet Modeling</h3>
+                    <p>Pivot tables, XLOOKUP, INDEX-MATCH, Power Query, and dynamic dashboard creation.</p>
+                </div>
+                <div class="skill">
+                    <span class="skill-number">03</span>
+                    <h3>Python for Data</h3>
+                    <p>Pandas for data wrangling, NumPy for array manipulation, and Matplotlib/Seaborn for charts.</p>
+                </div>
+                <div class="skill">
+                    <span class="skill-number">04</span>
+                    <h3>BI Dashboards</h3>
+                    <p>Building interactive Power BI (DAX) and Tableau reports linked to live data warehouses.</p>
+                </div>
+            </div>
+
+            <div class="note">
+                SQL remains the foundational language of corporate data. Combining high-level querying with Python dataframes and interactive BI interfaces unlocks end-to-end analytical autonomy.
+            </div>
+        </section>
+
+        <!-- =================================
+           FUTURE / BI, WAREHOUSING & AI TAB CONTENT
+        ================================ -->
+        <section id="future" class="tab-content" style="display:none">
+            <div class="section-title">
+                <div>
+                    <h2>Cloud Warehousing, Semantic Layers & AI Analytics</h2>
+                    <p>Modern data stack (Snowflake / BigQuery), automated ETL pipelines, and AI-powered forecasting.</p>
+                </div>
+            </div>
+
+            <div class="comparison">
+                <div class="panel">
+                    <div class="panel-head">
+                        <div class="panel-title">
+                            <span class="panel-dot"></span>
+                            Cloud Data Stack
+                        </div>
+                        <span class="context">Modern Scale</span>
+                    </div>
+
+                    <div class="metric">
+                        <div class="metric-top">
+                            <span class="metric-name">Cloud Warehouses (Snowflake / BigQuery)</span>
+                            <span class="metric-value">88%</span>
+                        </div>
+                        <div class="bar">
+                            <div class="bar-fill" style="width:88%"></div>
+                        </div>
+                    </div>
+
+                    <div class="metric">
+                        <div class="metric-top">
+                            <span class="metric-name">dbt (Data Build Tool) Modeling</span>
+                            <span class="metric-value">82%</span>
+                        </div>
+                        <div class="bar">
+                            <div class="bar-fill" style="width:82%"></div>
+                        </div>
+                    </div>
+
+                    <div class="metric">
+                        <div class="metric-top">
+                            <span class="metric-name">Data Pipeline Orchestration (Airflow)</span>
+                            <span class="metric-value">75%</span>
+                        </div>
+                        <div class="bar">
+                            <div class="bar-fill" style="width:75%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel">
+                    <div class="panel-head">
+                        <div class="panel-title">
+                            <span class="panel-dot" style="background:#059669"></span>
+                            Predictive & AI Intelligence
+                        </div>
+                        <span class="context">Advanced</span>
+                    </div>
+
+                    <div class="metric">
+                        <div class="metric-top">
+                            <span class="metric-name">Statistical Hypothesis Testing (A/B Tests)</span>
+                            <span class="metric-value">86%</span>
+                        </div>
+                        <div class="bar">
+                            <div class="bar-fill" style="background: linear-gradient(90deg, #d97706, #059669); width:86%"></div>
+                        </div>
+                    </div>
+
+                    <div class="metric">
+                        <div class="metric-top">
+                            <span class="metric-name">Predictive Regression & Time-Series</span>
+                            <span class="metric-value">80%</span>
+                        </div>
+                        <div class="bar">
+                            <div class="bar-fill" style="background: linear-gradient(90deg, #d97706, #059669); width:80%"></div>
+                        </div>
+                    </div>
+
+                    <div class="metric">
+                        <div class="metric-top">
+                            <span class="metric-name">GenAI & Natural Language Querying</span>
+                            <span class="metric-value">78%</span>
+                        </div>
+                        <div class="bar">
+                            <div class="bar-fill" style="background: linear-gradient(90deg, #d97706, #059669); width:78%"></div>
+                        </div>
+                    </div>
+
+                    <div class="highlight">
+                        <div class="highlight-number">Insight</div>
+                        <div>
+                            <strong>Decision Intelligence Era</strong>
+                            <span>Modern analysts transition from historical data reporting to predictive forecasting, scenario modeling, and semantic data layer architecture.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="note">
+                Advanced analytics involves constructing clean data transformations using dbt, running rigorous A/B experiments, and querying petabyte-scale cloud warehouses.
+            </div>
+        </section>
+
+        <!-- =================================
+           ROADMAP TAB CONTENT (A-to-Z Data Analyst Curriculum)
+        ================================ -->
+        <section id="roadmap" class="tab-content" style="display:block">
+            <div class="section-title">
+                <div>
+                    <h2>Data Analyst A-to-Z Course & Career Roadmap</h2>
+                    <p>Master data analytics from Excel and relational SQL to Python wrangling, Power BI modeling, and Cloud Warehouses.</p>
+                </div>
+            </div>
+
+            <!-- Course Duration & Delivery Models -->
+            <div class="extra-card" style="margin-bottom: 24px;">
+                <div class="section-header" style="text-align: left; margin-bottom: 16px;">
+                    <h3 style="font-size: 1.2rem; font-weight: 800; color: var(--navy-deep);">Course Duration & Delivery Models</h3>
+                    <p style="font-size: 0.85rem; color: var(--text-secondary);">Structured pathways for mastering data analysis and business intelligence.</p>
+                </div>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px;">
+                    <div style="background: var(--bg-main); border: 1px solid var(--border-color); border-radius: 12px; padding: 16px; text-align: center;">
+                        <div style="font-size: 1.5rem; margin-bottom: 8px;">🚀</div>
+                        <h4 style="font-size: 1rem; font-weight: 800; color: var(--navy-deep); margin-bottom: 4px;">Bootcamp</h4>
+                        <p style="font-size: 0.78rem; color: var(--text-secondary);">Intensive hands-on case study immersion.</p>
+                    </div>
+                    <div style="background: var(--bg-main); border: 1px solid var(--border-color); border-radius: 12px; padding: 16px; text-align: center;">
+                        <div style="font-size: 1.5rem; margin-bottom: 8px;">⚡</div>
+                        <h4 style="font-size: 1rem; font-weight: 800; color: var(--navy-deep); margin-bottom: 4px;">Accelerated</h4>
+                        <span class="badge" style="background: var(--da-amber-light); color: var(--da-amber); margin-bottom: 8px;">45 Days</span>
+                        <p style="font-size: 0.78rem; color: var(--text-secondary);">Fast-track Excel, SQL & Power BI.</p>
+                    </div>
+                    <div style="background: var(--bg-main); border: 1px solid var(--border-color); border-radius: 12px; padding: 16px; text-align: center;">
+                        <div style="font-size: 1.5rem; margin-bottom: 8px;">🏃</div>
+                        <h4 style="font-size: 1rem; font-weight: 800; color: var(--navy-deep); margin-bottom: 4px;">Medium</h4>
+                        <span class="badge" style="background: var(--da-blue-light); color: var(--da-blue); margin-bottom: 8px;">90 Days</span>
+                        <p style="font-size: 0.78rem; color: var(--text-secondary);">Balanced Python, DAX & Statistics pace.</p>
+                    </div>
+                    <div style="background: var(--bg-main); border: 1px solid var(--border-color); border-radius: 12px; padding: 16px; text-align: center;">
+                        <div style="font-size: 1.5rem; margin-bottom: 8px;">🧠</div>
+                        <h4 style="font-size: 1rem; font-weight: 800; color: var(--navy-deep); margin-bottom: 4px;">Complete A-to-Z</h4>
+                        <span class="badge" style="background: var(--da-emerald-light); color: var(--da-emerald); margin-bottom: 8px;">180 Days</span>
+                        <p style="font-size: 0.78rem; color: var(--text-secondary);">Deep dive into dbt, Snowflake & A/B testing.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- What a Data Analyst Does -->
+            <div class="extra-card" style="margin-bottom: 24px;">
+                <div class="section-header" style="text-align: left; margin-bottom: 16px;">
+                    <h3 style="font-size: 1.2rem; font-weight: 800; color: var(--navy-deep);">What Does a Data Analyst Do?</h3>
+                </div>
+                <div class="actions-grid">
+                    <div class="action-card">
+                        <div class="action-icon" style="background: var(--da-amber-light); color: var(--da-amber);">SQL</div>
+                        <div class="action-title">QUERY DATA</div>
+                        <div class="action-desc">Extract from SQL databases.</div>
+                    </div>
+                    <div class="action-card">
+                        <div class="action-icon" style="background: var(--da-blue-light); color: var(--da-blue);">CLN</div>
+                        <div class="action-title">DATA CLEANING</div>
+                        <div class="action-desc">Wrangle nulls & outliers.</div>
+                    </div>
+                    <div class="action-card">
+                        <div class="action-icon" style="background: var(--da-emerald-light); color: var(--da-emerald);">VIS</div>
+                        <div class="action-title">DASHBOARDS</div>
+                        <div class="action-desc">Build Power BI / Tableau visual reports.</div>
+                    </div>
+                    <div class="action-card">
+                        <div class="action-icon" style="background: var(--da-amber-light); color: var(--da-amber);">STA</div>
+                        <div class="action-title">STATISTICS</div>
+                        <div class="action-desc">Hypothesis & trend analysis.</div>
+                    </div>
+                    <div class="action-card">
+                        <div class="action-icon" style="background: var(--da-blue-light); color: var(--da-blue);">EXP</div>
+                        <div class="action-title">EXPERIMENTS</div>
+                        <div class="action-desc">Design & evaluate A/B tests.</div>
+                    </div>
+                    <div class="action-card">
+                        <div class="action-icon" style="background: var(--da-emerald-light); color: var(--da-emerald);">BIZ</div>
+                        <div class="action-title">STORYTELLING</div>
+                        <div class="action-desc">Present ROI & business KPIs.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Career Levels Selection -->
+            <div style="margin-bottom: 24px;">
+                <div class="section-header" style="text-align: left; margin-bottom: 16px;">
+                    <h3 style="font-size: 1.2rem; font-weight: 800; color: var(--navy-deep);">Career Levels</h3>
+                </div>
+                <div class="levels-grid">
+                    <div class="level-card active" onclick="selectLevelCard(1)" id="level-card-1">
+                        <div class="level-header">
+                            <span class="level-num">LEVEL 01</span>
+                            <span class="level-exp">0 – 2 Years</span>
+                        </div>
+                        <h4 class="level-title">Junior Data Analyst</h4>
+                        <div class="level-focus">Focus: Excel, SQL Queries & Dashboard Maintenance</div>
+                        <div class="level-skills-tags">
+                            <span class="tag">SQL Basics</span><span class="tag">Excel / Sheets</span><span class="tag">Power BI</span><span class="tag">Data Cleaning</span>
+                        </div>
+                    </div>
+
+                    <div class="level-card" onclick="selectLevelCard(2)" id="level-card-2">
+                        <div class="level-header">
+                            <span class="level-num">LEVEL 02</span>
+                            <span class="level-exp">2 – 5 Years</span>
+                        </div>
+                        <h4 class="level-title">Senior Data / BI Analyst</h4>
+                        <div class="level-focus">Focus: Advanced SQL, Python EDA, DAX & Experimentation</div>
+                        <div class="level-skills-tags">
+                            <span class="tag">Python (Pandas)</span><span class="tag">Window Functions</span><span class="tag">A/B Testing</span><span class="tag">Tableau / DAX</span>
+                        </div>
+                    </div>
+
+                    <div class="level-card" onclick="selectLevelCard(3)" id="level-card-3">
+                        <div class="level-header">
+                            <span class="level-num">LEVEL 03</span>
+                            <span class="level-exp">5+ Years</span>
+                        </div>
+                        <h4 class="level-title">Lead Analytics / Analytics Engineer</h4>
+                        <div class="level-focus">Focus: Data Modeling, dbt, Cloud Warehouses & Strategy</div>
+                        <div class="level-skills-tags">
+                            <span class="tag">dbt</span><span class="tag">Snowflake / BigQuery</span><span class="tag">Data Governance</span><span class="tag">KPI Strategy</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Interactive Learning Roadmap Tabs -->
+            <div style="margin-bottom: 24px;">
+                <div class="section-header" style="text-align: left; margin-bottom: 16px;">
+                    <h3 style="font-size: 1.2rem; font-weight: 800; color: var(--navy-deep);">A-to-Z Learning Modules</h3>
+                </div>
+
+                <div class="roadmap-tabs-container">
+                    <button class="roadmap-tab-btn active" id="tab-btn-1" onclick="switchRoadmapTab(1)">LEVEL 1 – FOUNDATION</button>
+                    <button class="roadmap-tab-btn" id="tab-btn-2" onclick="switchRoadmapTab(2)">LEVEL 2 – PROFESSIONAL</button>
+                    <button class="roadmap-tab-btn" id="tab-btn-3" onclick="switchRoadmapTab(3)">LEVEL 3 – ADVANCED</button>
+                </div>
+
+                <div class="roadmap-content-pane active" id="roadmap-tab-1">
+                    <div class="extra-card">
+                        <h4 style="font-size: 1.1rem; font-weight: 800; color: var(--navy-deep); margin-bottom: 4px;">Level 1: Spreadsheet Mastery, SQL & Business Metrics</h4>
+                        <p style="font-size: 0.82rem; color: var(--text-secondary); margin-bottom: 16px;">Data manipulation in Excel, foundational relational database querying, and core business KPIs.</p>
+                        <div class="topics-grid">
+                            <div class="topic-item">
+                                <div class="topic-title">1. Advanced Excel & Google Sheets</div>
+                                <div class="topic-desc">XLOOKUP, nested formulas, Pivot Tables, conditional logic, and Power Query transformations.</div>
+                            </div>
+                            <div class="topic-item">
+                                <div class="topic-title">2. Relational Databases & SQL Basics</div>
+                                <div class="topic-desc">SELECT, WHERE, GROUP BY, HAVING, ORDER BY, INNER/LEFT/RIGHT JOINs, and aggregation functions.</div>
+                            </div>
+                            <div class="topic-item">
+                                <div class="topic-title">3. Data Cleaning & Validation</div>
+                                <div class="topic-desc">Detecting duplicates, handling NULL values, normalizing text fields, and standardizing date/time stamps.</div>
+                            </div>
+                            <div class="topic-item">
+                                <div class="topic-title">4. Business Metrics & KPI Definition</div>
+                                <div class="topic-desc">Calculating Customer Acquisition Cost (CAC), Lifetime Value (LTV), Churn Rate, and Monthly Recurring Revenue (MRR).</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="roadmap-content-pane" id="roadmap-tab-2">
+                    <div class="extra-card">
+                        <h4 style="font-size: 1.1rem; font-weight: 800; color: var(--navy-deep); margin-bottom: 4px;">Level 2: Advanced SQL, Python EDA & BI Dashboards</h4>
+                        <p style="font-size: 0.82rem; color: var(--text-secondary); margin-bottom: 16px;">Complex SQL calculations, Python exploratory data analysis (EDA), and interactive Power BI/Tableau reports.</p>
+                        <div class="topics-grid">
+                            <div class="topic-item">
+                                <div class="topic-title">1. Advanced SQL Techniques</div>
+                                <div class="topic-desc">Window functions (ROW_NUMBER, RANK, LEAD, LAG), Common Table Expressions (CTEs), subqueries, and views.</div>
+                            </div>
+                            <div class="topic-item">
+                                <div class="topic-title">2. Python Data Wrangling (Pandas/NumPy)</div>
+                                <div class="topic-desc">DataFrames, merging, groupby aggregations, vectorization, and data profiling using Jupyter Notebooks.</div>
+                            </div>
+                            <div class="topic-item">
+                                <div class="topic-title">3. Business Intelligence (Power BI & DAX)</div>
+                                <div class="topic-desc">Star schema data modeling, calculated columns, DAX measures (CALCULATE, FILTER), and dynamic visual storytelling.</div>
+                            </div>
+                            <div class="topic-item">
+                                <div class="topic-title">4. Applied Statistics & Hypothesis Testing</div>
+                                <div class="topic-desc">Normal distribution, standard deviation, correlation vs causation, p-values, and statistical A/B test analysis.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="roadmap-content-pane" id="roadmap-tab-3">
+                    <div class="extra-card">
+                        <h4 style="font-size: 1.1rem; font-weight: 800; color: var(--navy-deep); margin-bottom: 4px;">Level 3: Cloud Warehousing, Analytics Engineering & Strategy</h4>
+                        <p style="font-size: 0.82rem; color: var(--text-secondary); margin-bottom: 16px;">Cloud data platforms, transformation with dbt, pipeline automation, and executive storytelling.</p>
+                        <div class="topics-grid">
+                            <div class="topic-item">
+                                <div class="topic-title">1. Cloud Warehousing (Snowflake / BigQuery)</div>
+                                <div class="topic-desc">Querying petabyte-scale data lakes, partitioning, clustering keys, and cost optimization techniques.</div>
+                            </div>
+                            <div class="topic-item">
+                                <div class="topic-title">2. Analytics Engineering with dbt</div>
+                                <div class="topic-desc">Transforming raw warehouse data into clean dimensional models (fact and dimension tables) via dbt models.</div>
+                            </div>
+                            <div class="topic-item">
+                                <div class="topic-title">3. Predictive Analytics & Regression</div>
+                                <div class="topic-desc">Linear regression, logistic modeling, cohort analysis, and trend forecasting using Scikit-Learn.</div>
+                            </div>
+                            <div class="topic-item">
+                                <div class="topic-title">4. Executive Storytelling & Governance</div>
+                                <div class="topic-desc">Data cataloging, documentation, building executive summary dashboards, and pitching ROI-driven strategies.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Split Section: Skills, Path, & Responsibilities -->
+            <div class="split-3" style="margin-bottom: 24px;">
+                <div class="extra-card">
+                    <h4 style="font-size: 1rem; font-weight: 800; color: var(--navy-deep); margin-bottom: 12px;">Key Skills</h4>
+                    <div class="checklist-grid">
+                        <div class="check-item"><span class="check-icon">✓</span> SQL (Window Funcs)</div>
+                        <div class="check-item"><span class="check-icon">✓</span> Advanced Excel / Sheets</div>
+                        <div class="check-item"><span class="check-icon">✓</span> Power BI & DAX</div>
+                        <div class="check-item"><span class="check-icon">✓</span> Python (Pandas/NumPy)</div>
+                        <div class="check-item"><span class="check-icon">✓</span> A/B Testing & Stats</div>
+                        <div class="check-item"><span class="check-icon">✓</span> Snowflake & dbt</div>
+                    </div>
+                </div>
+
+                <div class="extra-card">
+                    <h4 style="font-size: 1rem; font-weight: 800; color: var(--navy-deep); margin-bottom: 12px;">Career Path</h4>
+                    <div class="career-path-flow">
+                        <div class="path-step">Data Analyst Intern</div>
+                        <div class="path-arrow">↓</div>
+                        <div class="path-step">Junior Data Analyst</div>
+                        <div class="path-arrow">↓</div>
+                        <div class="path-step" style="background: var(--da-amber-light); border-color: var(--da-amber);">Senior Data / BI Analyst</div>
+                        <div class="path-arrow">↓</div>
+                        <div class="path-step">Lead Analytics / Analytics Engineer</div>
+                    </div>
+                </div>
+
+                <div class="extra-card" id="dynamic-resp-card">
+                    <h4 style="font-size: 1rem; font-weight: 800; color: var(--navy-deep); margin-bottom: 8px;" id="resp-title">Level 1 Responsibilities</h4>
+                    <ul style="font-size: 0.78rem; color: var(--text-secondary); padding-left: 14px; display: flex; flex-direction: column; gap: 4px;" id="resp-list">
+                        <li>Write SQL queries to extract data for cross-functional teams</li>
+                        <li>Maintain existing weekly and monthly business KPI reports</li>
+                        <li>Clean, validate, and standardize incoming data sets in Excel</li>
+                        <li>Update dashboard visuals and assist in resolving data discrepancies</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bottom CTA Banner -->
+            <div class="cta-banner">
+                <div class="cta-content">
+                    <div class="cta-icon-bg">📊</div>
+                    <div class="cta-text">
+                        <h3>Turn raw corporate data into strategic business decisions.</h3>
+                    </div>
+                </div>
+                <a href="#market" onclick="switchMainTab('market')" class="cta-btn">View Market Signals →</a>
+            </div>
+        </section>
+
+    </div>
+
+</div>
+
+<script>
+/* =========================================
+   MAIN DASHBOARD TAB SWITCHING
+========================================= */
+const dashboardTabs = document.querySelectorAll(".tabs .tab");
+const sections = document.querySelectorAll(".dashboard-content-wrapper > .tab-content");
+
+function syncDashboardState(tabId) {
+    dashboardTabs.forEach(t => {
+        t.classList.toggle("active", t.dataset.tab === tabId);
+    });
+
+    sections.forEach(section => {
+        section.style.display = section.id === tabId ? "block" : "none";
+    });
+
+    const selected = document.getElementById(tabId);
+    if (selected) {
+        animateBars(selected);
+    }
+}
+
+dashboardTabs.forEach(tab => {
+    tab.addEventListener("click", () => {
+        syncDashboardState(tab.dataset.tab);
+    });
+});
+
+function switchMainTab(tabId) {
+    dashboardTabs.forEach(t => {
+        if (t.dataset.tab === tabId) {
+            t.click();
+        }
+    });
+}
+
+/* =========================================
+   BAR & GRAPH ANIMATION
+========================================= */
+function animateBars(container){
+    const bars = container.querySelectorAll(".bar-fill[data-value]");
+    bars.forEach(bar => {
+        const value = Number(bar.dataset.value);
+        const width = Math.min((value / 50) * 100, 100);
+        setTimeout(() => {
+            bar.style.width = width + "%";
+        }, 100);
+    });
+
+    const graphBars = container.querySelectorAll(".graph-fill[data-width]");
+    graphBars.forEach(bar => {
+        setTimeout(() => {
+            bar.style.width = bar.dataset.width;
+        }, 100);
+    });
+}
+
+window.addEventListener("load", () => {
+    syncDashboardState("roadmap");
+});
+
+/* =========================================
+   ROADMAP / CAREER LEVEL INTERACTION
+========================================= */
+const levelResponsibilities = {
+    1: {
+        title: "Junior Responsibilities",
+        items: [
+            "Write SQL queries to extract data for cross-functional teams",
+            "Maintain existing weekly and monthly business KPI reports",
+            "Clean, validate, and standardize incoming data sets in Excel",
+            "Update dashboard visuals and assist in resolving data discrepancies"
+        ]
+    },
+    2: {
+        title: "Mid-Level Responsibilities",
+        items: [
+            "Write complex SQL queries using window functions and CTEs for deep-dive reporting",
+            "Perform exploratory data analysis (EDA) using Python (Pandas/Seaborn)",
+            "Design, build, and maintain production Power BI or Tableau dashboards with DAX metrics",
+            "Analyze A/B experiment outcomes and present quantitative recommendations to product leads"
+        ]
+    },
+    3: {
+        title: "Senior / Lead Responsibilities",
+        items: [
+            "Architect semantic data models using dbt and cloud warehouses (Snowflake/BigQuery)",
+            "Define standardized corporate metrics and institute company-wide data governance rules",
+            "Implement predictive regression models and cohort analyses to optimize customer retention",
+            "Present strategic ROI analyses and revenue forecasting insights directly to executives"
+        ]
+    }
+};
+
+function selectLevelCard(levelNum) {
+    for (let i = 1; i <= 3; i++) {
+        const card = document.getElementById(`level-card-${i}`);
+        if (card) card.classList.remove('active');
+    }
+    const targetCard = document.getElementById(`level-card-${levelNum}`);
+    if (targetCard) targetCard.classList.add('active');
+
+    const respData = levelResponsibilities[levelNum];
+    const respTitle = document.getElementById('resp-title');
+    if (respTitle) respTitle.innerText = respData.title;
+    
+    const listContainer = document.getElementById('resp-list');
+    if (listContainer) {
+        listContainer.innerHTML = '';
+        respData.items.forEach(itemText => {
+            const li = document.createElement('li');
+            li.innerText = itemText;
+            listContainer.appendChild(li);
+        });
+    }
+
+    switchRoadmapTab(levelNum);
+}
+
+function switchRoadmapTab(tabNum) {
+    for (let i = 1; i <= 3; i++) {
+        const btn = document.getElementById(`tab-btn-${i}`);
+        const content = document.getElementById(`roadmap-tab-${i}`);
+        
+        if (btn && content) {
+            if (i === tabNum) {
+                btn.classList.add('active');
+                content.classList.add('active');
+            } else {
+                btn.classList.remove('active');
+                content.classList.remove('active');
+            }
+        }
+    }
+}
+</script>
+
+</body>
+</html>

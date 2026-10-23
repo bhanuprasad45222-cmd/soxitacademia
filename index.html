@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Developer Roadmaps | Present & Future Learning Paths</title>
+  <style>
+    :root {
+      --bg-dark: #101012;
+      --card-bg: #18181b;
+      --card-hover: #27272a;
+      --border-color: #27272a;
+      --text-main: #f4f4f5;
+      --text-muted: #a1a1aa;
+      --accent-present: #38bdf8;
+      --accent-future: #a855f7;
+      --badge-bg: #27272a;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      line-height: 1.5;
+      padding-bottom: 60px;
+    }
+
+    /* Header & Navigation */
+    header {
+      border-bottom: 1px solid var(--border-color);
+      padding: 20px 0;
+      text-align: center;
+      background: rgba(16, 16, 18, 0.8);
+      backdrop-filter: blur(8px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .hero-title {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 8px;
+      background: linear-gradient(135deg, #ffffff 0%, #a1a1aa 100%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-subtitle {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      margin-bottom: 24px;
+    }
+
+    /* Search Bar */
+    .search-container {
+      max-width: 500px;
+      margin: 0 auto 10px auto;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 12px 20px;
+      border-radius: 8px;
+      border: 1px solid var(--border-color);
+      background-color: var(--card-bg);
+      color: var(--text-main);
+      font-size: 1rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .search-input:focus {
+      border-color: var(--accent-present);
+    }
+
+    /* Section Styling */
+    .section-header {
+      margin: 40px 0 20px 0;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+
+    .badge-present {
+      background: rgba(56, 189, 248, 0.1);
+      color: var(--accent-present);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      padding: 2px 10px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    .badge-future {
+      background: rgba(168, 85, 247, 0.1);
+      color: var(--accent-future);
+      border: 1px solid rgba(168, 85, 247, 0.3);
+      padding: 2px 10px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    /* Grid Layout */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 16px;
+    }
+
+    /* Card Item */
+    .card {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      padding: 20px;
+      text-decoration: none;
+      color: var(--text-main);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.2s ease-in-out;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card:hover {
+      background-color: var(--card-hover);
+      transform: translateY(-2px);
+      border-color: #3f3f46;
+    }
+
+    .card-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .card-desc {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      line-height: 1.4;
+      margin-bottom: 16px;
+    }
+
+    .card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .card-type {
+      background-color: var(--badge-bg);
+      padding: 3px 8px;
+      border-radius: 4px;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .hero-title { font-size: 1.8rem; }
+      .grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Header -->
+  <header>
+    <div class="container">
+      <h1 class="hero-title">Developer Roadmaps</h1>
+      <p class="hero-subtitle">Practical learning paths shaped by 2026 directions in AI, cloud, security, data, and automation.</p>
+      
+      <div class="search-container">
+        <input type="text" id="searchInput" class="search-input" placeholder="Search roadmaps (e.g., AI, Frontend, Quantum)..." onkeyup="filterRoadmaps()">
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- PRESENT COURSES SECTION (10 Roadmaps) -->
+    <section>
+      <div class="section-header">
+        <h2 class="section-title">Present Standard Paths</h2>
+        <span class="badge-present">Core Industry Standards</span>
+      </div>
+
+      <div class="grid" id="presentGrid">
+       <a href="fronted.html" class="card">
+  <div>
+    <h3 class="card-title">Frontend Developer</h3>
+    <p class="card-desc">HTML, CSS, JavaScript, React/Vue, and modern Web APIs.</p>
+  </div>
+  <div class="card-footer">
+    <span class="card-type">Role-based</span>
+    <span>Step-by-step</span>
+  </div>
+</a>
+
+        <a href="backend.html" class="card">
+          <div>
+            <h3 class="card-title">Backend Developer</h3>
+            <p class="card-desc">Node.js, Python, Databases, API Architecture, and Security.</p>
+          </div>
+          <div class="card-footer">
+            <span class="card-type">Role-based</span>
+            <span>Step-by-step</span>
+          </div>
+        </a>
+
+        <a href="devops en.html" class="card">
+          <div>
+            <h3 class="card-title">DevOps Engineer</h3>
+            <p class="card-desc">Linux, CI/CD pipelines, Docker, Kubernetes, and Cloud platforms.</p>
+          </div>
+          <div class="card-footer">
+            <span class="card-type">Role-based</span>
+            <span>Step-by-step</span>
+          </div>
+        </a>
+
+        <a href="Devsecengineer.html" class="card">
+          <div>
+            <h3 class="card-title">DevSecOps Engineer</h3>
+            <p class="card-desc">Secure CI/CD, cloud security, automation, vulnerability management, and compliance.</p>
+          </div>
+          <div class="card-footer">
+            <span class="card-type">Role-based</span>
+            <span>Step-by-step</span>
+          </div>
+        </a>
+
+        <a href="security%20analysit.html" class="card">
+          <div>
+            <h3 class="card-title">Security Analyst</h3>
+            <p class="card-desc">Monitor alerts, investigate incidents, and operate defensive security controls.</p>
+          </div>
+          <div class="card-footer">
+            <span class="card-type">Role-based</span>
+            <span>Step-by-step</span>
+          </div>
+        </a>
+
+        <a href="security%20engineer.html" class="card">
+          <div>
+            <h3 class="card-title">Security Engineer</h3>
+            <p class="card-desc">Design and automate security controls across networks, identity, and cloud systems.</p>
+          </div>
+          <div class="card-footer">
+            <span class="card-type">Role-based</span>
+            <span>Step-by-step</span>
+          </div>
+        </a>
+
+        <a href="full stack.html" class="card">
+          <div>
+            <h3 class="card-title">Full Stack Engineer</h3>
+            <p class="card-desc">Build and integrate the user interface, APIs, data layer, and deployment for web products.</p>
+          </div>
+          <div class="card-footer">
+            <span class="card-type">Role-based</span>
+            <span>Step-by-step</span>
+          </div>
+        </a>
+
+        <a href="java.html" class="card">
+          <div>
+            <h3 class="card-title">Full Stack Java Developer</h3>
+            <p class="card-desc">Java, Spring Boot, frontend frameworks, databases, and cloud deployment.</p>
+          </div>
+          <div class="card-footer">
+            <span class="card-type">Role-based</span>
+            <span>Step-by-step</span>
+          </div>
+        </a>
+
+        <a href="full%20stcak%20pyhon.html" class="card">
+          <div>
+            <h3 class="card-title">Full Stack Python Developer</h3>
+            <p class="card-desc">Python, Django, FastAPI, frontend frameworks, databases, and cloud deployment.</p>
+          </div>
+          <div class="card-footer">
+            <span class="card-type">Role-based</span>
+            <span>Step-by-step</span>
+          </div>
+        </a>
+
+        <a href="soft%20ware.html" class="card">
+          <div>
+            <h3 class="card-title">Software Engineer</h3>
+            <p class="card-desc">Core software design, algorithms, maintainable systems, testing, and delivery practices.</p>
+          </div>
+          <div class="card-footer">
+            <span class="card-type">Role-based</span>
+            <span>Step-by-step</span>
+          </div>
+        </a>
+
+        <a href="Andrtoid.html" class="card">
+          <div>
+            <h3 class="card-title">Android / iOS Mobile</h3>
+            <p class="card-desc">Kotlin, Swift, Flutter, React Native, and mobile architecture.</p>
+          </div>
+          <div class="card-footer">
+            <span class="card-type">Role-based</span>
+            <span>Step-by-step</span>
+          </div>
+        </a>
+
+        <a href="data an.html" class="card">
+          <div>
+            <h3 class="card-title">Data Analyst</h3>
+            <p class="card-desc">SQL, Excel, data modeling, Python analysis, and Power BI reporting.</p>
+          </div>
+          <div class="card-footer">
+            <span class="card-type">Skill-based</span>
+            <span>Step-by-step</span>
+          </div>
+        </a>
+
+        <a href="digital%20marketing.html" class="card">
+          <div>
+            <h3 class="card-title">Digital Marketing Specialist</h3>
+            <p class="card-desc">SEO, content strategy, social media, paid campaigns, and analytics.</p>
+          </div>
+          <div class="card-footer">
+            <span class="card-type">Role-based</span>
+            <span>Step-by-step</span>
+          </div>
+        </a>
+
+        <a href="zero.html" class="card">
+          <div>
+            <h3 class="card-title">Cybersecurity Specialist</h3>
+            <p class="card-desc">Networking, Ethical Hacking, Security Ops, and Compliance.</p>
+          </div>
+          <div class="card-footer">
+            <span class="card-type">Role-based</span>
+            <span>Step-by-step</span>
+          </div>
+        </a>
+
+        <a href="cloud ar.html" class="card">
+          <div>
+            <h3 class="card-title">Cloud Architect</h3>
+            <p class="card-desc">AWS, Azure, GCP infrastructure, serverless, and IAM policies.</p>
+          </div>
+          <div class="card-footer">
+            <span class="card-type">Infrastructure</span>
+            <span>Step-by-step</span>
+          </div>
+        </a>
+
+        <a href="QA%20soft%20ware.html" class="card">
+          <div>
+            <h3 class="card-title">QA / Software Tester</h3>
+            <p class="card-desc">Quality engineering, API and UI automation, risk-based testing, and CI feedback.</p>
+          </div>
+          <div class="card-footer">
+            <span class="card-type">Skill-based</span>
+            <span>Step-by-step</span>
+          </div>
+        </a>
+
+        <a href="ux.html" class="card">
+          <div>
+            <h3 class="card-title">UX/UI Designer</h3>
+            <p class="card-desc">User research, Wireframing, Figma, Prototyping, and Design Systems.</p>
+          </div>
+          <div class="card-footer">
+            <span class="card-type">Design</span>
+            <span>Step-by-step</span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- FUTURE COURSES SECTION (10 Roadmaps) -->
+    <section>
+      <div class="section-header">
+        <h2 class="section-title">Future & Emerging Paths</h2>
+        <span class="badge-future">Next-Gen Tech</span>
+      </div>
+
+      <div class="grid" id="futureGrid">
+        <a href="Ai ml.html" class="card">
+          <div>
+            <h3 class="card-title">AI & ML Engineer</h3>
+            <p class="card-desc">Deep Learning, PyTorch, Model Optimization, and ML-Ops pipelines.</p>
+          </div>
+          <div class="card-footer">
+            <span class="card-type">Emerging</span>
+            <span>Step-by-step</span>
+          </div>
+        </a>
+
+        <a href="LLM.html" class="card">
+          <div>
+            <h3 class="card-title">LLM & GenAI Developer</h3>
+            <p class="card-desc">LangChain, Prompting, RAG architectures, Fine-tuning & Vector DBs.</p>
+          </div>
+          <div class="card-footer">
+            <span class="card-type">Emerging</span>
+            <span>Step-by-step</span>
+          </div>
+        </a>
+
+        <a href="quantum.html" class="card">
+          <div>
+            <h3 class="card-title">Quantum Computing</h3>
+            <p class="card-desc">Quantum information, circuit development, noise-aware experiments, and hybrid workflows.</p>
+          </div>
+          <div class="card-footer">
+            <span class="card-type">Frontier</span>
+            <span>Step-by-step</span>
+          </div>
+        </a>
+
+        <a href="block.html" class="card">
+          <div>
+            <h3 class="card-title">Web3 & Blockchain</h3>
+            <p class="card-desc">Solidity, Smart Contracts, Ethereum, Rust for Solana, & dApps.</p>
+          </div>
+          <div class="card-footer">
+            <span class="card-type">Emerging</span>
+            <span>Step-by-step</span>
+          </div>
+        </a>
+
+        <a href="AR VR.html" class="card">
+          <div>
+            <h3 class="card-title">AR / VR Developer</h3>
+            <p class="card-desc">Unity, Unreal Engine 5, Spatial Computing, and WebXR APIs.</p>
+          </div>
+          <div class="card-footer">
+            <span class="card-type">Interactive</span>
+            <span>Step-by-step</span>
+          </div>
+        </a>
+
+        <a href="andiod.html" class="card">
+          <div>
+            <h3 class="card-title">Autonomous Systems</h3>
+            <p class="card-desc">Robot Operating System (ROS 2), perception, sensor fusion, and autonomous control.</p>
+          </div>
+          <div class="card-footer">
+            <span class="card-type">Frontier</span>
+            <span>Step-by-step</span>
+          </div>
+        </a>
+
+        <a href="edge computing.html" class="card">
+          <div>
+            <h3 class="card-title">Edge Computing & IoT</h3>
+            <p class="card-desc">Embedded C++, MicroPython, MQTT, and Decentralized Edge processing.</p>
+          </div>
+          <div class="card-footer">
+            <span class="card-type">Hardware/Software</span>
+            <span>Step-by-step</span>
+          </div>
+        </a>
+
+        <a href="bio.html" class="card">
+          <div>
+            <h3 class="card-title">Bioinformatics Developer</h3>
+            <p class="card-desc">Genomic sequencing algorithms, Biopython, and Molecular Modeling.</p>
+          </div>
+          <div class="card-footer">
+            <span class="card-type">Biotech</span>
+            <span>Step-by-step</span>
+          </div>
+        </a>
+
+        <a href="nero.html" class="card">
+          <div>
+            <h3 class="card-title">Neuromorphic Engineering</h3>
+            <p class="card-desc">Spiking Neural Networks (SNN), Brain-Computer Interfaces, and Hardware.</p>
+          </div>
+          <div class="card-footer">
+            <span class="card-type">Frontier</span>
+            <span>Step-by-step</span>
+          </div>
+        </a>
+
+        <a href="cysber.html" class="card">
+          <div>
+            <h3 class="card-title">Zero-Knowledge (ZK) Proofs</h3>
+            <p class="card-desc">ZK-SNARKs, Applied Cryptography, Circom, and Privacy Architectures.</p>
+          </div>
+          <div class="card-footer">
+            <span class="card-type">Cryptography</span>
+            <span>Step-by-step</span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Client-side Search Script -->
+  <script>
+    function filterRoadmaps() {
+      const input = document.getElementById('searchInput').value.toLowerCase();
+      const cards = document.querySelectorAll('.card');
+
+      cards.forEach(card => {
+        const title = card.querySelector('.card-title').innerText.toLowerCase();
+        const desc = card.querySelector('.card-desc').innerText.toLowerCase();
+        
+        if (title.includes(input) || desc.includes(input)) {
+          card.style.display = "flex";
+        } else {
+          card.style.display = "none";
+        }
+      });
+    }
+  </script>
+
+</body>
+</html>
